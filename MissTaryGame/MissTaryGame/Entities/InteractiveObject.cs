@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Indigo;
 using Indigo.Graphics;
 
@@ -11,14 +12,16 @@ namespace MissTaryGame
 		/// Should be the same size as the scene
 		/// </summary>
 		public int[,] PerspectiveMap { get; set; }
-		public Image sprite { get; set; }
+		public Flipbook sprite { get; set; }
 		public InteractiveObject()
 		{
-			sprite = new Indigo.Graphics.Spritemap(Library.GetTexture("content/Avatar/Idle/Idle1.png"), 148, 332);
+			//sprite = new Indigo.Graphics.Spritemap(Library.GetTexture("content/Avatar/Idle/Idle1.png"), 148, 332);
+			List<Graphic> idle = new List<Graphic>();
 			foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\music", "*.png"))
-			{
-				
-			}
+				idle.Add(new Image(Library.GetTexture("path")));
+			sprite = new Flipbook(graphics);
+			sprite.Add("", FP.MakeFrames(0, 4), 4, true);
+			sprite.Play("idle");
 //			sprite.OriginX = 74;
 //			sprite.OriginY = 166;
 			this.OriginX = 74;
