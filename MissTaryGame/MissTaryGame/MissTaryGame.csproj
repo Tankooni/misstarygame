@@ -40,6 +40,9 @@
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>ref\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK">
       <HintPath>lib\OpenTK.dll</HintPath>
     </Reference>
@@ -67,6 +70,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\InteractiveObject.cs" />
+    <Compile Include="Json\JsonLoader.cs" />
+    <Compile Include="Json\Models\Action.cs" />
+    <Compile Include="Json\Models\Actions\ActionDialog.cs" />
+    <Compile Include="Json\Models\AnimationData.cs" />
+    <Compile Include="Json\Models\Combination.cs" />
+    <Compile Include="Json\Models\CommandData.cs" />
+    <Compile Include="Json\Models\InteractiveObjectData.cs" />
+    <Compile Include="Json\Models\InteractiveObjectRef.cs" />
+    <Compile Include="Json\Models\Region.cs" />
+    <Compile Include="Json\Models\SceneData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils\Utility.cs" />
@@ -105,6 +118,9 @@
     <None Include="csfml-window-2.dll" />
     <None Include="libsndfile-1.dll" />
     <None Include="openal32.dll" />
+    <None Include="ref\Newtonsoft.Json.dll" />
+    <None Include="ref\Newtonsoft.Json.pdb" />
+    <None Include="ref\Newtonsoft.Json.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content" />
@@ -116,6 +132,10 @@
     <Folder Include="New Folder" />
     <Folder Include="Entities" />
     <Folder Include="utils" />
+    <Folder Include="Json" />
+    <Folder Include="Json\Models" />
+    <Folder Include="Json\Models\Actions" />
+    <Folder Include="ref" />
     <Folder Include="Worlds" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
