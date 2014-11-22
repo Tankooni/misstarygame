@@ -15,7 +15,10 @@ namespace MissTaryGame
 		public InteractiveObject()
 		{
 			sprite = new Indigo.Graphics.Spritemap(Library.GetTexture("content/Avatar/Idle/Idle1.png"), 148, 332);
-			
+			foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\music", "*.png"))
+			{
+				
+			}
 //			sprite.OriginX = 74;
 //			sprite.OriginY = 166;
 			this.OriginX = 74;
