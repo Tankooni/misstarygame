@@ -69,6 +69,7 @@
     <Compile Include="Entities\InteractiveObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\Utility.cs" />
     <Compile Include="Worlds\DynamicSceneWorld.cs" />
     <Compile Include="Worlds\StartScreenWorld.cs" />
   </ItemGroup>
@@ -114,6 +115,7 @@
     <Folder Include="content\ExampleScene" />
     <Folder Include="New Folder" />
     <Folder Include="Entities" />
+    <Folder Include="utils" />
     <Folder Include="Worlds" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
