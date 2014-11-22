@@ -66,12 +66,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\InteractiveObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Worlds\DynamicSceneWorld.cs" />
     <Compile Include="Worlds\StartScreenWorld.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="content\Avatar\Idle\Idle1.png" />
+    <None Include="content\Avatar\Idle\Idle2.png" />
+    <None Include="content\Avatar\Idle\Idle3.png" />
+    <None Include="content\Avatar\Idle\Idle4.png" />
+    <None Include="content\Avatar\WalkDown\WalkDown1.png" />
+    <None Include="content\Avatar\WalkDown\WalkDown2.png" />
+    <None Include="content\Avatar\WalkDown\WalkDown3.png" />
+    <None Include="content\Avatar\WalkDown\WalkDown4.png" />
+    <None Include="content\Avatar\WalkDown\WalkDown5.png" />
+    <None Include="content\Avatar\WalkDown\WalkDown6.png" />
+    <None Include="content\Avatar\WalkDown\WalkDown7.png" />
+    <None Include="content\Avatar\WalkDown\WalkDown8.png" />
+    <None Include="content\Avatar\WalkUp\WalkUp1.png" />
+    <None Include="content\Avatar\WalkUp\WalkUp2.png" />
+    <None Include="content\Avatar\WalkUp\WalkUp3.png" />
+    <None Include="content\Avatar\WalkUp\WalkUp4.png" />
+    <None Include="content\Avatar\WalkUp\WalkUp5.png" />
+    <None Include="content\Avatar\WalkUp\WalkUp6.png" />
+    <None Include="content\Avatar\WalkUp\WalkUp7.png" />
+    <None Include="content\Avatar\WalkUp\WalkUp8.png" />
+    <None Include="content\ExampleScene\ExampleScene_Background.png" />
+    <None Include="content\ExampleScene\ExampleScene_Collision.png" />
+    <None Include="content\ExampleScene\ExampleScene_Foreground.png" />
+    <None Include="content\ExampleScene\ExampleScene_Perspective.png" />
+    <None Include="content\ExampleScene\ExampleScene_Reference.png" />
     <None Include="csfml-audio-2.dll" />
     <None Include="csfml-graphics-2.dll" />
     <None Include="csfml-window-2.dll" />
@@ -80,6 +107,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content" />
+    <Folder Include="content\Avatar" />
+    <Folder Include="content\Avatar\Idle" />
+    <Folder Include="content\Avatar\WalkDown" />
+    <Folder Include="content\Avatar\WalkUp" />
+    <Folder Include="content\ExampleScene" />
+    <Folder Include="New Folder" />
+    <Folder Include="Entities" />
     <Folder Include="Worlds" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

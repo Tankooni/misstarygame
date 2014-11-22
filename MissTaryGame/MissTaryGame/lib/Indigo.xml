@@ -1786,6 +1786,125 @@
             Amount of currently existing particles.
             </summary>
         </member>
+        <member name="F:Indigo.Graphics.Flipbook.Complete">
+            <summary>
+            If the animation has stopped.
+            </summary>
+        </member>
+        <member name="F:Indigo.Graphics.Flipbook.Callback">
+            <summary>
+            Optional callback function for animation end.
+            </summary>
+        </member>
+        <member name="F:Indigo.Graphics.Flipbook.Rate">
+            <summary>
+            Animation speed factor, alter this to speed up/slow down all animations.
+            </summary>
+        </member>
+        <member name="M:Indigo.Graphics.Flipbook.Update">
+            <summary>
+            Updates the animation.
+            </summary>
+        </member>
+        <member name="M:Indigo.Graphics.Flipbook.Add(System.String,System.Int32[],System.Single,System.Boolean)">
+            <summary>
+            Add an Animation.
+            </summary>
+            <param name="name">Name of the animation.</param>
+            <param name="frames">Array of frame indices to animate through.</param>
+            <param name="frameRate">Animation speed.</param>
+            <param name="loop">If the animation should loop.</param>
+            <returns>A new Anim object for the animation.</returns>
+        </member>
+        <member name="M:Indigo.Graphics.Flipbook.Play(System.String,System.Boolean,System.Int32)">
+            <summary>
+            Plays an animation.
+            </summary>
+            <param name="name">Name of the animation to play.</param>
+            <param name="reset">If the animation should force-restart if it is already playing.</param>
+            <param name="frame">Frame of the animation to start from, if restarted.</param>
+            <returns>Anim object representing the played animation.</returns>
+        </member>
+        <member name="M:Indigo.Graphics.Flipbook.RandFrame">
+            <summary>
+            Assigns the Flipbook to a random frame.
+            </summary>
+        </member>
+        <member name="M:Indigo.Graphics.Flipbook.SetAnimFrame(System.String,System.Int32)">
+            <summary>
+            Sets the frame to the frame index of an animation.
+            </summary>
+            <param name="name">Animation to draw the frame frame.</param>
+            <param name="index">Index of the frame of the animation to set to.</param>
+        </member>
+        <member name="F:Indigo.Graphics.Flipbook._frame">
+            <summary>
+            The current animation frame.
+            </summary>
+        </member>
+        <member name="P:Indigo.Graphics.Flipbook.Frame">
+            <summary>
+            The current frame index. When you set this, any
+            animations playing will be stopped to force the frame.
+            </summary>
+        </member>
+        <member name="P:Indigo.Graphics.Flipbook.Index">
+            <summary>
+            Current index of the playing animation.
+            </summary>
+        </member>
+        <member name="P:Indigo.Graphics.Flipbook.FrameCount">
+            <summary>
+            The amount of frames in the Flipbook.
+            </summary>
+        </member>
+        <member name="P:Indigo.Graphics.Flipbook.CurrentAnim">
+            <summary>
+            The currently playing animation.
+            </summary>
+        </member>
+        <member name="T:Indigo.Graphics.Flipbook.OnComplete">
+            <summary>
+            Callback type for when animations complete.
+            </summary>
+        </member>
+        <member name="T:Indigo.Graphics.Flipbook.Anim">
+            <summary>
+            Template used by Flipbook to define animations. 
+            Don't create these yourself, instead you can fetch them with Flipbook's Add().
+            </summary>
+        </member>
+        <member name="M:Indigo.Graphics.Flipbook.Anim.Play(System.Boolean)">
+            <summary>
+            Plays the animation.
+            </summary>
+            <param name="reset">If the animation should force-restart if it is already playing.</param>
+        </member>
+        <member name="P:Indigo.Graphics.Flipbook.Anim.Name">
+            <summary>
+            The name of the animation
+            </summary>
+        </member>
+        <member name="P:Indigo.Graphics.Flipbook.Anim.Frames">
+            <summary>
+            Array of frame indices to animate.
+            </summary>
+        </member>
+        <member name="P:Indigo.Graphics.Flipbook.Anim.FrameRate">
+            <summary>
+            Animation speed.
+            </summary>
+        </member>
+        <member name="P:Indigo.Graphics.Flipbook.Anim.Loop">
+            <summary>
+            If the animation loops.
+            </summary>
+        </member>
+        <member name="P:Indigo.Graphics.Flipbook.Anim.FrameCount">
+            <summary>
+            Amount of frames in the animation.
+            </summary>
+        </member>
         <member name="T:Indigo.Graphics.Graphiclist">
             <summary>
             A Graphic that can contain multiple Graphics of one or various types.
@@ -2373,39 +2492,39 @@
             Callback type for when animations complete.
             </summary>
         </member>
-        <member name="T:Indigo.Graphics.Anim">
+        <member name="T:Indigo.Graphics.Spritemap.Anim">
             <summary>
             Template used by Spritemap to define animations. 
             Don't create these yourself, instead you can fetch them with Spritemap's Add().
             </summary>
         </member>
-        <member name="M:Indigo.Graphics.Anim.Play(System.Boolean)">
+        <member name="M:Indigo.Graphics.Spritemap.Anim.Play(System.Boolean)">
             <summary>
             Plays the animation.
             </summary>
             <param name="reset">If the animation should force-restart if it is already playing.</param>
         </member>
-        <member name="P:Indigo.Graphics.Anim.Name">
+        <member name="P:Indigo.Graphics.Spritemap.Anim.Name">
             <summary>
             The name of the animation
             </summary>
         </member>
-        <member name="P:Indigo.Graphics.Anim.Frames">
+        <member name="P:Indigo.Graphics.Spritemap.Anim.Frames">
             <summary>
             Array of frame indices to animate.
             </summary>
         </member>
-        <member name="P:Indigo.Graphics.Anim.FrameRate">
+        <member name="P:Indigo.Graphics.Spritemap.Anim.FrameRate">
             <summary>
             Animation speed.
             </summary>
         </member>
-        <member name="P:Indigo.Graphics.Anim.Loop">
+        <member name="P:Indigo.Graphics.Spritemap.Anim.Loop">
             <summary>
             If the animation loops.
             </summary>
         </member>
-        <member name="P:Indigo.Graphics.Anim.FrameCount">
+        <member name="P:Indigo.Graphics.Spritemap.Anim.FrameCount">
             <summary>
             Amount of frames in the animation.
             </summary>
