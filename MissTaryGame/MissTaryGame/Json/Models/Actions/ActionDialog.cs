@@ -18,7 +18,7 @@ namespace MissTaryGame.Json.Models.Actions
 		public string Speaker { set; get; }
 		public string Text { set; get; }
 		
-		public override void run() {
+		public void run() {
 			// Need UI stuff for this part
 		}
 	}

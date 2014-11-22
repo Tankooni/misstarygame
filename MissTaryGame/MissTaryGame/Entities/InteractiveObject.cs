@@ -33,7 +33,7 @@ namespace MissTaryGame
 		
 		public override void Render()
 		{
-			sprite.Scale = PerspectiveMap[this.X, this.Y];
+			sprite.Scale = PerspectiveMap[(int)this.X, (int)this.Y];
 			base.Render();
 		}
 	}

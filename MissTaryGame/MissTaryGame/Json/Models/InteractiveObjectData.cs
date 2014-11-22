@@ -17,8 +17,8 @@ namespace MissTaryGame.Json.Models
 	public class InteractiveObjectData
 	{
 		public string Name { get; set; }
-		public Animation[] Animations { get; set; }
-		public Command[] Commands { get; set; }
+		//public Animation[] Animations { get; set; }
+		//public Command[] Commands { get; set; }
 		public Combination[] Combinations { get; set; }
 	}
 }
