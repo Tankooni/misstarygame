@@ -1,9 +1,48 @@
-Girl
-
-Hotspot: 74, 166
-Idle, 4, 4
-WalkDown, 8, 30
-WalkUp, 8, 30
+{
+	Name: "Girl", 
+	Framesize: {X: 148, Y: 332},
+	Animations: 
+	[
+		{
+			Name: "Idle"
+			FPS: 4
+			Frames: 4
+		}
+		{
+			Name: "WalkUp"
+			FPS: 15
+			Frames: 8
+		}
+		{
+			Name: "WalkDown"
+			FPS: 15
+			Frames: 8
+		}
+	]
+	Commands:
+	[
+		{
+			Name: "Examine"
+			Actions: 
+			Dependencies: 
+		}
+		{
+			Name: "PickUp"
+			Actions: 
+			Dependencies: 
+		}
+		{
+			Name: "Talk"
+			Actions: 
+			Dependencies: 
+		}
+		{
+			Name: "Use"
+			Actions: 
+			Dependencies: 
+		}
+	]
+}
 
 Examine: I'm rather uncomfortable.
 PickUp: I'm trying to pick myself up.

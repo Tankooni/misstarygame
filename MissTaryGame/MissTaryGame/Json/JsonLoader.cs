@@ -18,7 +18,7 @@ namespace MissTaryGame.Json
 	
 	public static class JsonLoader
 	{
-		public const string PATH_PREFIX = "assets/";
+		public const string PATH_PREFIX = "content/";
 		private const string RESOURCE_EXT = ".json";
 		
 		/// <param name="path">Path to json from assets/</param>
