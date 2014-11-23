@@ -18,11 +18,11 @@ namespace MissTaryGame.Json.Models.Actions
 	/// </summary>
 	public class ActionAddObjectToInventory : IAction
 	{
-		public InteractiveObject parent;
+		public Dictionary<string, Object> args;
 		
 		public ActionAddObjectToInventory(Dictionary<string, Object> args)
 		{
-			parent = (InteractiveObject) args["parent"];
+			this.args = args;
 			
 			if(args.ContainsKey("Object")) {
 				//parent = new InteractiveObject(JsonLoader.Load(""), ;
@@ -30,9 +30,10 @@ namespace MissTaryGame.Json.Models.Actions
 		}
 		
 		public void run(Action[] remainingActions) {
-			var player = ((DynamicSceneWorld) FP.World).avatar;
+			var inventory = ((DynamicSceneWorld) FP.World).VeryGenericInventorySystem;
 			
-			player.Inventory.Add(parent);
+			var parent = (InteractiveObject) args["parent"];
+			inventory.AddItem(parent);
 			
 			if(remainingActions.Length > 0) {
 				var action = remainingActions[0];

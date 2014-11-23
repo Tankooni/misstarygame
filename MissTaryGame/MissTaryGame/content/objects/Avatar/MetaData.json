@@ -47,7 +47,13 @@
 		},
 		{
 			"Name": "PickUp",
-			"Actions": []
+			"Actions": 
+			[
+				{
+					"Name": "AddObjectToInventory",
+					"Args": {}
+				}
+			]
 		},
 		{
 			"Name": "Talk",

@@ -18,16 +18,17 @@ namespace MissTaryGame.Json.Models.Actions
 	/// </summary>
 	public class ActionAddObjectToWorld : IAction
 	{
-		public InteractiveObject parent;
+		public Dictionary<string, Object> args;
 		
 		public ActionAddObjectToWorld(Dictionary<string, Object> args)
 		{
-			parent = (InteractiveObject) args["parent"];
+			this.args = args;
 		}
 		
 		public void run(Action[] remainingActions) {
 			var world = ((DynamicSceneWorld) FP.World);
 			
+			var parent = (InteractiveObject) args["parent"];
 			world.Add(parent);
 			
 			if(remainingActions.Length > 0) {

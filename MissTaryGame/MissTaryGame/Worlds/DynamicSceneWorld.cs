@@ -15,7 +15,7 @@ namespace MissTaryGame
 		public SceneData metaData;
 		public Avatar avatar;
 		Cursor cursor;
-		Inventory inventory;
+		public Inventory VeryGenericInventorySystem;
 		//List<InteractiveObject> sceneObjects = new List<InteractiveObject>();
 		
 		bool[,] clickMap;
@@ -27,7 +27,7 @@ namespace MissTaryGame
 		{
 			avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar");
 			cursor = new Cursor();
-			inventory = new Inventory(avatar);
+			VeryGenericInventorySystem = new Inventory(avatar);
 			
 			uncompletedEvents = GameEvent.loadGameEvents("./content/events/");
 			
@@ -58,7 +58,7 @@ namespace MissTaryGame
 			}
 			
 			if(Keyboard.I.Pressed)
-				inventory.Active = !inventory.Active;
+				VeryGenericInventorySystem.Active = !VeryGenericInventorySystem.Active;
 			
 			if(Keyboard.Q.Pressed)
 				LoadScene("ExampleScene", "Spawn");
@@ -70,7 +70,7 @@ namespace MissTaryGame
 		{
 			this.RemoveAll();
 			this.Add(cursor);
-			this.Add(inventory);
+			this.Add(VeryGenericInventorySystem);
 			
 			metaData = JsonLoader.Load<SceneData>("scenes/" + sceneName + "/MetaData");
 			float[,] perspectiveMap = avatar.PerspectiveMap = Utility.LoadAndProcessPerspectiveMap("content/scenes/" + sceneName + "/" + metaData.Perspective, 0.1f, 0.9f);

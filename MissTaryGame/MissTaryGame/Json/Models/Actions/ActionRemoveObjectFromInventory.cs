@@ -17,17 +17,18 @@ namespace MissTaryGame.Json.Models.Actions
 	/// </summary>
 	public class ActionRemoveObjectFromInventory : IAction
 	{
-		public InteractiveObject parent;
+		public Dictionary<string, Object> args;
 		
 		public ActionRemoveObjectFromInventory(Dictionary<string, Object> args)
 		{
-			parent = (InteractiveObject) args["parent"];
+			this.args = args;
 		}
 		
 		public void run(Action[] remainingActions) {
-			var player = ((DynamicSceneWorld) FP.World).avatar;
+			var inventory = ((DynamicSceneWorld) FP.World).VeryGenericInventorySystem;
 			
-			player.Inventory.Remove(parent);
+			var parent = (InteractiveObject) args["parent"];
+			inventory.RemoveItem(parent);
 			
 			if(remainingActions.Length > 0) {
 				var action = remainingActions[0];

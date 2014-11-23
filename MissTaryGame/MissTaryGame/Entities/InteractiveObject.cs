@@ -87,6 +87,12 @@ namespace MissTaryGame
 			images = new List<Image>();
 			MetaData = metaData;
 			
+			if(MetaData.Commands != null) {
+				foreach( var c in MetaData.Commands ) {
+					c.parent = this;
+				}
+			}
+			
 			int totalFrames = 0;
 			foreach(var animation in MetaData.Animations)
 			{
