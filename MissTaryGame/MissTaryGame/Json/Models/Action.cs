@@ -37,5 +37,15 @@ namespace MissTaryGame.Json.Models
 		public void run(Action[] remainingActions) {
 			action.run(remainingActions);
 		}
+		
+		public static void runActions(Action[] actions) {
+			if(actions.Length > 0) {
+				var action = actions[0];
+				var tempArray = new Action[actions.Length-1];
+				Array.Copy(actions, 1, tempArray, 0, tempArray.Length);
+				
+				action.run(tempArray);
+			}
+		}
 	}
 }
