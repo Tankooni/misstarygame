@@ -26,6 +26,25 @@ namespace MissTaryGame
 		{
 		}
 		
+		public override void Added()
+		{
+			base.Added();
+			
+			var worldMetadata = ((DynamicSceneWorld)World).metaData;
+			if(worldMetadata.Regions != null) {
+				foreach(var r in worldMetadata.Regions) {
+					wasInRegion.Add(r, false);
+				}
+			}
+		}
+		
+		public override void Removed()
+		{
+			base.Removed();
+			
+			wasInRegion.Clear();
+		}
+		
 		public override void Update()
 		{
 			base.Update();
@@ -40,13 +59,17 @@ namespace MissTaryGame
 						if( r.Area.Contains( X, Y ) ) {
 							if(!wasInRegion[r]) {
 								//just entered, execute shit
-								Action.runActions(r.OnEnter);
+								if(GameEvent.checkDependencies(r.Dependencies)) {
+									Action.runActions(r.OnEnter);
+								}
 								wasInRegion[r] = true;
 							}
 						} else {
 							if( wasInRegion[r] ) {
 								//just left region, execute other shit
-								Action.runActions(r.OnExit);
+								if(GameEvent.checkDependencies(r.Dependencies)) {
+									Action.runActions(r.OnExit);
+								}
 								wasInRegion[r] = false;
 							}
 						}

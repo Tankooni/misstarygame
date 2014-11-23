@@ -20,5 +20,13 @@ namespace MissTaryGame.Json.Models
 		public Rectangle Area { get; set; }
 		public Action[] OnEnter { get; set; }
 		public Action[] OnExit { get; set; }
+		public GameEvent[] Dependencies { get; set; }
+		
+		public Region() {
+			Area = new Rectangle();
+			OnEnter = new Action[0];
+			OnExit = new Action[0];
+			Dependencies = new GameEvent[0];
+		}
 	}
 }

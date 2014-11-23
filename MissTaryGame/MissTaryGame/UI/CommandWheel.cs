@@ -101,7 +101,9 @@ namespace MissTaryGame.UI
 			//Fire it if clicked
 			if(Mouse.Left.Pressed) {
 				if(lastc != null && lastc.Actions != null && lastc.Actions.Length > 0) {
-					Action.runActions(lastc.Actions);
+					if(GameEvent.checkDependencies(lastc.Dependencies)) {
+						Action.runActions(lastc.Actions);	   	
+				    }
 					
 					World.Remove(this);
 				}

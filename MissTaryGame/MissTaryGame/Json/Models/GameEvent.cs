@@ -8,8 +8,10 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using MissTaryGame.Json;
 using System.IO;
+using Indigo;
 
 namespace MissTaryGame.Json.Models
 {
@@ -20,7 +22,7 @@ namespace MissTaryGame.Json.Models
 	{
 		public string Name { get; set; }
 		public Action[] Actions { get; set; }
-		public GameEvent[] Dependancies { get; set; }
+		public GameEvent[] Dependencies { get; set; }
 		
 		
 		public static Dictionary<string, GameEvent> loadGameEvents(string path) {
@@ -33,6 +35,15 @@ namespace MissTaryGame.Json.Models
 			}
 			
 			return eventDict;
+		}
+		
+		public static bool checkDependencies(GameEvent[] evts) {
+			if( evts == null) {
+				return true;
+			}
+			
+			var world = (DynamicSceneWorld)FP.World;
+			return evts.All((GameEvent e) => world.completedEvents.ContainsValue(e));
 		}
 	}
 }

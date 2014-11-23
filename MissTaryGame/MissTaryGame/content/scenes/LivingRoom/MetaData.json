@@ -8,6 +8,21 @@
 	Entrances: {
 		Spawn: {X: 16, Y: 500}
 	},
+	
+	Regions: [{
+		onEnter: [
+			{
+				Name: "Dialog",
+				Args: {
+					Speaker: "Meh",
+					Text: "Waaaaaaaaaaaaaaaaaaaaaa"
+				}
+			}
+		],
+		OnExit: [],
+		Dependencies: [],
+		Area: { X: 500, Y: 400, Width: 100, Height: 300 }
+	}],
 
 	Objects:
 	[
