@@ -19,10 +19,15 @@ namespace MissTaryGame
 		
 		bool[,] clickMap;
 		
+		public Dictionary<string, GameEvent> uncompletedEvents;
+		public Dictionary<string, GameEvent> completedEvents = new Dictionary<string, GameEvent>();
+		
 		public DynamicSceneWorld()
 		{
 			avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar");
 			cursor = new Cursor();
+			
+			uncompletedEvents = GameEvent.loadGameEvents("./content/events/");
 			
 			LoadScene("LivingRoom");
 		}
