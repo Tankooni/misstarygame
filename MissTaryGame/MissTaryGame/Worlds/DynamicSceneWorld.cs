@@ -27,7 +27,7 @@ namespace MissTaryGame
 		{
 			avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar");
 			cursor = new Cursor();
-			VeryGenericInventorySystem = new Inventory(avatar);
+			VeryGenericInventorySystem = new Inventory(avatar, this);
 			
 			uncompletedEvents = GameEvent.loadGameEvents("./content/events/");
 			
@@ -69,8 +69,6 @@ namespace MissTaryGame
 		public void LoadScene(string sceneName, string entrance)
 		{
 			this.RemoveAll();
-			this.Add(cursor);
-			this.Add(VeryGenericInventorySystem);
 			
 			metaData = JsonLoader.Load<SceneData>("scenes/" + sceneName + "/MetaData");
 			float[,] perspectiveMap = avatar.PerspectiveMap = Utility.LoadAndProcessPerspectiveMap("content/scenes/" + sceneName + "/" + metaData.Perspective, 0.1f, 0.9f);
@@ -95,6 +93,8 @@ namespace MissTaryGame
 			avatar.X = entryPoint.X;
 			avatar.Y = entryPoint.Y;
 			this.Add(avatar);
+			this.Add(cursor);
+			this.Add(VeryGenericInventorySystem);
 			
 			var foreground = new Entity{ Layer = Utility.FOREGROUND_LAYER };
 			foreground.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));

@@ -46,9 +46,11 @@ namespace MissTaryGame
 		}
 		
 		Avatar avatar;
-		public Inventory(Avatar avatar)
+		DynamicSceneWorld DSW;
+		public Inventory(Avatar avatar, DynamicSceneWorld dsw)
 		{
 			this.avatar = avatar;
+			this.DSW = dsw;
 			tabBackground = new Image(Library.GetTexture("content/UI/Inventory/InventoryTab.png"));
 			leftArrow = new Image(Library.GetTexture("content/UI/Inventory/InventoryButtonLeft.png"));
 			rightArrow = new Image(Library.GetTexture("content/UI/Inventory/InventoryButtonRight.png"));
@@ -84,13 +86,18 @@ namespace MissTaryGame
 		public override void Added()
 		{
 			base.Added();
-			World.AddList(avatar.Inventory.Cast<Entity>().ToArray());
+			foreach(var interactiveObject in avatar.Inventory)
+			{
+				DSW.Add(interactiveObject);
+				interactiveObject.StaticObject = true;
+				interactiveObject.Layer = Utility.MIDDLE_UI_LAYER-1;
+			}
 		}
 		
 		public override void Removed()
 		{
 			base.Removed();
-			World.RemoveList(avatar.Inventory.Cast<Entity>().ToArray());
+			//World.RemoveList(avatar.Inventory.Cast<Entity>().ToArray());
 		}
 		
 		public void NextPage()

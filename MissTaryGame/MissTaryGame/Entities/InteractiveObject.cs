@@ -130,6 +130,8 @@ namespace MissTaryGame
 			base.Update();
 			if(!StaticObject)
 				this.Scale = PerspectiveMap[(int)this.X, (int)this.Y];
+			else
+				Console.WriteLine(MetaData.Name + " " + this.X + " " + this.Y);
 		}
 		
 		public void PlayAnimation(string animation)

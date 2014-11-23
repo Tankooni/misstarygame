@@ -9,5 +9,18 @@
 			FPS: 1,
 			Frames: 2
 		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "PickUp",
+			"Actions": 
+			[
+				{
+					"Name": "AddObjectToInventory",
+					"Args": {}
+				}
+			]
+		}
 	]
 }
