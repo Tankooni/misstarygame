@@ -8,6 +8,7 @@
  */
 using System;
 using Indigo;
+using Indigo.Inputs;
 
 namespace MissTaryGame
 {
@@ -22,15 +23,15 @@ namespace MissTaryGame
 	    }
 
 		public Game() :
-			base(1136, 640, 60)
+			base(1136, 641, 60)
 		{
 			FP.Console.Enable();
 
 			FP.World = new DynamicSceneWorld();
-			FP.Screen.ClearColor = FP.Color(0x6495ED);
+			FP.Screen.ClearColor = FP.Color(0x000000);
 			
 			FP.Console.Enable();
-
+			Mouse.CursorVisible = false;
 		}
 
 		public override void FocusLost()

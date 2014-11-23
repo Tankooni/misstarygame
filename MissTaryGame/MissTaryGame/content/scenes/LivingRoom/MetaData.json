@@ -1,0 +1,16 @@
+{
+	Name: "Living Room", 
+	Background: "Background.png",
+	Foreground: "Foreground.png",
+	Collision: "Collision.png",
+	Perspective: "Perspective.png",
+
+	Objects:
+	[
+		{
+			Name: "TV",
+			Position: {X: 736, Y: 228},
+			DefaultAnimation: "Idle"
+		}
+	]
+}

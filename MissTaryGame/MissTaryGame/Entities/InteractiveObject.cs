@@ -19,7 +19,21 @@ namespace MissTaryGame
 		
 		public InteractiveObjectData MetaData { get; set; }
 		List<Image> images;
-		public float scale = .5f;
+		private bool flipped = false;
+		public bool Flipped
+		{
+			get
+			{
+				return flipped;
+			}
+			set
+			{
+				flipped = value;
+				foreach(var image in images)
+					image.FlippedX = flipped;
+			}
+		}
+		private float scale = .5f;
 		public float Scale
 		{
 			get
@@ -33,7 +47,7 @@ namespace MissTaryGame
 					image.Scale = scale;
 				this.OriginX = MetaData.HotSpot.X * scale;
 				this.OriginY = MetaData.HotSpot.Y * scale;
-				SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale));
+				SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale), (int)this.OriginX, (int)this.OriginY);
 			}
 		}
 		
@@ -53,14 +67,15 @@ namespace MissTaryGame
 			}
 		}
 		
-		public InteractiveObject(InteractiveObjectData metaData)
+		public InteractiveObject(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap)
 		{
 			//sprite = new Indigo.Graphics.Spritemap(Library.GetTexture("content/Avatar/Idle/Idle1.png"), 148, 332);
 			images = new List<Image>();
 			MetaData = metaData;
+			this.PerspectiveMap = perspectiveMap;
 			
 			foreach(var animation in MetaData.Animations)
-				foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\Avatar\" + animation.Name, "*.png"))
+				foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\objects\" + objectName + @"\" + animation.Name, "*.png"))
 					images.Add(new Image(Library.GetTexture(path)){ Scale = scale , OriginX = MetaData.HotSpot.X, OriginY = MetaData.HotSpot.Y});
 //			foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\Avatar\WalkDown", "*.png"))
 //				images.Add(new Image(Library.GetTexture(path)));
@@ -69,7 +84,7 @@ namespace MissTaryGame
 			int currentTotalFrames = 0;
 			foreach(var animation in MetaData.Animations)
 				sprite.Add(animation.Name, FP.MakeFrames(currentTotalFrames, (currentTotalFrames += animation.Frames)-1), animation.FPS, true);
-			sprite.Play("WalkDown");
+			sprite.Play("Idle");
 			AddComponent(sprite);
 			this.SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale));
 			this.Y = 150;
@@ -81,12 +96,14 @@ namespace MissTaryGame
 			this.Scale = PerspectiveMap[(int)this.X, (int)this.Y];
 		}
 		
-		
-		
-		public override void Render()
+		public void PlayAnimation(string animation)
 		{
-			//sprite.Scale = PerspectiveMap[(int)this.X, (int)this.Y];
-			base.Render();
+			sprite.Play(animation);
+		}
+		
+		public string CheckAnimation()
+		{
+			return sprite.CurrentAnim;
 		}
 	}
 }

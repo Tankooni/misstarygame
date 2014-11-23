@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Cursor.cs" />
     <Compile Include="Entities\InteractiveObject.cs" />
     <Compile Include="Json\JsonLoader.cs" />
     <Compile Include="Json\Models\Action.cs" />
@@ -92,32 +93,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="content\Avatar\Idle\Idle1.png" />
-    <None Include="content\Avatar\Idle\Idle2.png" />
-    <None Include="content\Avatar\Idle\Idle3.png" />
-    <None Include="content\Avatar\Idle\Idle4.png" />
-    <None Include="content\Avatar\MetaData.txt" />
-    <None Include="content\Avatar\WalkDown\WalkDown1.png" />
-    <None Include="content\Avatar\WalkDown\WalkDown2.png" />
-    <None Include="content\Avatar\WalkDown\WalkDown3.png" />
-    <None Include="content\Avatar\WalkDown\WalkDown4.png" />
-    <None Include="content\Avatar\WalkDown\WalkDown5.png" />
-    <None Include="content\Avatar\WalkDown\WalkDown6.png" />
-    <None Include="content\Avatar\WalkDown\WalkDown7.png" />
-    <None Include="content\Avatar\WalkDown\WalkDown8.png" />
-    <None Include="content\Avatar\WalkUp\WalkUp1.png" />
-    <None Include="content\Avatar\WalkUp\WalkUp2.png" />
-    <None Include="content\Avatar\WalkUp\WalkUp3.png" />
-    <None Include="content\Avatar\WalkUp\WalkUp4.png" />
-    <None Include="content\Avatar\WalkUp\WalkUp5.png" />
-    <None Include="content\Avatar\WalkUp\WalkUp6.png" />
-    <None Include="content\Avatar\WalkUp\WalkUp7.png" />
-    <None Include="content\Avatar\WalkUp\WalkUp8.png" />
+    <None Include="content\objects\Avatar\Idle\Idle1.png" />
+    <None Include="content\objects\Avatar\Idle\Idle2.png" />
+    <None Include="content\objects\Avatar\Idle\Idle3.png" />
+    <None Include="content\objects\Avatar\Idle\Idle4.png" />
+    <None Include="content\objects\Avatar\MetaData.json" />
+    <None Include="content\objects\Avatar\WalkDown\WalkDown1.png" />
+    <None Include="content\objects\Avatar\WalkDown\WalkDown2.png" />
+    <None Include="content\objects\Avatar\WalkDown\WalkDown3.png" />
+    <None Include="content\objects\Avatar\WalkDown\WalkDown4.png" />
+    <None Include="content\objects\Avatar\WalkDown\WalkDown5.png" />
+    <None Include="content\objects\Avatar\WalkDown\WalkDown6.png" />
+    <None Include="content\objects\Avatar\WalkDown\WalkDown7.png" />
+    <None Include="content\objects\Avatar\WalkDown\WalkDown8.png" />
+    <None Include="content\objects\Avatar\WalkUp\WalkUp1.png" />
+    <None Include="content\objects\Avatar\WalkUp\WalkUp2.png" />
+    <None Include="content\objects\Avatar\WalkUp\WalkUp3.png" />
+    <None Include="content\objects\Avatar\WalkUp\WalkUp4.png" />
+    <None Include="content\objects\Avatar\WalkUp\WalkUp5.png" />
+    <None Include="content\objects\Avatar\WalkUp\WalkUp6.png" />
+    <None Include="content\objects\Avatar\WalkUp\WalkUp7.png" />
+    <None Include="content\objects\Avatar\WalkUp\WalkUp8.png" />
     <None Include="content\ExampleScene\ExampleScene_Background.png" />
     <None Include="content\ExampleScene\ExampleScene_Collision.png" />
     <None Include="content\ExampleScene\ExampleScene_Foreground.png" />
     <None Include="content\ExampleScene\ExampleScene_Perspective.png" />
     <None Include="content\ExampleScene\ExampleScene_Reference.png" />
+    <None Include="content\objects\TV\Idle\Idle1.png" />
+    <None Include="content\objects\TV\Idle\Idle2.png" />
+    <None Include="content\objects\TV\MetaData.json" />
+    <None Include="content\scenes\LivingRoom\Background.png" />
+    <None Include="content\scenes\LivingRoom\Collision.png" />
+    <None Include="content\scenes\LivingRoom\Foreground.png" />
+    <None Include="content\scenes\LivingRoom\MetaData.json" />
+    <None Include="content\scenes\LivingRoom\Perspective.png" />
     <None Include="content\UI\TextBox\TektonPro-Bold.otf" />
     <None Include="csfml-audio-2.dll" />
     <None Include="csfml-graphics-2.dll" />
@@ -130,12 +139,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content" />
-    <Folder Include="content\Avatar" />
-    <Folder Include="content\Avatar\Idle" />
-    <Folder Include="content\Avatar\WalkDown" />
-    <Folder Include="content\Avatar\WalkUp" />
+    <Folder Include="content\objects\Avatar" />
+    <Folder Include="content\objects\Avatar\Idle" />
+    <Folder Include="content\objects\Avatar\WalkDown" />
+    <Folder Include="content\objects\Avatar\WalkUp" />
     <Folder Include="content\ExampleScene" />
     <Folder Include="content\music" />
+    <Folder Include="content\objects\TV\Idle" />
+    <Folder Include="content\scenes" />
+    <Folder Include="content\objects" />
+    <Folder Include="content\objects\TV" />
+    <Folder Include="content\scenes\LivingRoom" />
     <Folder Include="content\UI" />
     <Folder Include="content\UI\CommandWheel" />
     <Folder Include="content\UI\Cursor" />
