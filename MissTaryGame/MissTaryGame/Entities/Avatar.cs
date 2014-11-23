@@ -35,7 +35,6 @@ namespace MissTaryGame
 				if(footFallFrameNumbers != null && footFallFrameNumbers.Contains(sprite.Frame) && lastFootFrame != sprite.Frame)
 				{
 					lastFootFrame = sprite.Frame;
-					Console.WriteLine("Sound at: " + sprite.Frame);
 					SoundManager.PlaySound("footstep");
 				}
 				
