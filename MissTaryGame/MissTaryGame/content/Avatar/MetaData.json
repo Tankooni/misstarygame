@@ -1,0 +1,23 @@
+{
+	Name: "Girl", 
+	FrameSize: {X: 148, Y: 332},
+	HotSpot: {X: 74, Y: 166},
+	Animations: 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 4,
+			"Frames": 4
+		},
+		{
+			"Name": "WalkUp",
+			"FPS": 15,
+			"Frames": 8
+		},
+		{
+			"Name": "WalkDown",
+			"FPS": 15,
+			"Frames": 8
+		}
+	]
+}

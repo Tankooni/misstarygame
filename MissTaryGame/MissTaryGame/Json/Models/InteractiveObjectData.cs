@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using Indigo.Core;
 
 namespace MissTaryGame.Json.Models
 {
@@ -19,6 +20,8 @@ namespace MissTaryGame.Json.Models
 		public string Name { get; set; }
 		public AnimationData[] Animations { get; set; }
 		//public Command[] Commands { get; set; }
-		public Combination[] Combinations { get; set; }
+		//public Combination[] Combinations { get; set; }
+		public Point FrameSize { get; set; }
+		public Point HotSpot { get; set; }
 	}
 }

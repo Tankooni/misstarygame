@@ -1,34 +1,47 @@
 ﻿using System;
 using Indigo;
+using Indigo.Core;
+using Indigo.Inputs;
 using Indigo.Graphics;
+using MissTaryGame.Json;
+using MissTaryGame.Json.Models;
 namespace MissTaryGame
 {
 	public class DynamicSceneWorld : World
 	{
+		InteractiveObject avatar;
+		Point walkTo;
+		float[,] perspectiveMap;
+		bool[,] clickMap;
+		
 		public DynamicSceneWorld()
 		{
-			this.AddGraphic(new Image(Library.GetTexture("content/ExampleScene/ExampleScene_Perspective.png")));
-			var avatar = new InteractiveObject();
-			this.Add(avatar);
+//			this.AddGraphic(new Image(Library.GetTexture("content/ExampleScene/ExampleScene_Perspective.png")));
+			this.AddGraphic(new Image(Library.GetTexture("content/ExampleScene/ExampleScene_Background.png")));
+			avatar = new InteractiveObject(JsonLoader.Load<InteractiveObjectData>("Avatar/MetaData"));
 			var texture = new Image(Library.GetTexture("content/ExampleScene/ExampleScene_Perspective.png"));
-			var s = new SFML.Graphics.Image("content/ExampleScene/ExampleScene_Perspective.png");
-			float[,] perspectiveMap = new float[s.Size.X,s.Size.Y];
-			for(uint i = 0; i < s.Size.X; i++)
-			{
-				for(uint j = 0; j < s.Size.Y; j++)
-				{
-					perspectiveMap[i,j] = (s.GetPixel(i,j).B / 255f) * 1.9f + 0.1f;
-				}
-			}
-			avatar.PerspectiveMap = perspectiveMap;
-			
-			
+			perspectiveMap = avatar.PerspectiveMap = Utility.LoadAndProcessPerspectiveMap("content/ExampleScene/ExampleScene_Perspective.png", 0.1f, 0.9f);
+			clickMap = Utility.LoadAndProcessClickMap("content/ExampleScene/ExampleScene_Collision.png");
+			this.Add(avatar);
 		}
 		
 		public override void Update()
 		{
 			base.Update();
 			
+			
+			if(Mouse.Left.Pressed && clickMap[(int)Mouse.ScreenX, (int)Mouse.ScreenY])
+				walkTo = new Point(Mouse.ScreenX, Mouse.ScreenY);
+			avatar.MoveTowards(walkTo.X, walkTo.Y, FP.Elapsed * avatar.MoveSpeedX);
+//			
+//			if(Keyboard.W.Down)
+//				avatar.Y -= FP.Elapsed * avatar.MoveSpeedY;
+//			if(/*butts == butts*/Keyboard.S.Down)
+//				avatar.Y += FP.Elapsed * avatar.MoveSpeedY;
+//			if(Keyboard.D.Down)
+//				avatar.X += FP.Elapsed * avatar.MoveSpeedX;
+//			if(Keyboard.A.Down)
+//				avatar.X -= FP.Elapsed * avatar.MoveSpeedX;
 		}
 	}
 }
