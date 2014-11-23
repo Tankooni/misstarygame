@@ -19,7 +19,7 @@ namespace MissTaryGame.Json.Models.Actions
 			eventName = (string)args["Event"];
 		}
 		
-		public void run() {
+		public void run(Action[] remainingActions) {
 			var world = (DynamicSceneWorld)FP.World;
 			GameEvent evt;
 			
@@ -30,9 +30,18 @@ namespace MissTaryGame.Json.Models.Actions
 				world.completedEvents[eventName] = evt;
 				world.uncompletedEvents.Remove(eventName);
 				
-				foreach( var a in world.completedEvents[eventName].Actions ) {
-					a.run();
-				}
+				var action = remainingActions[0];
+				var tempArray = new Action[remainingActions.Length-1];
+				Array.Copy(remainingActions, 1, remainingActions, 0, tempArray.Length);
+				action.run(tempArray);
+			}
+			
+			if(remainingActions.Length > 0) {
+				var action = remainingActions[0];
+				var tempArray = new Action[remainingActions.Length-1];
+				Array.Copy(remainingActions, 1, remainingActions, 0, tempArray.Length);
+				
+				action.run(tempArray);
 			}
 		}
 	}
