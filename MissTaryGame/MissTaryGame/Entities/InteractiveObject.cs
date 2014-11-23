@@ -17,6 +17,8 @@ namespace MissTaryGame
 		public float[,] PerspectiveMap { get; set; }
 		public Flipbook sprite { get; set; }
 		
+		public const string INTERACTIVE_ENTITY_TYPE = "InteractiveObject";
+		
 		public InteractiveObjectData MetaData { get; set; }
 		List<Image> images;
 		private bool flipped = false;
@@ -78,6 +80,7 @@ namespace MissTaryGame
 		public InteractiveObject(InteractiveObjectData metaData, string objectName)
 		{
 			//sprite = new Indigo.Graphics.Spritemap(Library.GetTexture("content/Avatar/Idle/Idle1.png"), 148, 332);
+			this.Type = INTERACTIVE_ENTITY_TYPE;
 			images = new List<Image>();
 			MetaData = metaData;
 			

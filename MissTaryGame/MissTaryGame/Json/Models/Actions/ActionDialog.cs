@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using Indigo;
 using MissTaryGame.UI;
 
 namespace MissTaryGame.Json.Models.Actions
@@ -32,7 +33,9 @@ namespace MissTaryGame.Json.Models.Actions
 		
 		public void run() {
 			TextBox box = new TextBox(Text);
-			box.show();			
+			FP.World.Add(box);
+			
+			box.show();
 		}
 	}
 }

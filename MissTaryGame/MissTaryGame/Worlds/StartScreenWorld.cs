@@ -64,7 +64,7 @@ namespace MissTaryGame
                                      	            c.Actions = null;
                                      	            cl.Add(c);
                                      	            
-                                                 	CommandWheel wheel = new CommandWheel(cl);
+                                     	            CommandWheel wheel = new CommandWheel(cl.ToArray());
                                      	            
 
                                                  	Add(wheel);

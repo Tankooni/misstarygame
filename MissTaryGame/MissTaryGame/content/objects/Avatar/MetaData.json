@@ -1,25 +1,58 @@
 {
-	Name: "Girl", 
-	FrameSize: {X: 148, Y: 332},
-	HotSpot: {X: 74, Y: 300},
-	Animations: 
+	"Name": "Girl", 
+	"FrameSize": {X: 148, Y: 332},
+	"HotSpot": {X: 74, Y: 300},
+	"Animations": 
 	[
 		{
-			Name: "Idle",
-			FPS: 4,
-			Frames: 4
+			"Name": "Idle",
+			"FPS": 4,
+			"Frames": 4
 		},
 		{
-			Name: "WalkUp",
-			FPS: 15,
-			Frames: 8,
-			FootStepFrames: [2,6]
+			"Name": "WalkUp",
+			"FPS": 15,
+			"Frames": 8,
+			"FootStepFrames": [2,6]
 		},
 		{
-			Name: "WalkDown",
-			FPS: 15,
-			Frames: 8,
-			FootStepFrames: [2,6]
+			"Name": "WalkDown",
+			"FPS": 15,
+			"Frames": 8,
+			"FootStepFrames": [2,6]
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Jing",
+						"Text": "Bananas"
+					}
+				}
+			]
+		},
+		{
+			"Name": "PickUp",
+			"Actions": []
+		},
+		{
+			"Name": "Talk",
+			"Actions": []
+		},
+		{
+			"Name": "Use",
+			"Actions": []
+		},
+		{
+			"Name": "Goto",
+			"Actions": []
 		}
 	]
 }

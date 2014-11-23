@@ -9,6 +9,9 @@ using System.IO;
 public static class Utility
 {
 	public const int CURSOR_LAYER = 0;
+	public const int COMMAND_UI_LAYER = 1;
+	public const int WHEEL_UI_LAYER = 2;
+	public const int MIDDLE_UI_LAYER = 20;
 	public const int FOREGROUND_LAYER = 49;
 	public const int BACKGROUND_LAYER = 1001;
 	
