@@ -31,8 +31,8 @@ namespace MissTaryGame.Json.Models.Actions
 		}
 		
 		public void run() {
-			TextBox box = new TextBox();
-			box.show(Text);			
+			TextBox box = new TextBox(Text);
+			box.show();			
 		}
 	}
 }

@@ -9,7 +9,7 @@
 	[
 		{
 			Name: "TV",
-			Position: {X: 736, Y: 228},
+			Position: {X: 16, Y: 339},
 			DefaultAnimation: "Idle"
 		}
 	]

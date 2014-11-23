@@ -26,8 +26,10 @@ namespace MissTaryGame
 			base(1136, 641, 60)
 		{
 			FP.Console.Enable();
-
-			FP.World = new DynamicSceneWorld();
+			
+			Mouse.CursorVisible = false;
+			//FP.World = new DynamicSceneWorld();
+			FP.World = new StartScreenWorld();
 			FP.Screen.ClearColor = FP.Color(0x000000);
 			
 			FP.Console.Enable();
