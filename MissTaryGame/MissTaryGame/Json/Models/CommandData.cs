@@ -17,6 +17,6 @@ namespace MissTaryGame.Json.Models
 	{
 		public string Name { get; set; }
 		public Action[] Actions { get; set; }
-		public Dependency[] Dependencies { get; set; }
+		//public Dependency[] Dependencies { get; set; }
 	}
 }

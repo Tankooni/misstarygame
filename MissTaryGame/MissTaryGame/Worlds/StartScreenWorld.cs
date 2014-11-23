@@ -12,6 +12,9 @@ using Indigo;
 using Indigo.Inputs;
 using Indigo.Graphics;
 
+using MissTaryGame.Json;
+using MissTaryGame.Json.Models;
+
 namespace MissTaryGame
 {
 	/// <summary>
@@ -31,6 +34,8 @@ namespace MissTaryGame
             instructions.X = (FP.Width / 2) - (instructions.Width / 2);
             instructions.Y = (FP.Height / 3) + 50;
 
+            // Testing stuff
+            
             AddGraphic(start);
             AddGraphic(instructions);
 		}
