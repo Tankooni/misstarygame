@@ -35,7 +35,7 @@ namespace MissTaryGame
 				if(footFallFrameNumbers != null && footFallFrameNumbers.Contains(sprite.Frame) && lastFootFrame != sprite.Frame)
 				{
 					lastFootFrame = sprite.Frame;
-					SoundManager.PlaySound("footstep");
+					SoundManager.PlaySoundVariations("footstepL", .8f, .9f);
 				}
 				
 				if(currentAnimaion.Contains("Walk") && (int)this.X == (int)walkToX && (int)this.Y == (int)walkToY)

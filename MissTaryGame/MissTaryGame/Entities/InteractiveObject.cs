@@ -91,14 +91,15 @@ namespace MissTaryGame
 				foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\objects\" + objectName + @"\" + animation.Name, "*.png"))
 				{
 					images.Add(new Image(Library.GetTexture(path)){ Scale = scale , OriginX = MetaData.HotSpot.X, OriginY = MetaData.HotSpot.Y});
-					if(animation.FootStepFrames != null && animation.FootStepFrames.Contains(frameNumber))
+					if(animation.FootStepFrames != null && animation.FootStepFrames.Contains(frameNumber+1))
 					{
-						int frame = frameNumber + totalFrames - 1;
+						int frame = frameNumber + totalFrames;
 						if(!footFallFrames.ContainsKey(animation.Name))
 							footFallFrames.Add(animation.Name, new List<int>{frame});
 						else
 							footFallFrames[animation.Name].Add(frame);
 					}
+					
 					frameNumber++;
 				}
 				totalFrames += frameNumber;

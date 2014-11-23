@@ -29,8 +29,8 @@ namespace MissTaryGame
 			FP.Screen.ClearColor = FP.Color(0x000000);
 			Mouse.CursorVisible = false;
 			
-			//SoundManager.Init(0.8f);
-			SoundManager.Init(0);
+			SoundManager.Init(0.8f);
+			//SoundManager.Init(0);
 			FP.World = new DynamicSceneWorld();
 			//FP.World = new StartScreenWorld();
 
