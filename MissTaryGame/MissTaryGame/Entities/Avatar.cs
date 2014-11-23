@@ -30,6 +30,14 @@ namespace MissTaryGame
 			{
 				this.MoveTowards(walkToX, walkToY, FP.Elapsed * this.MoveSpeedX);
 				
+				//Trigger event if needed
+				foreach(var r in ((DynamicSceneWorld)World).metaData.Regions) {
+					if( r.Area.Contains( X, Y ) ) {
+					   	
+				    }
+				}
+				
+				//Animation stuff
 				var currentAnimaion = this.CheckAnimation();
 				List<int> footFallFrameNumbers;
 				footFallFrames.TryGetValue(currentAnimaion, out footFallFrameNumbers);
