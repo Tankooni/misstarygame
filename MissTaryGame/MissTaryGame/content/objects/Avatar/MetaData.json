@@ -47,12 +47,16 @@
 			"Actions": []
 		},
 		{
-			"Name": "Use",
-			"Actions": []
-		},
-		{
 			"Name": "Goto",
-			"Actions": []
+			"Actions": [
+				{
+					"Name": "Goto",
+					"Args": {
+						"Scene": "ExampleScene",
+						"Entrance": "Spawn"
+					}
+				}
+			]
 		}
 	]
 }

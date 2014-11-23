@@ -4,6 +4,10 @@
 	Foreground: "Foreground.png",
 	Collision: "Collision.png",
 	Perspective: "Perspective.png",
+	
+	Entrances: {
+		Spawn: {X: 16, Y: 500}
+	},
 
 	Objects:
 	[

@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using Indigo.Core;
 
 namespace MissTaryGame.Json.Models
 {
@@ -23,5 +24,6 @@ namespace MissTaryGame.Json.Models
 		public string Perspective { get; set; }
 		public List<InteractiveObjectRef> Objects { get; set; }
 		public List<Region> Regions { get; set; }
+		public Dictionary<string, Point> Entrances { get; set; }
 	}
 }
