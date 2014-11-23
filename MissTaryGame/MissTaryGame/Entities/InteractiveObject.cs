@@ -50,7 +50,8 @@ namespace MissTaryGame
 				this.OriginX = MetaData.HotSpot.X * scale;
 				this.OriginY = MetaData.HotSpot.Y * scale;
 				SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale), (int)this.OriginX, (int)this.OriginY);
-				this.Layer = (int)(1000 - 1000 * scale / 2);
+				if(!StaticObject)
+					this.Layer = (int)(1000 - 1000 * scale / 2);
 			}
 		}
 		
@@ -69,6 +70,8 @@ namespace MissTaryGame
 				return moveSpeed * (.5f + scale);
 			}
 		}
+		
+		public bool StaticObject = false;
 		
 		protected Dictionary<string, List<int>> footFallFrames = new Dictionary<string, List<int>>();
 		
@@ -114,13 +117,13 @@ namespace MissTaryGame
 			sprite.Play("Idle");
 			AddComponent(sprite);
 			this.SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale));
-			this.Y = 150;
 		}
 		
 		public override void Update()
 		{
 			base.Update();
-			this.Scale = PerspectiveMap[(int)this.X, (int)this.Y];
+			if(!StaticObject)
+				this.Scale = PerspectiveMap[(int)this.X, (int)this.Y];
 		}
 		
 		public void PlayAnimation(string animation)
