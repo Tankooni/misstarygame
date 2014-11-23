@@ -5,19 +5,21 @@
 	Animations: 
 	[
 		{
-			"Name": "Idle",
-			"FPS": 4,
-			"Frames": 4
+			Name: "Idle",
+			FPS: 4,
+			Frames: 4
 		},
 		{
-			"Name": "WalkUp",
-			"FPS": 15,
-			"Frames": 8
+			Name: "WalkUp",
+			FPS: 15,
+			Frames: 8,
+			FootStepFrames: [2,6]
 		},
 		{
-			"Name": "WalkDown",
-			"FPS": 15,
-			"Frames": 8
+			Name: "WalkDown",
+			FPS: 15,
+			Frames: 8,
+			FootStepFrames: [2,6]
 		}
 	]
 }

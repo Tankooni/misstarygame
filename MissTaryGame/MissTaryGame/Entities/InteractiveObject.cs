@@ -68,16 +68,38 @@ namespace MissTaryGame
 			}
 		}
 		
+		protected Dictionary<string, List<int>> footFallFrames = new Dictionary<string, List<int>>();
+		
 		public InteractiveObject(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap)
+			:this(metaData, objectName)
+		{
+			this.PerspectiveMap = perspectiveMap;
+		}
+		public InteractiveObject(InteractiveObjectData metaData, string objectName)
 		{
 			//sprite = new Indigo.Graphics.Spritemap(Library.GetTexture("content/Avatar/Idle/Idle1.png"), 148, 332);
 			images = new List<Image>();
 			MetaData = metaData;
-			this.PerspectiveMap = perspectiveMap;
 			
+			int totalFrames = 0;
 			foreach(var animation in MetaData.Animations)
+			{
+				int frameNumber = 0;
 				foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\objects\" + objectName + @"\" + animation.Name, "*.png"))
+				{
 					images.Add(new Image(Library.GetTexture(path)){ Scale = scale , OriginX = MetaData.HotSpot.X, OriginY = MetaData.HotSpot.Y});
+					if(animation.FootStepFrames != null && animation.FootStepFrames.Contains(frameNumber))
+					{
+						int frame = frameNumber + totalFrames - 1;
+						if(!footFallFrames.ContainsKey(animation.Name))
+							footFallFrames.Add(animation.Name, new List<int>{frame});
+						else
+							footFallFrames[animation.Name].Add(frame);
+					}
+					frameNumber++;
+				}
+				totalFrames += frameNumber;
+			}
 //			foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\Avatar\WalkDown", "*.png"))
 //				images.Add(new Image(Library.GetTexture(path)));
 			sprite = new Flipbook(images.Cast<Graphic>().ToArray());

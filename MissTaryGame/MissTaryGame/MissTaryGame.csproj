@@ -91,12 +91,15 @@
     <Compile Include="UI\CommandWheel.cs" />
     <Compile Include="UI\TextBox.cs" />
     <Compile Include="utils\Math.cs" />
+    <Compile Include="utils\SoundManager.cs" />
     <Compile Include="utils\Utility.cs" />
     <Compile Include="Worlds\DynamicSceneWorld.cs" />
     <Compile Include="Worlds\StartScreenWorld.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="content\music\Symbiosis.ogg" />
+    <None Include="content\music\WithACreation.ogg" />
     <None Include="content\objects\Avatar\Idle\Idle1.png" />
     <None Include="content\objects\Avatar\Idle\Idle2.png" />
     <None Include="content\objects\Avatar\Idle\Idle3.png" />
