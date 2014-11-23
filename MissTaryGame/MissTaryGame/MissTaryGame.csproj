@@ -73,6 +73,7 @@
     <Compile Include="Entities\Avatar.cs" />
     <Compile Include="Entities\Cursor.cs" />
     <Compile Include="Entities\InteractiveObject.cs" />
+    <Compile Include="Entities\Inventory.cs" />
     <Compile Include="Json\JsonLoader.cs" />
     <Compile Include="Json\Models\Action.cs" />
     <Compile Include="Json\Models\Actions\ActionDialog.cs" />

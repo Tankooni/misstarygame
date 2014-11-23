@@ -45,10 +45,10 @@ namespace MissTaryGame
 				var clickedObject = (InteractiveObject)this.CollidePoint(InteractiveObject.INTERACTIVE_ENTITY_TYPE, Mouse.ScreenX, Mouse.ScreenY);
 				if(clickedObject != null)
 				{
-					CommandWheel wheel = new CommandWheel(clickedObject.MetaData.Commands);
-					Add(wheel);
+					Add(new CommandWheel(clickedObject.MetaData.Commands));
+					avatar.Inventory.Add(clickedObject);
 				}
-				Console.WriteLine(clickedObject);
+//				Console.WriteLine(clickedObject);
 			}
 			
 			if(Keyboard.Q.Pressed)

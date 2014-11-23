@@ -16,6 +16,7 @@ namespace MissTaryGame
 		private float walkToY = 0;
 		private bool IsMoving = false;
 		private int lastFootFrame = 0;
+		public List<InteractiveObject> Inventory = new List<InteractiveObject>();
 		
 		public Avatar(InteractiveObjectData metaData, string objectName)
 			:base(metaData, objectName)
