@@ -11,6 +11,31 @@
 			Name: "TV",
 			Position: {X: 16, Y: 339},
 			DefaultAnimation: "Idle"
+		},
+		{
+			Name: "TV",
+			Position: {X: 100, Y: 339},
+			DefaultAnimation: "Idle"
+		},
+		{
+			Name: "TV",
+			Position: {X: 100, Y: 350},
+			DefaultAnimation: "Idle"
+		},
+		{
+			Name: "TV",
+			Position: {X: 120, Y: 400},
+			DefaultAnimation: "Idle"
+		},
+		{
+			Name: "TV",
+			Position: {X: 110, Y: 300},
+			DefaultAnimation: "Idle"
+		},
+		{
+			Name: "TV",
+			Position: {X: 120, Y: 450},
+			DefaultAnimation: "Idle"
 		}
 	]
 }

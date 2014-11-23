@@ -48,6 +48,7 @@ namespace MissTaryGame
 				this.OriginX = MetaData.HotSpot.X * scale;
 				this.OriginY = MetaData.HotSpot.Y * scale;
 				SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale), (int)this.OriginX, (int)this.OriginY);
+				this.Layer = (int)(1000 - 1000 * scale / 2);
 			}
 		}
 		

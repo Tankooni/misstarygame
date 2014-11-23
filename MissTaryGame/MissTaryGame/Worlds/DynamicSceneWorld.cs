@@ -22,7 +22,9 @@ namespace MissTaryGame
 			metaData = JsonLoader.Load<SceneData>("scenes/" + sceneName + "/MetaData");
 			perspectiveMap = Utility.LoadAndProcessPerspectiveMap("content/scenes/" + sceneName + "/" + metaData.Perspective, 0.1f, 0.9f);
 			clickMap = Utility.LoadAndProcessClickMap("content/scenes/" + sceneName + "/" + metaData.Collision);
-			this.AddGraphic(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Background)));
+			var background = new Entity{ Layer = Utility.BACKGROUND_LAYER };
+			background.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Background)));
+			Add(background);
 			//this.AddGraphic(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Collision)));
 			
 			foreach(var sceneObject in metaData.Objects)
@@ -37,7 +39,11 @@ namespace MissTaryGame
 			avatar = new InteractiveObject(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar", perspectiveMap);
 			this.Add(avatar);
 			
-			this.AddGraphic(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));
+			var foreground = new Entity{ Layer = Utility.FOREGROUND_LAYER };
+			foreground.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));
+			Add(foreground);
+			
+			//this.AddGraphic(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));
 			this.Add(cursor = new Cursor());
 		}
 		
@@ -71,7 +77,8 @@ namespace MissTaryGame
 					avatar.PlayAnimation("WalkDown");
 			}
 			
-			Console.WriteLine(Mouse.ScreenX + " " + Mouse.ScreenY);
+			
+			
 		}
 	}
 }

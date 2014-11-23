@@ -8,6 +8,11 @@ using System.IO;
 
 public static class Utility
 {
+	public const int CURSOR_LAYER = 0;
+	public const int FOREGROUND_LAYER = 49;
+	public const int BACKGROUND_LAYER = 1001;
+	
+	
 	/// <summary>
 	/// Returns all files in a folder using one or more search filters.
 	/// Treats filters as or's
