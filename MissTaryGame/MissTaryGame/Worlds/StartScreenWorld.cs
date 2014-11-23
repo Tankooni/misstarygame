@@ -35,6 +35,7 @@ namespace MissTaryGame
             instructions.Y = (FP.Height / 3) + 50;
 
             // Testing stuff
+            SceneData sd = JsonLoader.LoadStream<SceneData>("{Name: \"testscene\", Objects: [{Name: \"Cool Beans\", Position: {X: 40, Y:50}, DefaultAnimation: \"Idle\"}], Regions: [] }");
             
             AddGraphic(start);
             AddGraphic(instructions);
