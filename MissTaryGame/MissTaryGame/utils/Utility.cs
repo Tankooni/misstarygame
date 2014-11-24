@@ -52,7 +52,7 @@ public static class Utility
 		var clickMap = new bool[map.Size.X,map.Size.Y];
 		for(uint i = 0; i < map.Size.X; i++)
 			for(uint j = 0; j < map.Size.Y; j++)
-				clickMap[i,j] = (map.GetPixel(i,j).B != 0);
+				clickMap[i,j] = (map.GetPixel(i,j).B > 40);
 		return clickMap;
 	}
 }

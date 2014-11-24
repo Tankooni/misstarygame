@@ -17,6 +17,10 @@ namespace MissTaryGame.Json.Models
 	public class SceneData
 	{
 		public string Name { get; set; }
+		public string Background { get; set; }
+		public string Foreground { get; set; }
+		public string Collision { get; set; }
+		public string Perspective { get; set; }
 		public List<InteractiveObjectRef> Objects { get; set; }
 		public List<Region> Regions { get; set; }
 	}

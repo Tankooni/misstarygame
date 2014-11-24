@@ -1,0 +1,13 @@
+{
+	Name: "Television",
+	Framesize: {X: 85, Y: 175},
+	HotSpot: {X: 38, Y: 143},
+	Animations: 
+	[
+		{
+			Name: "Idle",
+			FPS: 1,
+			Frames: 2
+		}
+	]
+}
