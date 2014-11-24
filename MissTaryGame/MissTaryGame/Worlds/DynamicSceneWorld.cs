@@ -29,7 +29,7 @@ namespace MissTaryGame
 			
 			uncompletedEvents = GameEvent.loadGameEvents("./content/events/");
 			
-			LoadScene("LivingRoom");
+			LoadScene("LivingRoom", "Spawn");
 		}
 		
 		public override void Update()
@@ -52,15 +52,14 @@ namespace MissTaryGame
 			}
 			
 			if(Keyboard.Q.Pressed)
-				LoadScene("ExampleScene");
+				LoadScene("ExampleScene", "Spawn");
 			if(Keyboard.E.Pressed)
-				LoadScene("LivingRoom");
+				LoadScene("LivingRoom", "Spawn");
 		}
 		
-		public void LoadScene(string sceneName)
+		public void LoadScene(string sceneName, string entrance)
 		{
 			this.RemoveAll();
-			this.Add(avatar);
 			this.Add(cursor = new Cursor());
 			
 			metaData = JsonLoader.Load<SceneData>("scenes/" + sceneName + "/MetaData");
@@ -81,6 +80,11 @@ namespace MissTaryGame
 			}
 			
 			
+			//put the player at an entrance
+			var entryPoint = metaData.Entrances[entrance];
+			avatar.X = entryPoint.X;
+			avatar.Y = entryPoint.Y;
+			this.Add(avatar);
 			
 			var foreground = new Entity{ Layer = Utility.FOREGROUND_LAYER };
 			foreground.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));

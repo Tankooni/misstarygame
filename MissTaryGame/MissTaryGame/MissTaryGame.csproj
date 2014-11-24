@@ -76,6 +76,7 @@
     <Compile Include="Json\JsonLoader.cs" />
     <Compile Include="Json\Models\Action.cs" />
     <Compile Include="Json\Models\Actions\ActionDialog.cs" />
+    <Compile Include="Json\Models\Actions\ActionGoto.cs" />
     <Compile Include="Json\Models\Actions\ActionTriggerEvent.cs" />
     <Compile Include="Json\Models\AnimationData.cs" />
     <Compile Include="Json\Models\Combination.cs" />
