@@ -23,6 +23,10 @@ namespace MissTaryGame.Json.Models.Actions
 		public ActionAddObjectToInventory(Dictionary<string, Object> args)
 		{
 			parent = (InteractiveObject) args["parent"];
+			
+			if(args.ContainsKey("Object")) {
+				//parent = new InteractiveObject(JsonLoader.Load(""), ;
+			}
 		}
 		
 		public void run(Action[] remainingActions) {

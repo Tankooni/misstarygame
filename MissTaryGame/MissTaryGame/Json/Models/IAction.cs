@@ -14,7 +14,7 @@ namespace MissTaryGame.Json.Models
 	/// Description of IAction.
 	/// </summary>
 	public interface IAction
-	{
+	{		
 		void run(Action[] remainingActions);
 	}
 }

@@ -15,7 +15,7 @@ namespace MissTaryGame.Json.Models.Actions
 	/// <summary>
 	/// Description of ActionRemoveObject.
 	/// </summary>
-	public class ActionRemoveObject
+	public class ActionRemoveObject : IAction
 	{
 		public InteractiveObject parent;
 		

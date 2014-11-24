@@ -77,6 +77,7 @@
     <Compile Include="Json\JsonLoader.cs" />
     <Compile Include="Json\Models\Action.cs" />
     <Compile Include="Json\Models\Actions\ActionAddObjectToInventory.cs" />
+    <Compile Include="Json\Models\Actions\ActionAddObjectToWorld.cs" />
     <Compile Include="Json\Models\Actions\ActionDialog.cs" />
     <Compile Include="Json\Models\Actions\ActionGoto.cs" />
     <Compile Include="Json\Models\Actions\ActionRemoveObject.cs" />

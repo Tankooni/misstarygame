@@ -2,32 +2,33 @@
  * Created by SharpDevelop.
  * User: Lindenk
  * Date: 11/24/2014
- * Time: 2:31 PM
+ * Time: 2:36 PM
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using System.Collections.Generic;
 using Indigo;
+using MissTaryGame;
 
 namespace MissTaryGame.Json.Models.Actions
 {
 	/// <summary>
-	/// Description of ActionRemoveObjectFromInventory.
+	/// Description of ActionAddObjectToWorld.
 	/// </summary>
-	public class ActionRemoveObjectFromInventory : IAction
+	public class ActionAddObjectToWorld : IAction
 	{
 		public InteractiveObject parent;
 		
-		public ActionRemoveObjectFromInventory(Dictionary<string, Object> args)
+		public ActionAddObjectToWorld(Dictionary<string, Object> args)
 		{
 			parent = (InteractiveObject) args["parent"];
 		}
 		
 		public void run(Action[] remainingActions) {
-			var player = ((DynamicSceneWorld) FP.World).avatar;
+			var world = ((DynamicSceneWorld) FP.World);
 			
-			player.Inventory.Remove(parent);
+			world.Add(parent);
 			
 			if(remainingActions.Length > 0) {
 				var action = remainingActions[0];
