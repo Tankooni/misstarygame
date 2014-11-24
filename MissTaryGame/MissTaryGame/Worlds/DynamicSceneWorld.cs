@@ -12,7 +12,7 @@ namespace MissTaryGame
 {
 	public class DynamicSceneWorld : World
 	{
-		SceneData metaData;
+		public SceneData metaData;
 		public Avatar avatar;
 		Cursor cursor;
 		//List<InteractiveObject> sceneObjects = new List<InteractiveObject>();
