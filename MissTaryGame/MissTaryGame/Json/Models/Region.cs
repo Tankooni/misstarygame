@@ -17,7 +17,7 @@ namespace MissTaryGame.Json.Models
 	/// </summary>
 	public class Region
 	{
-		public Point Position { get; set; }
+		public Rectangle Area { get; set; }
 		public Action[] OnEnter { get; set; }
 		public Action[] OnExit { get; set; }
 	}
