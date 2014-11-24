@@ -22,7 +22,7 @@ namespace MissTaryGame
 	    }
 
 		public Game() :
-			base(640, 480, 60)
+			base(1136, 640, 60)
 		{
 			FP.Console.Enable();
 

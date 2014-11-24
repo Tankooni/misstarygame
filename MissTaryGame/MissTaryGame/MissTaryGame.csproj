@@ -8,9 +8,10 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>MissTaryGame</RootNamespace>
     <AssemblyName>MissTaryGame</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <NoWin32Manifest>False</NoWin32Manifest>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -93,6 +94,7 @@
     <None Include="content\Avatar\Idle\Idle2.png" />
     <None Include="content\Avatar\Idle\Idle3.png" />
     <None Include="content\Avatar\Idle\Idle4.png" />
+    <None Include="content\Avatar\MetaData.txt" />
     <None Include="content\Avatar\WalkDown\WalkDown1.png" />
     <None Include="content\Avatar\WalkDown\WalkDown2.png" />
     <None Include="content\Avatar\WalkDown\WalkDown3.png" />
@@ -130,6 +132,8 @@
     <Folder Include="content\Avatar\WalkDown" />
     <Folder Include="content\Avatar\WalkUp" />
     <Folder Include="content\ExampleScene" />
+    <Folder Include="content\music" />
+    <Folder Include="New Folder" />
     <Folder Include="Entities" />
     <Folder Include="utils" />
     <Folder Include="Json" />
