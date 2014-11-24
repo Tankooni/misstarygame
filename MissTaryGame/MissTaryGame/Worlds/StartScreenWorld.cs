@@ -17,6 +17,7 @@ using MissTaryGame.UI;
 
 using MissTaryGame.Json;
 using MissTaryGame.Json.Models;
+using Action = MissTaryGame.Json.Models.Action;
 
 namespace MissTaryGame
 {
@@ -46,9 +47,17 @@ namespace MissTaryGame
             
             Timer t = new Timer(3000);
             t.Elapsed += new ElapsedEventHandler( (Object sender, ElapsedEventArgs e) => {
-                                     	            CommandWheel wheel = new CommandWheel();
-                                                 	Add(wheel);
                                                  	t.Stop();
+                                                 	List<CommandData> cl = new List<CommandData>();
+                                                 	var c = new CommandData();
+                                     	            c.Name = "Talk";
+                                     	            c.Actions = null;
+                                     	            cl.Add(c);
+                                                 	
+                                                 	CommandWheel wheel = new CommandWheel(cl);
+                                     	            
+
+                                                 	Add(wheel);
                                                  });
             
             t.Start();

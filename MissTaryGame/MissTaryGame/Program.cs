@@ -29,7 +29,7 @@ namespace MissTaryGame
 
 			Mouse.CursorVisible = false;
 			
-			FP.World = new StartScreenWorld();
+			FP.World = new DynamicSceneWorld();
 			FP.Screen.ClearColor = FP.Color(0x6495ED);
 			
 			FP.Console.Enable();

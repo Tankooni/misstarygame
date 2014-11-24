@@ -84,6 +84,7 @@
     <Compile Include="Json\Models\SceneData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\CommandBubble.cs" />
     <Compile Include="UI\CommandWheel.cs" />
     <Compile Include="UI\TextBox.cs" />
     <Compile Include="utils\Utility.cs" />
