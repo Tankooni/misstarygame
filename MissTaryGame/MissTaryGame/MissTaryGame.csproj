@@ -84,6 +84,8 @@
     <Compile Include="Json\Models\SceneData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\CommandWheel.cs" />
+    <Compile Include="UI\TextBox.cs" />
     <Compile Include="utils\Utility.cs" />
     <Compile Include="Worlds\DynamicSceneWorld.cs" />
     <Compile Include="Worlds\StartScreenWorld.cs" />
@@ -116,6 +118,7 @@
     <None Include="content\ExampleScene\ExampleScene_Foreground.png" />
     <None Include="content\ExampleScene\ExampleScene_Perspective.png" />
     <None Include="content\ExampleScene\ExampleScene_Reference.png" />
+    <None Include="content\UI\TextBox\TektonPro-Bold.otf" />
     <None Include="csfml-audio-2.dll" />
     <None Include="csfml-graphics-2.dll" />
     <None Include="csfml-window-2.dll" />
@@ -133,8 +136,13 @@
     <Folder Include="content\Avatar\WalkUp" />
     <Folder Include="content\ExampleScene" />
     <Folder Include="content\music" />
-    <Folder Include="New Folder" />
+    <Folder Include="content\UI" />
+    <Folder Include="content\UI\CommandWheel" />
+    <Folder Include="content\UI\Cursor" />
+    <Folder Include="content\UI\Inventory" />
+    <Folder Include="content\UI\TextBox" />
     <Folder Include="Entities" />
+    <Folder Include="UI" />
     <Folder Include="utils" />
     <Folder Include="Json" />
     <Folder Include="Json\Models" />

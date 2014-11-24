@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using MissTaryGame.UI;
 
 namespace MissTaryGame.Json.Models.Actions
 {
@@ -30,7 +31,8 @@ namespace MissTaryGame.Json.Models.Actions
 		}
 		
 		public void run() {
-			// Need UI stuff for this part
+			TextBox box = new TextBox();
+			box.show(Text);			
 		}
 	}
 }
