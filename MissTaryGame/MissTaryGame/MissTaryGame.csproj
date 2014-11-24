@@ -77,6 +77,7 @@
     <Compile Include="Json\Models\AnimationData.cs" />
     <Compile Include="Json\Models\Combination.cs" />
     <Compile Include="Json\Models\CommandData.cs" />
+    <Compile Include="Json\Models\GameEvent.cs" />
     <Compile Include="Json\Models\IAction.cs" />
     <Compile Include="Json\Models\InteractiveObjectData.cs" />
     <Compile Include="Json\Models\InteractiveObjectRef.cs" />
@@ -144,7 +145,6 @@
     <Folder Include="content\UI\Inventory" />
     <Folder Include="content\UI\TextBox" />
     <Folder Include="Entities" />
-    <Folder Include="New Folder" />
     <Folder Include="UI" />
     <Folder Include="utils" />
     <Folder Include="Json" />
