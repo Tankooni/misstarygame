@@ -32,13 +32,7 @@ namespace MissTaryGame.Json.Models.Actions
 			var world = (DynamicSceneWorld) FP.World;
 			world.LoadScene(nextScene, toEntrance);
 			
-			if(remainingActions.Length > 0) {
-				var action = remainingActions[0];
-				var tempArray = new Action[remainingActions.Length-1];
-				Array.Copy(remainingActions, 1, remainingActions, 0, tempArray.Length);
-				
-				action.run(tempArray);
-			}
+			Action.runActions(remainingActions);
 		}
 	}
 }

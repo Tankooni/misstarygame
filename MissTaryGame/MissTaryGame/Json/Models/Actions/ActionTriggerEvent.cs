@@ -26,7 +26,6 @@ namespace MissTaryGame.Json.Models.Actions
 			if(world.uncompletedEvents.ContainsKey(eventName)) {
 				evt = world.uncompletedEvents[eventName];
 				
-				
 				world.completedEvents[eventName] = evt;
 				world.uncompletedEvents.Remove(eventName);
 				
@@ -36,13 +35,7 @@ namespace MissTaryGame.Json.Models.Actions
 				action.run(tempArray);
 			}
 			
-			if(remainingActions.Length > 0) {
-				var action = remainingActions[0];
-				var tempArray = new Action[remainingActions.Length-1];
-				Array.Copy(remainingActions, 1, remainingActions, 0, tempArray.Length);
-				
-				action.run(tempArray);
-			}
+			Action.runActions(remainingActions);
 		}
 	}
 }

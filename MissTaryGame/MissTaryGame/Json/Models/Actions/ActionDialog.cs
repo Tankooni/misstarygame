@@ -38,15 +38,7 @@ namespace MissTaryGame.Json.Models.Actions
 			
 			box.show();
 			
-			box.onRemove = () => {
-				if(remainingActions.Length > 0) {
-					var action = remainingActions[0];
-					var tempArray = new Action[remainingActions.Length-1];
-					Array.Copy(remainingActions, 1, remainingActions, 0, tempArray.Length);
-					
-					action.run(tempArray);
-				}
-			};
+			box.onRemove = () => Action.runActions(remainingActions);
 		}
 	}
 }

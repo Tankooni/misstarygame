@@ -101,13 +101,10 @@ namespace MissTaryGame.UI
 			//Fire it if clicked
 			if(Mouse.Left.Pressed) {
 				if(lastc != null && lastc.Actions != null) {
-					var action = lastc.Actions[0];
-					var tempArray = new Action[lastc.Actions.Length-1];
-					Array.Copy(lastc.Actions, 1, tempArray, 0, tempArray.Length);
-					action.run(tempArray);
+					Action.runActions(lastc.Actions);
 					
 					World.Remove(this);
-					}
+				}
 			} else if(Mouse.Right.Pressed) {
 				World.Remove(this);
 			}

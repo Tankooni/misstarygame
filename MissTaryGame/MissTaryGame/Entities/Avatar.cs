@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Indigo;
 using Indigo.Core;
 using MissTaryGame.Json.Models;
+using Action = MissTaryGame.Json.Models.Action;
 
 namespace MissTaryGame
 {
@@ -18,6 +19,8 @@ namespace MissTaryGame
 		private int lastFootFrame = 0;
 		public List<InteractiveObject> Inventory = new List<InteractiveObject>();
 		
+		private Dictionary<Region, bool> wasInRegion = new Dictionary<Region, bool>();
+		
 		public Avatar(InteractiveObjectData metaData, string objectName)
 			:base(metaData, objectName)
 		{
@@ -31,10 +34,23 @@ namespace MissTaryGame
 				this.MoveTowards(walkToX, walkToY, FP.Elapsed * this.MoveSpeedX);
 				
 				//Trigger event if needed
-				foreach(var r in ((DynamicSceneWorld)World).metaData.Regions) {
-					if( r.Area.Contains( X, Y ) ) {
-					   	
-				    }
+				var worldMetadata = ((DynamicSceneWorld)World).metaData;
+				if(worldMetadata.Regions != null) {
+					foreach(var r in worldMetadata.Regions) {
+						if( r.Area.Contains( X, Y ) ) {
+							if(!wasInRegion[r]) {
+								//just entered, execute shit
+								Action.runActions(r.OnEnter);
+								wasInRegion[r] = true;
+							}
+						} else {
+							if( wasInRegion[r] ) {
+								//just left region, execute other shit
+								Action.runActions(r.OnExit);
+								wasInRegion[r] = false;
+							}
+						}
+					}
 				}
 				
 				//Animation stuff
