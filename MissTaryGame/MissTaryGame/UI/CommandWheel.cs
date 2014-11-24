@@ -21,15 +21,16 @@ namespace MissTaryGame.UI
 	/// </summary>
 	public class CommandWheel : Entity
 	{
-		public List<CommandData> commands { get; set; }
+		public CommandData[] commands { get; set; }
 		public Image wheel;
 		
 		private Graphiclist gcommands;
 		private Point lastMouse;
+		private CommandData lastc;
 		
 		private Dictionary<CommandData, Image> commandImages = new Dictionary<CommandData, Image>();
 		
-		public CommandWheel(List<CommandData> commandData)
+		public CommandWheel(CommandData[] commandData)
 		{
 			commands = commandData;
 			lastMouse = new Point(Mouse.ScreenX, Mouse.ScreenY);
@@ -41,26 +42,28 @@ namespace MissTaryGame.UI
 			X = Mouse.ScreenX;
 			Y = Mouse.ScreenY;
 			
-			Layer = 1000;
+			Layer = Utility.WHEEL_UI_LAYER;
 			
 			AddComponent(wheel);
 		
 			//Add commands
 			gcommands = new Graphiclist();
 			
-			int deg = -90, deginc = 360 / commands.Count;
-			
-			foreach(var c in commands) {
-				Image img = new Image(Library.GetTexture("./content/UI/CommandWheel/" + c.Name + ".png"));
-				img.CenterOO();
-				img.Y = -wheel.Height/2 + img.Height/2;
-				FP.AngleXY(ref img.X, ref img.Y, deg, wheel.Height/2 - img.Height/2);
+			if(commands != null && commands.Length > 0)
+			{
+				int deg = -90, deginc = 360 / commands.Length;
 				
-				commandImages.Add(c, img);
-				
-				deg += deginc;
-				
-				gcommands.Add(img);
+				foreach(var c in commands) {
+					Image img = new Image(Library.GetTexture("./content/UI/CommandWheel/" + c.Name + ".png"));
+					img.CenterOO();
+					img.Y = -wheel.Height/2 + img.Height/2;
+					FP.AngleXY(ref img.X, ref img.Y, deg, wheel.Height/2 - img.Height/2);
+					
+					commandImages.Add(c, img);
+					deg += deginc;
+					
+					gcommands.Add(img);
+				}
 			}
 			
 			AddComponent(gcommands);
@@ -74,33 +77,37 @@ namespace MissTaryGame.UI
 			Point cMouse = new Point(Mouse.ScreenX, Mouse.ScreenY);
 			int angle = (int)FP.Angle(cMouse.X, cMouse.Y, lastMouse.X, lastMouse.Y);
 			
-			//check which command is being selected
-			int deginc = 360 / commands.Count;
-			//turn angle to '0'
-			angle += deginc/2 + 270;
-			//find index of the command
-			angle /= deginc;
-			angle %= commands.Count;
-			var c = commands[angle];
-			
-			if(lastMouse != cMouse) {
-				//clear the last update scaling
-				foreach(var img in commandImages.Values) {
-					img.Scale = 1;
+			if(commands != null && commands.Length > 0)
+			{
+				if(lastMouse != cMouse) {
+					//check which command is being selected
+					int deginc = 360 / commands.Length;
+					//turn angle to '0'
+					angle += deginc/2 + 270;
+					//find index of the command
+					angle /= deginc;
+					angle %= commands.Length;
+					lastc = commands[angle];
+		
+					//clear the last update scaling
+					foreach(var img in commandImages.Values) {
+						img.Scale = 1;
+					}
+					// Make it bigger to show its selected
+					commandImages[lastc].Scale = 2;
 				}
-				// Make it bigger to show its selected
-				commandImages[c].Scale = 2;
 			}
-			
 			//Fire it if clicked
 			if(Mouse.Left.Pressed) {
-				foreach(var a in c.Actions) {
-					a.run();
-				}
+				if(lastc != null && lastc.Actions != null)
+					foreach(var a in lastc.Actions) {
+						a.run();
+					}
 				World.Remove(this);
 			} else if(Mouse.Right.Pressed) {
 				World.Remove(this);
 			}
+			
 			
 			//update last mouse
 			lastMouse = cMouse;

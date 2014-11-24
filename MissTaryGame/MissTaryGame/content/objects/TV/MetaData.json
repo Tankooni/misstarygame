@@ -1,6 +1,6 @@
 {
 	Name: "Television",
-	Framesize: {X: 85, Y: 175},
+	FrameSize: {X: 85, Y: 175},
 	HotSpot: {X: 38, Y: 143},
 	Animations: 
 	[

@@ -70,11 +70,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Avatar.cs" />
     <Compile Include="Entities\Cursor.cs" />
     <Compile Include="Entities\InteractiveObject.cs" />
     <Compile Include="Json\JsonLoader.cs" />
     <Compile Include="Json\Models\Action.cs" />
     <Compile Include="Json\Models\Actions\ActionDialog.cs" />
+    <Compile Include="Json\Models\Actions\ActionTriggerEvent.cs" />
     <Compile Include="Json\Models\AnimationData.cs" />
     <Compile Include="Json\Models\Combination.cs" />
     <Compile Include="Json\Models\CommandData.cs" />
@@ -90,12 +92,15 @@
     <Compile Include="UI\CommandWheel.cs" />
     <Compile Include="UI\TextBox.cs" />
     <Compile Include="utils\Math.cs" />
+    <Compile Include="utils\SoundManager.cs" />
     <Compile Include="utils\Utility.cs" />
     <Compile Include="Worlds\DynamicSceneWorld.cs" />
     <Compile Include="Worlds\StartScreenWorld.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="content\music\Symbiosis.ogg" />
+    <None Include="content\music\WithACreation.ogg" />
     <None Include="content\objects\Avatar\Idle\Idle1.png" />
     <None Include="content\objects\Avatar\Idle\Idle2.png" />
     <None Include="content\objects\Avatar\Idle\Idle3.png" />
@@ -117,11 +122,6 @@
     <None Include="content\objects\Avatar\WalkUp\WalkUp6.png" />
     <None Include="content\objects\Avatar\WalkUp\WalkUp7.png" />
     <None Include="content\objects\Avatar\WalkUp\WalkUp8.png" />
-    <None Include="content\ExampleScene\ExampleScene_Background.png" />
-    <None Include="content\ExampleScene\ExampleScene_Collision.png" />
-    <None Include="content\ExampleScene\ExampleScene_Foreground.png" />
-    <None Include="content\ExampleScene\ExampleScene_Perspective.png" />
-    <None Include="content\ExampleScene\ExampleScene_Reference.png" />
     <None Include="content\objects\TV\Idle\Idle1.png" />
     <None Include="content\objects\TV\Idle\Idle2.png" />
     <None Include="content\objects\TV\MetaData.json" />
@@ -146,7 +146,6 @@
     <Folder Include="content\objects\Avatar\Idle" />
     <Folder Include="content\objects\Avatar\WalkDown" />
     <Folder Include="content\objects\Avatar\WalkUp" />
-    <Folder Include="content\ExampleScene" />
     <Folder Include="content\music" />
     <Folder Include="content\objects\TV\Idle" />
     <Folder Include="content\scenes" />

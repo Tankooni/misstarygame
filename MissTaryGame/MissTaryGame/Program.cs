@@ -26,14 +26,15 @@ namespace MissTaryGame
 			base(1136, 641, 60)
 		{
 			FP.Console.Enable();
-			
-			Mouse.CursorVisible = false;
-			//FP.World = new DynamicSceneWorld();
-			FP.World = new StartScreenWorld();
 			FP.Screen.ClearColor = FP.Color(0x000000);
-			
-			FP.Console.Enable();
 			Mouse.CursorVisible = false;
+			
+			//SoundManager.Init(0.8f);
+			SoundManager.Init(0);
+			FP.World = new DynamicSceneWorld();
+			//FP.World = new StartScreenWorld();
+
+			SoundManager.PlayMusic();
 		}
 
 		public override void FocusLost()

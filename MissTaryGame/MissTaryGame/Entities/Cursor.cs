@@ -33,6 +33,7 @@ namespace MissTaryGame
 			};
 			this.AddComponent(cursorUp);
 			this.AddComponent(cursorDown);
+			Layer = Utility.CURSOR_LAYER;
 		}
 		
 		public override void Update()

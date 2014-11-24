@@ -8,15 +8,12 @@
  */
 using System;
 
-namespace MissTaryGame.utils
+/// <summary>
+/// Description of Math.
+/// </summary>
+public static class Math
 {
-	/// <summary>
-	/// Description of Math.
-	/// </summary>
-	public static class Math
-	{
-		public static void rotateAroundPoint(ref float X, ref float Y, float angle, float originX, float originY) {
-			
-		}
+	public static void rotateAroundPoint(ref float X, ref float Y, float angle, float originX, float originY) {
+		
 	}
 }
