@@ -8,7 +8,7 @@
  */
 using System;
 using Newtonsoft.Json;
-using MissTaryGame.Entities;
+using MissTaryGame;
 using MissTaryGame.Json.Models.Actions;
 
 namespace MissTaryGame.Json.Models
