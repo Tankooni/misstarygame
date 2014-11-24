@@ -87,6 +87,7 @@
     <Compile Include="UI\CommandBubble.cs" />
     <Compile Include="UI\CommandWheel.cs" />
     <Compile Include="UI\TextBox.cs" />
+    <Compile Include="utils\Math.cs" />
     <Compile Include="utils\Utility.cs" />
     <Compile Include="Worlds\DynamicSceneWorld.cs" />
     <Compile Include="Worlds\StartScreenWorld.cs" />
@@ -143,6 +144,7 @@
     <Folder Include="content\UI\Inventory" />
     <Folder Include="content\UI\TextBox" />
     <Folder Include="Entities" />
+    <Folder Include="New Folder" />
     <Folder Include="UI" />
     <Folder Include="utils" />
     <Folder Include="Json" />

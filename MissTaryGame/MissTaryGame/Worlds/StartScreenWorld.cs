@@ -54,6 +54,16 @@ namespace MissTaryGame
                                      	            c.Actions = null;
                                      	            cl.Add(c);
                                                  	
+                                     	            c = new CommandData();
+                                     	            c.Name = "Use";
+                                     	            c.Actions = null;
+                                     	            cl.Add(c);
+                                     	            
+                                     	            c = new CommandData();
+                                     	            c.Name = "Look";
+                                     	            c.Actions = null;
+                                     	            cl.Add(c);
+                                     	            
                                                  	CommandWheel wheel = new CommandWheel(cl);
                                      	            
 
