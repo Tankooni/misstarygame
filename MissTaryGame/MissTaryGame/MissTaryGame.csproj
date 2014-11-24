@@ -76,6 +76,7 @@
     <Compile Include="Json\Models\AnimationData.cs" />
     <Compile Include="Json\Models\Combination.cs" />
     <Compile Include="Json\Models\CommandData.cs" />
+    <Compile Include="Json\Models\IAction.cs" />
     <Compile Include="Json\Models\InteractiveObjectData.cs" />
     <Compile Include="Json\Models\InteractiveObjectRef.cs" />
     <Compile Include="Json\Models\Region.cs" />
@@ -129,7 +130,6 @@
     <Folder Include="content\Avatar\WalkDown" />
     <Folder Include="content\Avatar\WalkUp" />
     <Folder Include="content\ExampleScene" />
-    <Folder Include="New Folder" />
     <Folder Include="Entities" />
     <Folder Include="utils" />
     <Folder Include="Json" />

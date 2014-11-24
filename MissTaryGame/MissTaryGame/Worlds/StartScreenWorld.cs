@@ -36,6 +36,7 @@ namespace MissTaryGame
 
             // Testing stuff
             SceneData sd = JsonLoader.LoadStream<SceneData>("{Name: \"testscene\", Objects: [{Name: \"Cool Beans\", Position: {X: 40, Y:50}, DefaultAnimation: \"Idle\"}], Regions: [] }");
+            var iobj = JsonLoader.Load<InteractiveObjectData>("Testdata");
             
             AddGraphic(start);
             AddGraphic(instructions);

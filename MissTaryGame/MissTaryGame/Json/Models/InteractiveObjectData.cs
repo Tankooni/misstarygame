@@ -18,7 +18,7 @@ namespace MissTaryGame.Json.Models
 	{
 		public string Name { get; set; }
 		public AnimationData[] Animations { get; set; }
-		//public Command[] Commands { get; set; }
+		public CommandData[] Commands { get; set; }
 		public Combination[] Combinations { get; set; }
 	}
 }
