@@ -31,7 +31,13 @@ namespace MissTaryGame.UI
 			wheel.X = Mouse.ScreenX;
 			wheel.Y = Mouse.ScreenY;
 			
+			Layer = 1000;
+			
 			AddComponent(wheel);
+		}
+		
+		public override void Update() {
+			wheel.Angle += 2;
 		}
 	}
 }

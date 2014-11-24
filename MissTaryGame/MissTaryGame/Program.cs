@@ -8,6 +8,7 @@
  */
 using System;
 using Indigo;
+using Indigo.Inputs;
 
 namespace MissTaryGame
 {
@@ -26,7 +27,9 @@ namespace MissTaryGame
 		{
 			FP.Console.Enable();
 
-			FP.World = new DynamicSceneWorld();
+			Mouse.CursorVisible = false;
+			
+			FP.World = new StartScreenWorld();
 			FP.Screen.ClearColor = FP.Color(0x6495ED);
 			
 			FP.Console.Enable();

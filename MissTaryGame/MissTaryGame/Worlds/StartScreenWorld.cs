@@ -41,8 +41,8 @@ namespace MissTaryGame
             //SceneData sd = JsonLoader.LoadStream<SceneData>("{Name: \"testscene\", Objects: [{Name: \"Cool Beans\", Position: {X: 40, Y:50}, DefaultAnimation: \"Idle\"}], Regions: [] }");
             //var iobj = JsonLoader.Load<InteractiveObjectData>("Testdata");
             
-            TextBox box = new TextBox();
-            box.show("Testing! dkfn aiofnosdian fiasdiof asdio fnasdion fioasdnf oasdnio fsdnoifn asiodnf oasdn fioasdnfio nasdiof nioasdnf ioasdnf iosadnf sndoafn asdiofn ioasdnf ioasdnfo iasdnoif nsdio fnaiosdnf oiasdnf onfiosdfioasndiofnasodn f");
+            TextBox box = new TextBox("Testing! dkfn aiofnosdian fiasdiof asdio fnasdion fioasdnf oasdnio fsdnoifn asiodnf oasdn fioasdnfio nasdiof nioasdnf ioasdnf iosadnf sndoafn asdiofn ioasdnf ioasdnfo iasdnoif nsdio fnaiosdnf oiasdnf onfiosdfioasndiofnasodn fd af sd fsdjf sdajf huisdafsduif uisdhf sdhi fasdui fhasduifh uisdh fuiasdhfiwehiufhasdufh wuhgidfb gidf giuadfhgiadhilgh weuifh uisdfh uiasdgh uidfh gfui asdh fpwe ip weipfj sdipj fkasdf lkasdnfjkwenuohweruoig adui ghodg ipsdj fosdfljasdnkfbweruih uisdh ud sh sdhof hauodhfbsda bnvbgnbvhyjhnbgdhyjfnbhjcdn vjdn vbnhjcm njcm nhmjc bnh mc njm c nm cnm vf cn mcbxn cnh  cbhnxs xcbxns cbhxjzmx cbvchxnjzsmn cbz cbxnhsjax cbxnhzsx dsf sd fds asd sad fasd fjsdah isdaf shadiufhvb chnbvhndhfg bidfhgh yudbhdbyshg idyfh byusdfg yusdfysdgyufg yusdg fsduayf gyusdg fyusd yufgsd ufgufasd fasd fasdf sdf ttt");
+            box.show();
             
             Timer t = new Timer(3000);
             t.Elapsed += new ElapsedEventHandler( (Object sender, ElapsedEventArgs e) => {
