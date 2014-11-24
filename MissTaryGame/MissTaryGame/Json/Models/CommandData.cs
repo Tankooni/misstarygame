@@ -7,6 +7,9 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Newtonsoft.Json;
+using MissTaryGame.Entities;
+using MissTaryGame.Json.Models.Actions;
 
 namespace MissTaryGame.Json.Models
 {
@@ -17,6 +20,16 @@ namespace MissTaryGame.Json.Models
 	{
 		public string Name { get; set; }
 		public Action[] Actions { get; set; }
-		//public Dependency[] Dependencies { get; set; }
+		public GameEvent[] Dependencies { get; set; }
+		
+		private InteractiveObject _parent;
+		[JsonIgnore]
+		public InteractiveObject parent { get { return _parent; } set {
+				foreach( var a in Actions ) {
+					a.Args["parent"] = value;
+				}
+				_parent = value;
+			}
+		}
 	}
 }
