@@ -20,6 +20,9 @@ namespace MissTaryGame.UI
 	/// </summary>
 	public class TextBox : Entity
 	{
+		public delegate void OnRemove();
+		public OnRemove onRemove;
+		
 		private Image box;
 		private Font font;
 		private int fontSize;
@@ -95,6 +98,12 @@ namespace MissTaryGame.UI
 					show();
 				}
 			}
+		}
+		
+		public override void Removed()
+		{
+			base.Removed();
+			onRemove();
 		}
 	}
 }

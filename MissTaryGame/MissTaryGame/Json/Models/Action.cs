@@ -34,8 +34,8 @@ namespace MissTaryGame.Json.Models
 			action = (IAction)Activator.CreateInstance(T, Args);
 		}
 		
-		public void run() {
-			action.run();
+		public void run(Action[] remainingActions) {
+			action.run(remainingActions);
 		}
 	}
 }

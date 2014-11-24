@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Indigo;
 using MissTaryGame.UI;
@@ -31,11 +32,21 @@ namespace MissTaryGame.Json.Models.Actions
 			}
 		}
 		
-		public void run() {
+		public void run(Action[] remainingActions) {
 			TextBox box = new TextBox(Text);
 			FP.World.Add(box);
 			
 			box.show();
+			
+			box.onRemove = () => {
+				if(remainingActions.Length > 0) {
+					var action = remainingActions[0];
+					var tempArray = new Action[remainingActions.Length-1];
+					Array.Copy(remainingActions, 1, remainingActions, 0, tempArray.Length);
+					
+					action.run(tempArray);
+				}
+			};
 		}
 	}
 }

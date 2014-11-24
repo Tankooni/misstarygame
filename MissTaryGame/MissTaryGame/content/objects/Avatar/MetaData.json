@@ -35,6 +35,13 @@
 						"Speaker": "Jing",
 						"Text": "Bananas"
 					}
+				},
+				{
+					"Name": "Dialog",
+					"Args": {
+						"Speaker": "Waa",
+						"Text": "MOAR BANANAS"
+					}
 				}
 			]
 		},
