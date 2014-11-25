@@ -1,0 +1,45 @@
+{
+	Name: "Alleyway", 
+	"FrameSize": {X: 178, Y: 213},
+	"HotSpot": {X: 89, Y: 106},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "City2",
+						"Entrance": "Exit_City2ToCity1"
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "There is a wailing sound coming from that shadowy place."
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,75 @@
+{
+	Name: "Portrait Stand", 
+	"FrameSize": {X: 77, Y: 103},
+	"HotSpot": {X: 38, Y: 51},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I think that would just make me cry."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Talk",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Hello, mom."
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "..."
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Sigh."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "It's a portrait of me and my parents. We were happy here."
+					}
+				}
+			]
+		}
+	]
+}

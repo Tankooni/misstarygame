@@ -1,0 +1,59 @@
+{
+	Name: "Woman", 
+	"FrameSize": {X: 140, Y: 142},
+	"HotSpot": {X: 70, Y: 71},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I can't help her..."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Talk",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "She won't respond."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "She's crying. I don't know how long she's been here for."
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,89 @@
+{
+	Name: "Broken Car", 
+	"FrameSize": {X: 207, Y: 134},
+	"HotSpot": {X: 104, Y: 67},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "PickUp",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "It's too big!"
+					}
+				}
+			]
+		},
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "It's too broken!"
+					}
+				}
+			]
+		},
+		{
+			"Name": "Talk",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Are you okay?"
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Broken Car",
+						"Text": "..."
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Poor thing..."
+					}
+				},
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "The poor car is broken."
+					}
+				}
+			]
+		}
+	]
+}

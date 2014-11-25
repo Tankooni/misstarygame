@@ -1,0 +1,94 @@
+{
+	Name: "Rawr", 
+	"FrameSize": {X: 306, Y: 140},
+	"HotSpot": {X: 153, Y: 70},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "State1",
+			"FPS": 1,
+			"Frames": 1
+		},
+		{
+			"Name": "State2",
+			"FPS": 1,
+			"Frames": 1
+		},
+		{
+			"Name": "State3",
+			"FPS": 1,
+			"Frames": 1
+		},
+		{
+			"Name": "State4",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I shouldn't move Rawr while he's in this state."
+					}
+				}
+			]
+		},
+		{
+			"Name": "PickUp",
+			"Actions": 
+			[
+				//While *not* in State4
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I only have room for one doll, and that's Kuma."
+					}
+				},
+				//Only enabled when in State4
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Maybe it's time to let go..."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look"
+			"Actions": 
+			[
+				//While *not* in State4
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Poor Rawr... He was torn to bits."
+					}
+				},
+				//Only enabled when in State4
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I patched Rawr back up. He looks much happier."
+					}
+				}
+			]
+		}
+	]
+}

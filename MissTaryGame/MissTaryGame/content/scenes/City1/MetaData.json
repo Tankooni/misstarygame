@@ -1,0 +1,46 @@
+{
+	"Name": "City", 
+	"Background": "Background.png",
+	"Foreground": "Foreground.png",
+	"Collision": "Collision.png",
+	"Perspective": "Perspective.png",
+
+	"Objects":
+	[
+		{
+			"Name": "Car1", 
+			"Position": {"X": 523, "Y": 298},
+			"DefaultAnimation": "Idle"
+		},
+
+		{
+			"Name": "Car2", 
+			"Position": {"X": 845, "Y": 281},
+			"DefaultAnimation": "Idle"
+		},
+
+		{
+			"Name": "Blockade", 
+			"Position": {"X": 0, "Y": 383},
+			"DefaultAnimation": "Idle"
+		},
+
+		{
+			"Name": "Exit_City1ToCity2", 
+			"Position": {"X": 208, "Y": 218},
+			"DefaultAnimation": "Blink"
+		},
+		
+		{
+			"Name": "Exit_CityToHub", 
+			"Position": {"X": 1135, "Y": 331},
+			"DefaultAnimation": "Blink"
+		}
+	],
+	
+	"Entrances": 
+	{
+		"Exit_City1ToCity2": {"X": 259 , "Y": 300},
+		"Exit_CityToHub": {"X": 1100 , "Y": 330}
+	}
+}

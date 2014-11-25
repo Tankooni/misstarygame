@@ -1,0 +1,45 @@
+{
+	Name: "Living Room", 
+	"FrameSize": {X: 546, Y: 222},
+	"HotSpot": {X: 273, Y: 222},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "LivingRoom",
+						"Entrance": "Door_LivingRoomToHub"
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "This is where my living room is."
+					}
+				}
+			]
+		}
+	]
+}

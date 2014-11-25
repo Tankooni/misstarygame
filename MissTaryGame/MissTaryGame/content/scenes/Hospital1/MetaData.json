@@ -1,0 +1,32 @@
+{
+	"Name": "Hospital Room", 
+	"Background": "Background.png",
+	"Foreground": "Foreground.png",
+	"Collision": "Collision.png",
+	"Perspective": "Perspective.png",
+
+	"Objects":
+	[
+		{
+			"Name": "Chairs", 
+			"Position": {X: 1023, Y: 472},
+			"DefaultAnimation": "Idle"
+		}
+	],
+	
+	"Entrances": 
+	{
+		"Door_HospitalToHub": {X: 0 , Y: 365} 
+	},
+	
+	"Regions": 
+	[
+		{
+			"Area": {X: 780, Y: 370, Width: 320, Height: 100},
+			OnEnter: 
+			{
+				"Goto": "Hospital2"
+			}
+		}
+	]
+}

@@ -1,0 +1,29 @@
+{
+	Name: "Curtains", 
+	"FrameSize": {X: 598, Y: 568},
+	"HotSpot": {X: 598, Y: 0},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		},
+		{
+			"Name": "Open",
+			"FPS": 15,
+			"Frames": 3
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				//Event: Causes the curtains to flash open and the screen to go red.
+			]
+		}
+	]
+}

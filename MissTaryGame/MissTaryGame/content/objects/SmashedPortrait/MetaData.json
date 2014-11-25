@@ -1,0 +1,45 @@
+{
+	Name: "A Huge Mess", 
+	"FrameSize": {X: 242, Y: 151},
+	"HotSpot": {X: 121, Y: 75},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I don't even want to get close to that."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Oh no!"
+					}
+				}
+			]
+		}
+	]
+}

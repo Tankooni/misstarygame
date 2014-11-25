@@ -1,0 +1,45 @@
+{
+	Name: "Hospital Door", 
+	"FrameSize": {X: 147, Y: 358},
+	"HotSpot": {X: 0, Y: 179},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "It's a door that leads to the hallway."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "Hub",
+						"Entrance": "Door_HubToHospital"
+					}
+				}
+			]
+		}
+	]
+}

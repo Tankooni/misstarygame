@@ -50,8 +50,8 @@ namespace MissTaryGame
 				this.OriginX = MetaData.HotSpot.X * scale;
 				this.OriginY = MetaData.HotSpot.Y * scale;
 				SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale), (int)this.OriginX, (int)this.OriginY);
-				if(!StaticObject)
-					this.Layer = (int)(1000 - 1000 * scale / 2);
+//				if(!StaticObject)
+//					this.Layer = (int)(1000 - 1000 * scale / 2);
 			}
 		}
 		
@@ -120,7 +120,6 @@ namespace MissTaryGame
 			int currentTotalFrames = 0;
 			foreach(var animation in MetaData.Animations)
 				sprite.Add(animation.Name, FP.MakeFrames(currentTotalFrames, (currentTotalFrames += animation.Frames)-1), animation.FPS, true);
-			sprite.Play("Idle");
 			AddComponent(sprite);
 			this.SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale));
 		}
@@ -128,7 +127,7 @@ namespace MissTaryGame
 		public override void Update()
 		{
 			base.Update();
-			if(!StaticObject)
+			if(!StaticObject && MetaData.Scaling)
 				this.Scale = PerspectiveMap[(int)this.X, (int)this.Y];
 			else
 				Console.WriteLine(MetaData.Name + " " + this.X + " " + this.Y);

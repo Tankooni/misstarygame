@@ -1,0 +1,59 @@
+{
+	Name: "HospitalWindow", 
+	"FrameSize": {X: 144, Y: 137},
+	"HotSpot": {X: 72, Y: 68},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "PickUp",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "No!"
+					}
+				}
+			]
+		},
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko,
+						"Text": "I don't want to get wet from the rain."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko,
+						"Text": "It's locked and raining outside."
+					}
+				}
+			]
+		}
+	]
+}

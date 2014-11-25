@@ -1,0 +1,97 @@
+{
+	Name: "Other Room", 
+	"FrameSize": {X: 108, Y: 340},
+	"HotSpot": {X: 54, Y: 170},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Closed",
+			"FPS": 1,
+			"Frames": 1
+		},
+		{
+			"Name": "Open",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "The door won't open!"
+					}
+					//Dependencies: If the door is closed.
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "The door is already open!"
+					}
+					//Dependencies: If the door is open.
+				}
+			]
+		},
+		{
+			"Name": "Talk",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Excuse me, have you seen my Kuma?"
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "CityDoor",
+						"Text": "I don't know, Ko, I'm just a door."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "This door used to lead to a bedroom."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "City1",
+						"Entrance": "Exit_CityToHub"
+					}
+					//Dependency: Only when the door is open.
+				}
+			]
+		}
+	]
+}

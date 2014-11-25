@@ -1,7 +1,8 @@
 {
-	"Name": "Girl", 
+	"Name": "Ko", 
 	"FrameSize": {X: 148, Y: 332},
 	"HotSpot": {X: 74, Y: 300},
+	"Scaling": true,
 	"Animations": 
 	[
 		{
@@ -32,15 +33,8 @@
 					"Name": "Dialog",
 					"Args":
 					{
-						"Speaker": "Jing",
-						"Text": "Bananas"
-					}
-				},
-				{
-					"Name": "Dialog",
-					"Args": {
-						"Speaker": "Waa",
-						"Text": "MOAR BANANAS"
+						"Speaker": "Ko",
+						"Text": "I'm rather nervous."
 					}
 				}
 			]
@@ -50,6 +44,14 @@
 			"Actions": 
 			[
 				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I'm trying to collect myself, here."
+					}
+				},
+				{
 					"Name": "AddObjectToInventory",
 					"Args": {}
 				}
@@ -57,16 +59,28 @@
 		},
 		{
 			"Name": "Talk",
-			"Actions": []
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "It wouldn't be the first time..."
+					}
+				}
+			]
 		},
 		{
-			"Name": "Goto",
-			"Actions": [
+			"Name": "Use",
+			"Actions": 
+			[
 				{
-					"Name": "Goto",
-					"Args": {
-						"Scene": "ExampleScene",
-						"Entrance": "Spawn"
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I wonder where my Kuma went..."
 					}
 				}
 			]

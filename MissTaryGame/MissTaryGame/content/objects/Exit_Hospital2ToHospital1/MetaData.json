@@ -1,0 +1,50 @@
+{
+	Name: "Alleyway", 
+	"FrameSize": {X: 388, Y: 134},
+	"HotSpot": {X: 388, Y: 0},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "State1",
+			"FPS": 1,
+			"Frames": 1
+		},
+		{
+			"Name": "State2",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "Hospital1",
+						"Entrance": "Exit_Hospital1ToHospital2"
+					}
+				}
+			]
+		}
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Safety is that way."
+					}
+				}
+			]
+		}
+	]
+}

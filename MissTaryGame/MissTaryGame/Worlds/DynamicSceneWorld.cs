@@ -96,9 +96,12 @@ namespace MissTaryGame
 			this.Add(cursor);
 			this.Add(VeryGenericInventorySystem);
 			
-			var foreground = new Entity{ Layer = Utility.FOREGROUND_LAYER };
-			foreground.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));
-			Add(foreground);
+			if(metaData.Foreground != null)
+		   	{
+			   	var foreground = new Entity{ Layer = Utility.FOREGROUND_LAYER };
+				foreground.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));
+				Add(foreground);
+		   }
 		}
 	}
 }

@@ -1,0 +1,115 @@
+{
+	Name: "Chairs", 
+	"FrameSize": {X: 208, Y: 263},
+	"HotSpot": {X: 104, Y: 181},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "PickUp",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I don't think I need chairs!"
+					}
+				}
+			]
+		},
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I don't want to sit on these uncomfortable chairs."
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Who are you calling uncomfortable!?"
+					}
+				}
+
+			]
+		},
+		{
+			"Name": "Talk",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Hello!"
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Have a seat!"
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Can you tell me what happened here?"
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "I rather don't give a sit!"
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "..."
+					}
+				}
+
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "A pair of blue chairs."
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,13 +1,14 @@
 {
-	Name: "Television",
-	FrameSize: {X: 85, Y: 175},
-	HotSpot: {X: 38, Y: 143},
-	Animations: 
+	Name: "Television", 
+	"FrameSize": {X: 85, Y: 175},
+	"HotSpot": {X: 0, Y: 88},
+	"Scaling": false,
+	"Animations": 
 	[
 		{
-			Name: "Idle",
-			FPS: 1,
-			Frames: 2
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
 		}
 	],
 	"Commands":
@@ -17,8 +18,54 @@
 			"Actions": 
 			[
 				{
-					"Name": "AddObjectToInventory",
-					"Args": {}
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Jing",
+						"Text": "What am I going to do with a TV?"
+					}
+				}
+			]
+		},
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Jing",
+						"Text": "I don't like watching TV."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Talk",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Jing",
+						"Text": "I really don't like TVs."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Jing",
+						"Text": "It's a TV."
+					}
 				}
 			]
 		}

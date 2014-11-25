@@ -1,0 +1,62 @@
+{
+	Name: "Dumpsters", 
+	"FrameSize": {X: 217, Y: 457},
+	"HotSpot": {X: 0, Y: 228},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Idle",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "PickUp",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Ew..."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "There's nothing in here but trash."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "There's something underneath!"
+					}
+				}//,
+				//{
+					//Event: Makes Voice Box appear
+				//}
+			]
+		}
+	]
+}

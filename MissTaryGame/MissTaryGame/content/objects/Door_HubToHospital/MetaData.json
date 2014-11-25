@@ -1,0 +1,105 @@
+{
+	Name: "Another Room", 
+	"FrameSize": {X: 107, Y: 338},
+	"HotSpot": {X: 53, Y: 168},
+	"Scaling": false,
+	"Animations": 
+	[
+		{
+			"Name": "Closed",
+			"FPS": 1,
+			"Frames": 1
+		},
+		{
+			"Name": "Open",
+			"FPS": 1,
+			"Frames": 1
+		}
+	],
+	"Commands":
+	[
+		{
+			"Name": "Use",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "The door won't open!"
+					}
+					//Dependencies: If the door is closed.
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "The door is already open!"
+					}
+					//Dependencies: If the door is open.
+				}
+			]
+		},
+		{
+			"Name": "Talk",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Excuse me, have you seen my Kuma?"
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "CityDoor",
+						"Text": "..."
+					}
+				},
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "Hm."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Look",
+			"Actions": 
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ko",
+						"Text": "This door used to lead to a bathroom."
+					}
+				}
+			]
+		},
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "Hospital1",
+						"Entrance": "Door_HospitalToHub"
+					}
+					//Dependency: Only when the door is open.
+				}
+			]
+		}
+	]
+}

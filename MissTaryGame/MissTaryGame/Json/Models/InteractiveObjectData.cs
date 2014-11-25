@@ -23,5 +23,6 @@ namespace MissTaryGame.Json.Models
 		//public Combination[] Combinations { get; set; }
 		public Point FrameSize { get; set; }
 		public Point HotSpot { get; set; }
+		public bool Scaling { get; set; }
 	}
 }
