@@ -1,7 +1,7 @@
 {
 	Name: "Woman", 
-	"FrameSize": {X: 140, Y: 142},
-	"HotSpot": {X: 70, Y: 71},
+	"FrameSize": {"X": 140, "Y": 142},
+	"HotSpot": {"X": 70, "Y": 71},
 	"Scaling": false,
 	"Animations": 
 	[

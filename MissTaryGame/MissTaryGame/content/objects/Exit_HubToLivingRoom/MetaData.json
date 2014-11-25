@@ -1,7 +1,7 @@
 {
 	Name: "Living Room", 
-	"FrameSize": {X: 546, Y: 222},
-	"HotSpot": {X: 273, Y: 222},
+	"FrameSize": {"X": 546, "Y": 222},
+	"HotSpot": {"X": 273, "Y": 222},
 	"Scaling": false,
 	"Animations": 
 	[

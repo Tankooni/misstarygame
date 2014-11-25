@@ -1,7 +1,7 @@
 {
 	Name: "Rawr", 
-	"FrameSize": {X: 306, Y: 140},
-	"HotSpot": {X: 153, Y: 70},
+	"FrameSize": {"X": 306, "Y": 140},
+	"HotSpot": {"X": 153, "Y": 70},
 	"Scaling": false,
 	"Animations": 
 	[

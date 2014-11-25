@@ -1,7 +1,7 @@
 {
 	Name: "Chairs", 
-	"FrameSize": {X: 208, Y: 263},
-	"HotSpot": {X: 104, Y: 181},
+	"FrameSize": {"X": 208, "Y": 263},
+	"HotSpot": {"X": 104, "Y": 181},
 	"Scaling": false,
 	"Animations": 
 	[

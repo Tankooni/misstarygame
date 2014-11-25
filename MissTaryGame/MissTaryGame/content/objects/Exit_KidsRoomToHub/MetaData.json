@@ -1,7 +1,7 @@
 {
 	Name: "Exit_KidsRoomToHub", 
-	"FrameSize": {X: 170, Y: 227},
-	"HotSpot": {X: 0, Y: 227},
+	"FrameSize": {"X": 170, "Y": 227},
+	"HotSpot": {"X": 0, "Y": 227},
 	"Scaling": false,
 	"Animations": 
 	[

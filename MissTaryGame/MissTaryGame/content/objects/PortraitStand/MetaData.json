@@ -1,7 +1,7 @@
 {
 	Name: "Portrait Stand", 
-	"FrameSize": {X: 77, Y: 103},
-	"HotSpot": {X: 38, Y: 51},
+	"FrameSize": {"X": 77, "Y": 103},
+	"HotSpot": {"X": 38, "Y": 51},
 	"Scaling": false,
 	"Animations": 
 	[

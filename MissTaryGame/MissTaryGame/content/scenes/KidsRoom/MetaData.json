@@ -9,25 +9,25 @@
 	[
 		{
 			"Name": "Bed", 
-			"Position": {X: 1136, Y: 640},
+			"Position": {"X": 1136, "Y": 640},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "Nightstand", 
-			"Position": {X: 738, Y: 352},
+			"Position": {"X": 738, "Y": 352},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "Stegosaurus", 
-			"Position": {X: 400, Y: 500},
+			"Position": {"X": 400, "Y": 500},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "Exit_KidsRoomToHub", 
-			"Position": {X: 0, Y: 640},
+			"Position": {"X": 0, "Y": 640},
 			"DefaultAnimation": "Idle"
 		}
 		
@@ -35,6 +35,6 @@
 	
 	"Entrances": 
 	{
-		"Exit_KidsRoomToHub": {X: 50 , Y: 500} 
+		"Exit_KidsRoomToHub": {"X": 50 , "Y": 500} 
 	}
 }

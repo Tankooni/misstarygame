@@ -6,14 +6,14 @@
 	Perspective: "Perspective.png",
 	
 	Entrances: {
-		"Spawn": {X: 16, Y: 500}
+		"Spawn": {"X": 16, "Y": 500}
 	},
 
 	Objects:
 	[
 		{
 			Name: "TV",
-			Position: {X: 0, Y: 0},
+			Position: {"X": 0, "Y": 0},
 			DefaultAnimation: "Idle"
 		}
 	]

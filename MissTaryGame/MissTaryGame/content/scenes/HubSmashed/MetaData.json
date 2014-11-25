@@ -9,25 +9,25 @@
 	[
 		{
 			"Name": "Couch", 
-			"Position": {X: 340, Y: 340},
+			"Position": {"X": 340, "Y": 340},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "TV", 
-			"Position": {X: 0, Y: 305},
+			"Position": {"X": 0, "Y": 305},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "LivingRoomDoor", 
-			"Position": {X: 1000, Y: 336},
+			"Position": {"X": 1000, "Y": 336},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "AnsweringMachine", 
-			"Position": {X: 740, Y: 202},
+			"Position": {"X": 740, "Y": 202},
 			"DefaultAnimation": "Blink"
 		}
 		
@@ -35,6 +35,6 @@
 	
 	"Entrances": 
 	{
-		"LivingRoomDoor": {X: 1000 , Y: 500} 
+		"LivingRoomDoor": {"X": 1000 , "Y": 500} 
 	}
 }

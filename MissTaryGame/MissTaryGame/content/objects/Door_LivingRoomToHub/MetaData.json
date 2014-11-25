@@ -1,7 +1,7 @@
 {
 	Name: "Hallway Door", 
-	"FrameSize": {X: 113, Y: 449},
-	"HotSpot": {X: 56, Y: 225},
+	"FrameSize": {"X": 113, "Y": 449},
+	"HotSpot": {"X": 56, "Y": 225},
 	"Scaling": false,
 	"Animations": 
 	[

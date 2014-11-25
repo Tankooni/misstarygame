@@ -1,7 +1,7 @@
 {
 	Name: "Hospital Door", 
-	"FrameSize": {X: 147, Y: 358},
-	"HotSpot": {X: 0, Y: 179},
+	"FrameSize": {"X": 147, "Y": 358},
+	"HotSpot": {"X": 0, "Y": 179},
 	"Scaling": false,
 	"Animations": 
 	[

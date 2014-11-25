@@ -8,13 +8,13 @@
 	[
 		{
 			"Name": "Curtains, 
-			"Position": {X: 1136, Y: 0},
+			"Position": {"X": 1136, "Y": 0},
 			"DefaultAnimation": "Idle"
 		}
 	],
 	
 	"Entrances": 
 	{
-		"Exit_Hospital2ToHospital1": {X: 600, Y: 50} 
+		"Exit_Hospital2ToHospital1": {"X": 600, "Y": 50} 
 	}
 }

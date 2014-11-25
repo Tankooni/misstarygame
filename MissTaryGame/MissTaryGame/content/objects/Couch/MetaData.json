@@ -1,7 +1,7 @@
 {
 	Name: "Couch", 
-	"FrameSize": {X: 441, Y: 305},
-	"HotSpot": {X: 220, Y: 153},
+	"FrameSize": {"X": 441, "Y": 305},
+	"HotSpot": {"X": 220, "Y": 153},
 	"Scaling": false,
 	"Animations": 
 	[

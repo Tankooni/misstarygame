@@ -1,7 +1,7 @@
 {
 	Name: "Exit Name", 
-	"FrameSize": {X: , Y: },
-	"HotSpot": {X: 74, Y: 300},
+	"FrameSize": {"X": , "Y": },
+	"HotSpot": {"X": 74, "Y": 300},
 	"Scaling": false,
 	"Animations": 
 	[

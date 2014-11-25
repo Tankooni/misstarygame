@@ -1,7 +1,7 @@
 {
 	Name: "Alleyway", 
-	"FrameSize": {X: 388, Y: 134},
-	"HotSpot": {X: 388, Y: 0},
+	"FrameSize": {"X": 388, "Y": 134},
+	"HotSpot": {"X": 388, "Y": 0},
 	"Scaling": false,
 	"Animations": 
 	[

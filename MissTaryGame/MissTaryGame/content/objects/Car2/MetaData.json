@@ -1,7 +1,7 @@
 {
 	Name: "Abandoned Car", 
-	"FrameSize": {X: 207, Y: 134},
-	"HotSpot": {X: 104, Y: 67},
+	"FrameSize": {"X": 207, "Y": 134},
+	"HotSpot": {"X": 104, "Y": 67},
 	"Scaling": false,
 	"Animations": 
 	[

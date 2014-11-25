@@ -9,19 +9,19 @@
 	[
 		{
 			"Name": "Woman", 
-			"Position": {X: 352, Y: 314},
+			"Position": {"X": 352, "Y": 314},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "Dumpster", 
-			"Position": {X: 0, Y: 386},
+			"Position": {"X": 0, "Y": 386},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "Exit_City2ToCity1", 
-			"Position": {X: 1136, Y: 475},
+			"Position": {"X": 1136, "Y": 475},
 			"DefaultAnimation": "Idle"
 		}
 		
@@ -29,6 +29,6 @@
 	
 	"Entrances": 
 	{
-		"Exit_City2ToCity1": {X: 1100 , Y: 475} 
+		"Exit_City2ToCity1": {"X": 1100 , "Y": 475} 
 	}
 }

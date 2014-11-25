@@ -1,7 +1,7 @@
 {
 	Name: "A Huge Mess", 
-	"FrameSize": {X: 242, Y: 151},
-	"HotSpot": {X: 121, Y: 75},
+	"FrameSize": {"X": 242, "Y": 151},
+	"HotSpot": {"X": 121, "Y": 75},
 	"Scaling": false,
 	"Animations": 
 	[

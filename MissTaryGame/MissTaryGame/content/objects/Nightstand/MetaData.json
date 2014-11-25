@@ -1,7 +1,7 @@
 {
 	Name: "Nightstand", 
-	"FrameSize": {X: 168, Y: 321},
-	"HotSpot": {X: 84, Y: 160},
+	"FrameSize": {"X": 168, "Y": 321},
+	"HotSpot": {"X": 84, "Y": 160},
 	"Scaling": false,
 	"Animations": 
 	[

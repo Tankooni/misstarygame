@@ -9,25 +9,25 @@
 	[
 		{
 			"Name": "Couch", 
-			"Position": {X: 340, Y: 340},
+			"Position": {"X": 340, "Y": 340},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "TV", 
-			"Position": {X: 0, Y: 305},
+			"Position": {"X": 0, "Y": 305},
 			"DefaultAnimation": "Idle"
 		},
 
 		{
 			"Name": "Door_LivingRoomToHub", 
-			"Position": {X: 1000, Y: 336},
+			"Position": {"X": 1000, "Y": 336},
 			"DefaultAnimation": "Closed"
 		},
 		
 		{
 			"Name": "Kuma", 
-			"Position": {X: 1050, Y: 500},
+			"Position": {"X": 1050, "Y": 500},
 			"DefaultAnimation": "Open"
 		}
 		
@@ -35,7 +35,7 @@
 	
 	"Entrances": 
 	{
-		"Spawn": {X: 50 , Y: 500} ,
-		"Door_LivingRoomToHub": {X: 1000 , Y: 500} 
+		"Spawn": {"X": 50 , "Y": 500} ,
+		"Door_LivingRoomToHub": {"X": 1000 , "Y": 500} 
 	}
 }

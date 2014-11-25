@@ -1,7 +1,7 @@
 {
 	Name: "Curtains", 
-	"FrameSize": {X: 598, Y: 568},
-	"HotSpot": {X: 598, Y: 0},
+	"FrameSize": {"X": 598, "Y": 568},
+	"HotSpot": {"X": 598, "Y": 0},
 	"Scaling": false,
 	"Animations": 
 	[

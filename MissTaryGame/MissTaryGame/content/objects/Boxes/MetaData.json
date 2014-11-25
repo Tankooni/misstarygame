@@ -1,7 +1,7 @@
 {
 	Name: "Boxes", 
-	"FrameSize": {X: 1, Y: 1},
-	"HotSpot": {X: 1, Y: 1},
+	"FrameSize": {"X": 1, "Y": 1},
+	"HotSpot": {"X": 1, "Y": 1},
 	"Scaling": false,
 	"Animations": 
 	[

@@ -1,7 +1,7 @@
 {
 	Name: "AnsweringMachine", 
-	"FrameSize": {X: 69, Y: 102},
-	"HotSpot": {X: 35, Y: 51},
+	"FrameSize": {"X": 69, "Y": 102},
+	"HotSpot": {"X": 35, "Y": 51},
 	"Scaling": false,
 	"Animations": 
 	[

@@ -1,7 +1,7 @@
 {
 	Name: "Exit_CityToHub", 
-	"FrameSize": {X: 147, Y: 260},
-	"HotSpot": {X: 147, Y: 130},
+	"FrameSize": {"X": 147, "Y": 260},
+	"HotSpot": {"X": 147, "Y": 130},
 	"Scaling": false,
 	"Animations": 
 	[

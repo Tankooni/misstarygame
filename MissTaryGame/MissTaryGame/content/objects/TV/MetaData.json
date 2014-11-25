@@ -1,7 +1,7 @@
 {
 	Name: "Television", 
-	"FrameSize": {X: 85, Y: 175},
-	"HotSpot": {X: 0, Y: 88},
+	"FrameSize": {"X": 85, "Y": 175},
+	"HotSpot": {"X": 0, "Y": 88},
 	"Scaling": false,
 	"Animations": 
 	[

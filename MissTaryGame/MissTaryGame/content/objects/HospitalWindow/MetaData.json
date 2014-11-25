@@ -1,7 +1,7 @@
 {
 	Name: "HospitalWindow", 
-	"FrameSize": {X: 144, Y: 137},
-	"HotSpot": {X: 72, Y: 68},
+	"FrameSize": {"X": 144, "Y": 137},
+	"HotSpot": {"X": 72, "Y": 68},
 	"Scaling": false,
 	"Animations": 
 	[

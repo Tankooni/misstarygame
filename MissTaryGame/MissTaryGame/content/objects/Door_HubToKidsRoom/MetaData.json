@@ -1,7 +1,7 @@
 {
 	Name: "Another Room", 
-	"FrameSize": {X: 156, Y: 301},
-	"HotSpot": {X: 78, Y: 150},
+	"FrameSize": {"X": 156, "Y": 301},
+	"HotSpot": {"X": 78, "Y": 150},
 	"Scaling": false,
 	"Animations": 
 	[
