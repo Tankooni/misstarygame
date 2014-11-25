@@ -24,7 +24,11 @@
 			"Position": {"X": 1000, "Y": 336},
 			"DefaultAnimation": "Closed"
 		},
-		
+		{
+			"Name": "AnsweringMachine", 
+			"Position": {"X": 740, "Y": 202},
+			"DefaultAnimation": "Blink"
+		},
 		{
 			"Name": "Kuma", 
 			"Position": {"X": 1050, "Y": 500},

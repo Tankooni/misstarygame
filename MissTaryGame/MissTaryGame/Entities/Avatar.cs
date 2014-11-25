@@ -21,8 +21,8 @@ namespace MissTaryGame
 		
 		private Dictionary<Region, bool> wasInRegion = new Dictionary<Region, bool>();
 		
-		public Avatar(InteractiveObjectData metaData, string objectName)
-			:base(metaData, objectName)
+		public Avatar(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap)
+			:base(metaData, objectName, perspectiveMap)
 		{
 		}
 		
@@ -50,7 +50,8 @@ namespace MissTaryGame
 			base.Update();
 			if(IsMoving)
 			{
-				this.MoveTowards(walkToX, walkToY, FP.Elapsed * this.MoveSpeedX);
+//				this.MoveToward(walkToX, walkToY, FP.Elapsed * this.MoveSpeedX);
+				this.MoveToward(walkToX, walkToY, FP.Elapsed * this.MoveSpeedX, FP.Elapsed * this.MoveSpeedY);
 				
 				//Trigger event if needed
 				var worldMetadata = ((DynamicSceneWorld)World).metaData;

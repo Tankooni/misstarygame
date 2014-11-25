@@ -9,7 +9,7 @@
 	[
 		{
 			"Name": "Bed", 
-			"Position": {"X": 1136, "Y": 640},
+			"Position": {"X": 1135, "Y": 639},
 			"DefaultAnimation": "Idle"
 		},
 

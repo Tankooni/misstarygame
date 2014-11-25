@@ -24,6 +24,10 @@
 						"Speaker": "Jing",
 						"Text": "What am I going to do with a TV?"
 					}
+				},
+				{
+					"Name": "AddObjectToInventory",
+					"Args": {}
 				}
 			]
 		},

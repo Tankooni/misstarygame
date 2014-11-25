@@ -25,7 +25,7 @@ namespace MissTaryGame
 		
 		public DynamicSceneWorld()
 		{
-			avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar");
+			avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar", new float[1,1]{{1}});
 			cursor = new Cursor();
 			VeryGenericInventorySystem = new Inventory(avatar, this);
 			

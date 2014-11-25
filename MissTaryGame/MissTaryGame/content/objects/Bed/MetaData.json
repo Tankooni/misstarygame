@@ -1,5 +1,5 @@
 {
-	Name: "Bed", 
+	"Name": "Bed", 
 	"FrameSize": {"X": 318, "Y": 463},
 	"HotSpot": {"X": 318, "Y": 463},
 	"Scaling": false,
@@ -58,7 +58,7 @@
 					"Args":
 					{
 						"Speaker": "Yuna the Unicorn",
-						"Text": "We miss you Jing! Come back and play!"
+						"Text": "We miss you Ko! Come back and play!"
 					}
 				},
 				{
@@ -78,13 +78,13 @@
 					}
 				},
 				{
-					"Name": "Jing",
+					"Name": "Dialog",
 					"Args":
 					{
 						"Speaker": "Ko",
 						"Text": "I'm sorry..."
 					}
-				},
+				}
 			]
 		},
 		{

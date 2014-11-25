@@ -89,7 +89,7 @@ namespace MissTaryGame
 			foreach(var interactiveObject in avatar.Inventory)
 			{
 				DSW.Add(interactiveObject);
-				interactiveObject.StaticObject = true;
+				interactiveObject.InventoryObject = true;
 				interactiveObject.Layer = Utility.MIDDLE_UI_LAYER-1;
 			}
 		}
@@ -97,6 +97,8 @@ namespace MissTaryGame
 		public override void Removed()
 		{
 			base.Removed();
+			foreach(var interactiveObject in avatar.Inventory)
+				DSW.Remove(interactiveObject);
 			//World.RemoveList(avatar.Inventory.Cast<Entity>().ToArray());
 		}
 		
@@ -127,7 +129,7 @@ namespace MissTaryGame
 		{
 			if(!avatar.Inventory.Contains(interactiveObject))
 			{
-				interactiveObject.StaticObject = true;
+				interactiveObject.InventoryObject = true;
 				interactiveObject.Layer = Utility.MIDDLE_UI_LAYER-1;
 				avatar.Inventory.Add(interactiveObject);
 				World.Add(interactiveObject);
@@ -140,7 +142,7 @@ namespace MissTaryGame
 		{
 			if(avatar.Inventory.Contains(interactiveObject))
 			{
-				interactiveObject.StaticObject = false;
+				interactiveObject.InventoryObject = false;
 				avatar.Inventory.Remove(interactiveObject);
 				World.Remove(interactiveObject);
 			}

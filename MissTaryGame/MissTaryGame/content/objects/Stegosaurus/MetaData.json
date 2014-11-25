@@ -1,5 +1,5 @@
 {
-	Name: "Rawr", 
+	"Name": "Rawr", 
 	"FrameSize": {"X": 306, "Y": 140},
 	"HotSpot": {"X": 153, "Y": 70},
 	"Scaling": false,
@@ -67,7 +67,7 @@
 			]
 		},
 		{
-			"Name": "Look"
+			"Name": "Look",
 			"Actions": 
 			[
 				//While *not* in State4

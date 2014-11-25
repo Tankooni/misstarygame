@@ -1,13 +1,13 @@
 {
-	Name: "Nightstand", 
+	"Name": "Nightstand", 
 	"FrameSize": {"X": 168, "Y": 321},
 	"HotSpot": {"X": 84, "Y": 160},
 	"Scaling": false,
 	"Animations": 
 	[
 		{
-			"Name": "Idle"
-			"FPS": 1
+			"Name": "Idle",
+			"FPS": 1,
 			"Frames": 1
 		}
 	],

@@ -14,7 +14,19 @@ namespace MissTaryGame
 		/// 2D array representitive of how to scale the object, each value should be between 0 to 1
 		/// Should be the same size as the scene
 		/// </summary>
-		public float[,] PerspectiveMap { get; set; }
+		private float[,] perspectiveMap;
+		public float[,] PerspectiveMap
+		{
+			get
+			{
+				return perspectiveMap;
+			}
+			set
+			{
+				perspectiveMap = value;
+				UpdateLayer();
+			}
+		}
 		public Flipbook sprite { get; set; }
 		
 		public const string INTERACTIVE_ENTITY_TYPE = "InteractiveObject";
@@ -35,7 +47,7 @@ namespace MissTaryGame
 					image.FlippedX = flipped;
 			}
 		}
-		private float scale = .5f;
+		private float scale = 1f;
 		public float Scale
 		{
 			get
@@ -71,17 +83,13 @@ namespace MissTaryGame
 			}
 		}
 		
-		public bool StaticObject = false;
+		public bool InventoryObject = false;
 		
 		protected Dictionary<string, List<int>> footFallFrames = new Dictionary<string, List<int>>();
 		
 		public InteractiveObject(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap)
-			:this(metaData, objectName)
 		{
 			this.PerspectiveMap = perspectiveMap;
-		}
-		public InteractiveObject(InteractiveObjectData metaData, string objectName)
-		{
 			//sprite = new Indigo.Graphics.Spritemap(Library.GetTexture("content/Avatar/Idle/Idle1.png"), 148, 332);
 			this.Type = INTERACTIVE_ENTITY_TYPE;
 			images = new List<Image>();
@@ -121,15 +129,19 @@ namespace MissTaryGame
 			foreach(var animation in MetaData.Animations)
 				sprite.Add(animation.Name, FP.MakeFrames(currentTotalFrames, (currentTotalFrames += animation.Frames)-1), animation.FPS, true);
 			AddComponent(sprite);
-			this.SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale));
+			this.OriginX = MetaData.HotSpot.X * scale;
+			this.OriginY = MetaData.HotSpot.Y * scale;
+			SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale), (int)this.OriginX, (int)this.OriginY);
+			if(perspectiveMap != null)
+				UpdateLayer();
 		}
 		
 		public override void Update()
 		{
 			base.Update();
-			if(!StaticObject && MetaData.Scaling)
+			if(!InventoryObject && MetaData.Scaling)
 				this.Scale = PerspectiveMap[(int)this.X, (int)this.Y];
-			else
+			if(InventoryObject)
 				Console.WriteLine(MetaData.Name + " " + this.X + " " + this.Y);
 		}
 		
@@ -141,6 +153,22 @@ namespace MissTaryGame
 		public string CheckAnimation()
 		{
 			return sprite.CurrentAnim;
+		}
+		
+		private void UpdateLayer()
+		{
+			this.Layer = (int)(1000 - 1000 * PerspectiveMap[(int)this.X, (int)this.Y] / 2);
+		}
+		
+		public void MoveToward(float x1, float y1, float dx, float dy)
+		{
+			MoveToward(x1, y1, FP.Distance(X, Y, X + dx, Y + dy));
+		}
+		
+		public void MoveToward(float x1, float y1, float d)
+		{
+			this.MoveTowards(x1, y1, d);
+			UpdateLayer();
 		}
 	}
 }

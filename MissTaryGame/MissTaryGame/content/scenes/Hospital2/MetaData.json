@@ -7,7 +7,7 @@
 	"Objects":
 	[
 		{
-			"Name": "Curtains, 
+			"Name": "Curtains", 
 			"Position": {"X": 1136, "Y": 0},
 			"DefaultAnimation": "Idle"
 		}

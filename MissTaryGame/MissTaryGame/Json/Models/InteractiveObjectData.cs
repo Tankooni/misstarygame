@@ -24,5 +24,6 @@ namespace MissTaryGame.Json.Models
 		public Point FrameSize { get; set; }
 		public Point HotSpot { get; set; }
 		public bool Scaling { get; set; }
+		public bool Moving { get; set; }
 	}
 }

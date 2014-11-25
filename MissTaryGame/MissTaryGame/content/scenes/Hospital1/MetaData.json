@@ -22,11 +22,18 @@
 	"Regions": 
 	[
 		{
-			"Area": {"X": 780, "Y": 370, Width: 320, Height: 100},
-			OnEnter: 
-			{
-				"Goto": "Hospital2"
-			}
+			"Area": {"X": 780, "Y": 370, "Width": 320, "Height": 100},
+			"OnEnter": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "Hospital2",
+						"Entrance": "Exit_Hospital2ToHospital1"
+					}
+				}
+			]
 		}
 	]
 }
