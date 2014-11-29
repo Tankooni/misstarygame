@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <ProjectGuid>{BC03C1C8-75BB-4D41-99AB-A701C7B428D5}</ProjectGuid>
-    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Exe</OutputType>
@@ -33,6 +32,12 @@
     <Optimize>True</Optimize>
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Indigo">
@@ -137,40 +142,59 @@
     <None Include="content\scenes\LivingRoom\MetaData.json" />
     <None Include="content\scenes\LivingRoom\Perspective.png" />
     <None Include="content\UI\TextBox\TektonPro-Bold.otf" />
-    <None Include="csfml-audio-2.dll" />
-    <None Include="csfml-graphics-2.dll" />
-    <None Include="csfml-window-2.dll" />
+    <None Include="csfml-audio-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="csfml-graphics-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="csfml-window-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="libsndfile-1.dll" />
     <None Include="openal32.dll" />
     <None Include="ref\Newtonsoft.Json.dll" />
     <None Include="ref\Newtonsoft.Json.pdb" />
     <None Include="ref\Newtonsoft.Json.xml" />
+    <None Include="libcsfml-audio.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="libcsfml-window.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="sfmlnet-audio-2.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="sfmlnet-graphics-2.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="sfmlnet-window-2.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content" />
-    <Folder Include="content\objects\Avatar" />
-    <Folder Include="content\objects\Avatar\Idle" />
-    <Folder Include="content\objects\Avatar\WalkDown" />
-    <Folder Include="content\objects\Avatar\WalkUp" />
-    <Folder Include="content\music" />
-    <Folder Include="content\objects\TV\Idle" />
-    <Folder Include="content\scenes" />
-    <Folder Include="content\objects" />
-    <Folder Include="content\objects\TV" />
-    <Folder Include="content\scenes\LivingRoom" />
-    <Folder Include="content\UI" />
-    <Folder Include="content\UI\CommandWheel" />
-    <Folder Include="content\UI\Cursor" />
-    <Folder Include="content\UI\Inventory" />
-    <Folder Include="content\UI\TextBox" />
-    <Folder Include="Entities" />
-    <Folder Include="UI" />
-    <Folder Include="utils" />
-    <Folder Include="Json" />
-    <Folder Include="Json\Models" />
-    <Folder Include="Json\Models\Actions" />
-    <Folder Include="ref" />
-    <Folder Include="Worlds" />
+    <Folder Include="content\objects\" />
+    <Folder Include="content\objects\Avatar\" />
+    <Folder Include="content\objects\Avatar\" />
+    <Folder Include="content\objects\Avatar\" />
+    <Folder Include="content\" />
+    <Folder Include="content\objects\TV\" />
+    <Folder Include="content\" />
+    <Folder Include="content\" />
+    <Folder Include="content\objects\" />
+    <Folder Include="content\scenes\" />
+    <Folder Include="content\" />
+    <Folder Include="content\UI\" />
+    <Folder Include="content\UI\" />
+    <Folder Include="content\UI\" />
+    <Folder Include="content\UI\" />
+    <Folder Include="Json\" />
+    <Folder Include="Json\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="libcsfml-graphics.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
