@@ -105,7 +105,7 @@ namespace MissTaryGame
 			foreach(var animation in MetaData.Animations)
 			{
 				int frameNumber = 0;
-				foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\objects\" + objectName + @"\" + animation.Name, "*.png"))
+				foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@"./content/objects/" + objectName + @"/" + animation.Name, "*.png"))
 				{
 					images.Add(new Image(Library.GetTexture(path)){ Scale = scale , OriginX = MetaData.HotSpot.X, OriginY = MetaData.HotSpot.Y});
 					if(animation.FootStepFrames != null && animation.FootStepFrames.Contains(frameNumber+1))
