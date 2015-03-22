@@ -76,7 +76,7 @@ namespace MissTaryGame.UI
 			
 			//keep track of mouse movement direction
 			Point cMouse = new Point(Mouse.ScreenX, Mouse.ScreenY);
-			int angle = (int)FP.Angle(cMouse.X, cMouse.Y, lastMouse.X, lastMouse.Y);
+			int angle = (int)FP.Angle(cMouse.X, cMouse.Y, this.X, this.Y);
 			
 			if(commands != null && commands.Length > 0)
 			{
@@ -91,9 +91,8 @@ namespace MissTaryGame.UI
 					lastc = commands[angle];
 		
 					//clear the last update scaling
-					foreach(var img in commandImages.Values) {
+					foreach(var img in commandImages.Values)
 						img.Scale = 1;
-					}
 					// Make it bigger to show its selected
 					commandImages[lastc].Scale = 2;
 				}
