@@ -32,7 +32,7 @@ public static class SoundManager
 	{
 		if (CurrentSong != null)
 			CurrentSong.Stop();
-		Sound newSong = musics[FP.Choose(FP.MakeFrames(0, musics.Count-1))];
+		Sound newSong = musics[FP.Choose.From(FP.MakeFrames(0, musics.Count-1))];
 		newSong.Volume = MusicVolume;
 //		while (newSong != CurrentSong)
 //			if (musics.Count < 2)

@@ -9,6 +9,7 @@
 using System;
 using Indigo;
 using Indigo.Inputs;
+using Indigo.Graphics;
 
 namespace MissTaryGame
 {
@@ -26,7 +27,7 @@ namespace MissTaryGame
 			base(1136, 641, 60)
 		{
 			FP.Console.Enable();
-			FP.Screen.ClearColor = FP.Color(0x000000);
+			FP.Screen.ClearColor = new Color(0x000000);
 			Mouse.CursorVisible = false;
 			
 			SoundManager.Init(0.7f);
