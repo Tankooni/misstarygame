@@ -30,7 +30,7 @@ namespace MissTaryGame
 		int itemPage = 0;
 		
 		bool active = false;
-		public bool Active
+		public bool IsActive
 		{
 			get
 			{
@@ -69,7 +69,7 @@ namespace MissTaryGame
 			itemPostions.Add(new Point(925, 72));
 			itemPostions.Add(new Point(1046, 72));
 			
-			this.Active = false;
+			this.IsActive = false;
 		}
 		
 		public override void Update()
@@ -133,7 +133,7 @@ namespace MissTaryGame
 				interactiveObject.Layer = Utility.MIDDLE_UI_LAYER-1;
 				avatar.Inventory.Add(interactiveObject);
 				World.Add(interactiveObject);
-				Active = Active;
+				IsActive = IsActive;
 			}
 //			interactiveObject.Scale = 
 		}

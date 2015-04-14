@@ -24,16 +24,17 @@ namespace MissTaryGame
 	    }
 
 		public Game() :
-			base(1136, 641, 60)
+			base(1136, 640, 60)
 		{
 			FP.Console.Enable();
+			FP.Console.ToggleKey = Keyboard.Tilde;
 			FP.Screen.ClearColor = new Color(0x000000);
 			Mouse.CursorVisible = false;
 			
 			SoundManager.Init(0.7f);
 			//SoundManager.Init(0);
-			FP.World = new DynamicSceneWorld();
-			//FP.World = new StartScreenWorld();
+			//FP.World = new DynamicSceneWorld();
+			FP.World = new StartScreenWorld();
 
 			SoundManager.PlayMusic();
 		}
@@ -41,14 +42,14 @@ namespace MissTaryGame
 		public override void FocusLost()
 		{
 			base.FocusLost();
-			this.Paused = true;
+//			this.Paused = true;
 		}
 
 		public override void FocusGained()
 		{
 			base.FocusGained();
-			if(!FP.Console.IsOpen)
-				this.Paused = false;
+//			if(!FP.Console.IsOpen)
+//				this.Paused = false;
 		}
 	}
 }

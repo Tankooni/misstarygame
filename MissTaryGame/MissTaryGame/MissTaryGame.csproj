@@ -52,6 +52,9 @@
     <Reference Include="OpenTK">
       <HintPath>lib\OpenTK.dll</HintPath>
     </Reference>
+    <Reference Include="Priority Queue">
+      <HintPath>ref\Priority Queue.dll</HintPath>
+    </Reference>
     <Reference Include="sfmlnet-audio-2">
       <HintPath>lib\sfmlnet-audio-2.dll</HintPath>
     </Reference>
@@ -97,6 +100,8 @@
     <Compile Include="Json\Models\InteractiveObjectRef.cs" />
     <Compile Include="Json\Models\Region.cs" />
     <Compile Include="Json\Models\SceneData.cs" />
+    <Compile Include="Pathing\PathNode.cs" />
+    <Compile Include="Pathing\Visuals\MapCell.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\CommandBubble.cs" />
@@ -152,7 +157,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="libsndfile-1.dll" />
-    <None Include="openal32.dll" />
     <None Include="ref\Newtonsoft.Json.dll" />
     <None Include="ref\Newtonsoft.Json.pdb" />
     <None Include="ref\Newtonsoft.Json.xml" />
@@ -162,6 +166,8 @@
     <None Include="libcsfml-window.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="ref\Priority Queue.dll" />
+    <None Include="ref\Priority Queue.pdb" />
     <None Include="sfmlnet-audio-2.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -190,6 +196,8 @@
     <Folder Include="content\UI\" />
     <Folder Include="Json\" />
     <Folder Include="Json\Models\" />
+    <Folder Include="Pathing" />
+    <Folder Include="Pathing\Visuals" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

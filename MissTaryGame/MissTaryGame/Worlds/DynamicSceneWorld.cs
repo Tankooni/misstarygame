@@ -4,6 +4,7 @@ using Indigo;
 using Indigo.Core;
 using Indigo.Inputs;
 using Indigo.Graphics;
+using Indigo.Masks;
 using MissTaryGame.UI;
 using MissTaryGame.Json;
 using MissTaryGame.Json.Models;
@@ -19,6 +20,9 @@ namespace MissTaryGame
 		//List<InteractiveObject> sceneObjects = new List<InteractiveObject>();
 		
 		bool[,] clickMap;
+		Entity pathEntity;
+		Grid pathGrid;
+		
 		
 		public Dictionary<string, GameEvent> uncompletedEvents;
 		public Dictionary<string, GameEvent> completedEvents = new Dictionary<string, GameEvent>();
@@ -31,6 +35,9 @@ namespace MissTaryGame
 			cursor = new Cursor();
 			VeryGenericInventorySystem = new Inventory(avatar, this);
 			
+			pathEntity = new Entity();
+			pathEntity.AddComponent(pathGrid = new Grid(FP.Width, FP.Height, 16, 16));
+			Console.WriteLine(pathGrid.Columns + " " + pathGrid.Rows);
 			uncompletedEvents = GameEvent.loadGameEvents("./content/events/");
 			
 			LoadScene("LivingRoom", "Spawn");
@@ -60,7 +67,7 @@ namespace MissTaryGame
 			}
 			
 			if(Keyboard.I.Pressed)
-				VeryGenericInventorySystem.Active = !VeryGenericInventorySystem.Active;
+				VeryGenericInventorySystem.IsActive = !VeryGenericInventorySystem.IsActive;
 			
 			if(Keyboard.Q.Pressed)
 				LoadScene("ExampleScene", "Spawn");
@@ -74,7 +81,8 @@ namespace MissTaryGame
 			
 			metaData = JsonLoader.Load<SceneData>("scenes/" + sceneName + "/MetaData");
 			float[,] perspectiveMap = avatar.PerspectiveMap = Utility.LoadAndProcessPerspectiveMap("content/scenes/" + sceneName + "/" + metaData.Perspective, 0.1f, 0.9f);
-			clickMap = Utility.LoadAndProcessClickMap("content/scenes/" + sceneName + "/" + metaData.Collision);
+			clickMap = Utility.LoadAndProcessClickMap("content/scenes/" + sceneName + "/" + metaData.Collision, pathGrid, pathGrid.Rows, pathGrid.Columns);
+			Add(pathEntity);
 			var background = new Entity{ Layer = Utility.BACKGROUND_LAYER };
 			background.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Background)));
 			Add(background);
@@ -96,14 +104,15 @@ namespace MissTaryGame
 			avatar.Y = entryPoint.Y;
 			this.Add(avatar);
 			this.Add(cursor);
-			this.Add(VeryGenericInventorySystem);
+			this.Add(VeryGenericInventorySystem);			
 			
+			var foreground = new Entity{ Layer = Utility.FOREGROUND_LAYER };
 			if(metaData.Foreground != null)
-		   	{
-			   	var foreground = new Entity{ Layer = Utility.FOREGROUND_LAYER };
 				foreground.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));
-				Add(foreground);
-		   }
+			var collisionMap = new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Collision));
+			collisionMap.Alpha = .5f;
+			foreground.AddComponent(collisionMap);
+			Add(foreground);
 		}
 	}
 }
