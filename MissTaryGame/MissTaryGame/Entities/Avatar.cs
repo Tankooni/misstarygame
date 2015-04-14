@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Indigo;
-using Indigo.Core;
+using MissTaryGame.Pathing;
 using MissTaryGame.Json.Models;
 using Action = MissTaryGame.Json.Models.Action;
 
@@ -18,6 +18,7 @@ namespace MissTaryGame
 		private bool IsMoving = false;
 		private int lastFootFrame = 0;
 		public List<InteractiveObject> Inventory = new List<InteractiveObject>();
+		private IEnumerator<PathNode> pathNodes;
 		
 		private Dictionary<Region, bool> wasInRegion = new Dictionary<Region, bool>();
 		
@@ -87,35 +88,50 @@ namespace MissTaryGame
 					SoundManager.PlaySoundVariations("footstepL", .8f, .9f);
 				}
 				
-				if(currentAnimaion.Contains("Walk") && (int)this.X == (int)walkToX && (int)this.Y == (int)walkToY)
+				if(pathNodes != null)
 				{
-					this.PlayAnimation("Idle");
-					IsMoving = false;
-				}
-				else if((int)this.X != (int)walkToX && (int)this.Y != (int)walkToY)
-				{
+					if((int)X == (int)walkToX && (int)Y == (int)walkToY)
+					{
+						if(pathNodes.MoveNext())
+						{
+							walkToX = pathNodes.Current.X;
+							walkToY = pathNodes.Current.Y;
+						}
+						else
+						{
+							PlayAnimation("Idle");
+							pathNodes = null;
+							IsMoving = false;
+							return;
+						}
+
+					}
+					
 					var walkAngle = FP.Angle(this.X, this.Y, walkToX, walkToY);
 					
-					//Console.WriteLine("Angle: " + walkAngle);
 					bool flip = walkAngle >= 90 && walkAngle <= 270;
-					if(this.Flipped != flip)
-						this.Flipped = flip;
+					if(Flipped != flip)
+						Flipped = flip;
 					if(currentAnimaion != "WalkUp" &&  walkAngle<= 180)
-					{
-						this.PlayAnimation("WalkUp");
-					}
+						PlayAnimation("WalkUp");
 					else if(currentAnimaion != "WalkDown" && walkAngle > 180)
-					{
-						this.PlayAnimation("WalkDown");
-					}
+						PlayAnimation("WalkDown");
 				}
 			}
 		}
 		
-		public void SetWalkTo(float x, float y)
+		public void SetWalkTo(IEnumerable<PathNode> nodes)
 		{
-			walkToX = x;
-			walkToY = y;
+			pathNodes = nodes.GetEnumerator();
+			if(!pathNodes.MoveNext())
+			{
+				PlayAnimation("Idle");
+				IsMoving = false;
+				pathNodes= null;
+				return;
+			}
+			walkToX = pathNodes.Current.X;
+			walkToY = pathNodes.Current.Y;
 			IsMoving = true;
 		}
 	}

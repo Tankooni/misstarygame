@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using MissTaryGame.Pathing;
-using Indigo.Masks;
+using Priority_Queue;
 
 public static class Utility
 {
@@ -54,56 +54,124 @@ public static class Utility
 	/// <param name="path">Path to click map file</param>
 	/// <param name="pathGrid">Grid object to set</param>
 	/// <returns></returns>
-	public static bool[,] LoadAndProcessClickMap(string path, Grid pathGrid, int rows, int columns)
+	public static bool[,] LoadAndProcessClickMap(string path/*, Grid pathGrid*/, PathNode[,] pathNodes, int tileSize)
 	{
 		var map = new SFML.Graphics.Image(path);
 		var clickMap = new bool[map.Size.X,map.Size.Y];
 
-		float totalPixelsInTile = pathGrid.TileWidth * pathGrid.TileHeight;
+		float totalPixelsInTile = tileSize * tileSize;
 		int totalTrue = 0;
 		int xMax = 0;
 		int yMax = 0;
-		for(int x = 0; x < pathGrid.Columns; x++)
+		for(int x = 0; x < pathNodes.GetLength(0); x++)
 		{
-			for(int y = 0; y < pathGrid.Rows; y++)
+			for(int y = 0; y < pathNodes.GetLength(1); y++)
 			{
 				totalTrue = 0;
-				xMax = pathGrid.TileWidth * x + pathGrid.TileWidth;
+				xMax = tileSize * x + tileSize;
 				
-				for(int xMap = pathGrid.TileWidth * x; xMap < xMax; xMap++)
+				for(int xMap = tileSize * x; xMap < xMax; xMap++)
 				{
-					yMax = pathGrid.TileHeight * y + pathGrid.TileHeight;
-//					Console.WriteLine(yMax);
-					for(int yMap = pathGrid.TileHeight * y; yMap < yMax; yMap++)
+					yMax = tileSize * y + tileSize;
+					for(int yMap = tileSize * y; yMap < yMax; yMap++)
 					{
-						if(xMap < map.Size.X && yMap < map.Size.Y && (map.GetPixel((uint)xMap,(uint)yMap).B > 40))
+						if(xMap < map.Size.X && yMap < map.Size.Y && (clickMap[xMap,yMap] = map.GetPixel((uint)xMap,(uint)yMap).B > 40))
 							totalTrue++;
 					}
 				}
-				//Console.WriteLine(totalTrue);
-				pathGrid.SetTile(x, y, (totalTrue / totalPixelsInTile) >= .5f);
-				//Console.WriteLine("X: " + x + "Y: " + y + " | " + totalTrue + " " + totalPixelsInTile + " " + totalTrue / totalPixelsInTile);
+				pathNodes[x,y].Enabled = (totalTrue / totalPixelsInTile) >= .5f;
 			}
 		}
 		return clickMap;
 	}
 	
-	public static IEnumerable<Tuple<PathNode, float>> SelectTilesAroundTile(int centerX, int centerY, int mapWidth, int mapHeight)
+	public static List<Tuple<PathNode, float>> SelectTilesAroundTile(int centerX, int centerY, PathNode[,] pathNodes)
 	{
+		int mapWidth = pathNodes.GetLength(0);
+		int mapHeight = pathNodes.GetLength(1);
+		List<Tuple<PathNode, float>> nodes = new List<Tuple<PathNode, float>>();
 		for (int x = -1; x < 2; ++x)
 		{
-			if (centerX + x >= mapWidth)
+			int cX = centerX + x;
+			if (cX >= mapWidth)
 				break;
-			if (centerX + x < 0)
+			if (cX < 0)
 				continue;
 			for(int y = -1; y < 2; ++y)
 			{
-				if (centerY + y >= mapHeight)
+				int cY = centerY + y;
+				if (cY >= mapHeight)
 					break;
-				if (centerY + y < 0 || (x == 0 && y == 0) /*|| !mapCell.MyNode.Enabled*/)
+				if (cY < 0 || (x == 0 && y == 0))
 					continue;
-				yield return Tuple.Create<PathNode, float>(null/*mapCell.MyNode*/, ((x < 0 ? -x : x) == 1 && (y < 0 ? -y : y) == 1) ? 1.41f : 1);
+				nodes.Add(Tuple.Create<PathNode, float>(pathNodes[cX,cY], (Abs(x) == 1 && Abs(y) == 1) ? 1.41f : 1));
 			}
 		}
+		return nodes;
+	}
+	
+	public static float CalculateHeuristic(float x1, float y1, float x2, float y2)
+	{
+		return Abs(x1 - x2) + Abs(y1 - y2);
+	}
+	
+	public static IEnumerable<PathNode> SelectAstarPath(PathNode startNode, PathNode endNode, PathNode[,] pathNodes)
+	{
+		HeapPriorityQueue<PathNode> frontier = new HeapPriorityQueue<PathNode>(PathNode.ConnectedNodes.Keys.Count);
+
+		frontier.Enqueue(startNode, 0);
+
+		Dictionary<PathNode, PathNode> cameFrom = new Dictionary<PathNode, PathNode>();
+		Dictionary<PathNode, float> costSoFar = new Dictionary<PathNode, float>();
+
+		cameFrom.Add(startNode, null);
+		costSoFar.Add(startNode, 0);
+
+		if (startNode != endNode)
+		{
+			while (frontier.Count > 0)
+			{
+				PathNode current = frontier.Dequeue();
+				//Console.WriteLine("Processing Node " + current.X + " " + current.Y);
+				foreach (var next in PathNode.ConnectedNodes[current])
+				{
+					float newCost = costSoFar[current] + next.Item2;
+					if (!costSoFar.ContainsKey(next.Item1))
+						costSoFar.Add(next.Item1, newCost);
+					else if (newCost < costSoFar[next.Item1])
+						costSoFar[next.Item1] = newCost;
+					else
+						continue;
+					float priority = newCost + CalculateHeuristic(endNode.X, endNode.Y, startNode.X, startNode.Y);
+					frontier.Enqueue(next.Item1, priority);
+					
+					if (cameFrom.ContainsKey(next.Item1))
+						cameFrom[next.Item1] = current;
+					else
+						cameFrom.Add(next.Item1, current);
+				}
+			}
+		}
+		//Console.WriteLine("Done Next up building");
+		
+		PathNode currentNode = endNode;
+		while (startNode != currentNode)
+		{
+			//Console.WriteLine("Processing Node2 " + currentNode.X + " " + currentNode.Y);
+			if (cameFrom.ContainsKey(currentNode))
+				yield return currentNode = cameFrom[currentNode];
+			else
+				break;
+		}
+
+	}
+	
+	public static float Abs(float number)
+	{
+		return (number < 0 ? -number : number);
+	}
+	public static int Abs(int number)
+	{
+		return (number < 0 ? -number : number);
 	}
 }

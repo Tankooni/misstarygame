@@ -17,15 +17,13 @@ namespace MissTaryGame.Pathing
 		public readonly static Dictionary<PathNode, List<Tuple<PathNode, float>>> ConnectedNodes = new Dictionary<PathNode, List<Tuple<PathNode, float>>>();
 
 		public bool Enabled;
-		public MapCell attachedObject;
 		public float X { get; private set; }
 		public float Y { get; private set; }
 
-		public PathNode(MapCell mapCell, List<Tuple<PathNode, float>> connections, float x = 0, float y = 0, bool enabled = true)
+		public PathNode(List<Tuple<PathNode, float>> connections, float x = 0, float y = 0, bool enabled = true)
 		{
 			ConnectedNodes.Add(this, connections ?? new List<Tuple<PathNode, float>>());
 			Enabled = enabled;
-			attachedObject = mapCell;
 			X = x;
 			Y = y;
 		}

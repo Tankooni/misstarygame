@@ -147,6 +147,7 @@
     <None Include="content\scenes\LivingRoom\MetaData.json" />
     <None Include="content\scenes\LivingRoom\Perspective.png" />
     <None Include="content\UI\TextBox\TektonPro-Bold.otf" />
+    <None Include="content\white.png" />
     <None Include="csfml-audio-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
