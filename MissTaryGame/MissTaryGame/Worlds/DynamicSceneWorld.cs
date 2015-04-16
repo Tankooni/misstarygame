@@ -15,14 +15,16 @@ namespace MissTaryGame
 	public class DynamicSceneWorld : World
 	{
 		public SceneData metaData;
-		public Avatar avatar;
-		Cursor cursor;
+		public readonly Avatar avatar;
+		private readonly Cursor cursor;
 		public Inventory VeryGenericInventorySystem;
 		//List<InteractiveObject> sceneObjects = new List<InteractiveObject>();
 		
-		bool[,] clickMap;
-		readonly PathNode[,] pathNodes;
-		readonly int TileSize = 16;
+		private bool[,] clickMap;
+		private readonly PathNode[,] pathNodes;
+		private readonly int TileSize = 16;
+		private readonly Grid nodeGrid;
+		private readonly Entity nodeGridEntity;
 		
 		public Dictionary<string, GameEvent> uncompletedEvents;
 		public Dictionary<string, GameEvent> completedEvents = new Dictionary<string, GameEvent>();
@@ -42,6 +44,10 @@ namespace MissTaryGame
 			for(int x = 0; x < pathNodes.GetLength(0); x++)
 				for(int y = 0; y < pathNodes.GetLength(1); y++)
 					PathNode.ConnectedNodes[pathNodes[x,y]] = Utility.SelectTilesAroundTile(x, y, pathNodes);
+			nodeGridEntity = new Entity();
+			nodeGridEntity.AddComponent<Grid>(nodeGrid = new Grid(FP.Width, FP.Height, TileSize, TileSize));
+			nodeGridEntity.Type = "ClickMap";
+			Add(nodeGridEntity);
 			
 			uncompletedEvents = GameEvent.loadGameEvents("./content/events/");
 			
@@ -52,36 +58,25 @@ namespace MissTaryGame
 		{
 			base.Update();
 			
-//			if(Mouse.ScreenX >= 0 && Mouse.ScreenX <= clickMap.GetLength(0)-1 && Mouse.ScreenY >= 0 && Mouse.ScreenY <= clickMap.GetLength(1)-1)
-//				if(Mouse.Left.Pressed && clickMap[(int)Mouse.ScreenX, (int)Mouse.ScreenY])
-//					avatar.SetWalkTo(Mouse.ScreenX, Mouse.ScreenY);
 			if(Mouse.ScreenX >= 0 && Mouse.ScreenX <= FP.Width && Mouse.ScreenY >= 0 && Mouse.ScreenY <= FP.Height)
 			{
-				if(Mouse.Left.Pressed)
-				{
-					Console.WriteLine("Start " + (int)(avatar.X / TileSize) + " " + (int)(avatar.Y / TileSize) 
-					                  + (int)(Mouse.ScreenX / TileSize) + " " + (int)(Mouse.ScreenY / TileSize));
-					avatar.SetWalkTo(Utility.SelectAstarPath(pathNodes[33,25], pathNodes[42,15], pathNodes
-										/*pathNodes[(int)(Mouse.ScreenX / TileSize),(int)(Mouse.ScreenY / TileSize)], 
+				if(!CommandWheel.IsOpen && Mouse.Left.Pressed && CollidePoint("ClickMap", MouseX, MouseY) != null)
+				{					
+//					Console.WriteLine("Start " + (int)(avatar.X / TileSize) + " " + (int)(avatar.Y / TileSize) 
+//					                  + (int)(Mouse.ScreenX / TileSize) + " " + (int)(Mouse.ScreenY / TileSize));
+					avatar.SetWalkTo(Utility.SelectAstarPath(/*pathNodes[33,25], pathNodes[42,15], pathNodes*/
+										pathNodes[(int)(Mouse.ScreenX / TileSize),(int)(Mouse.ScreenY / TileSize)], 
 										pathNodes[(int)(avatar.X / TileSize),(int)(avatar.Y / TileSize)],
-										pathNodes*/));
-					Console.WriteLine("End " + (int)(avatar.X / TileSize) + " " + (int)(avatar.Y / TileSize) 
-					                  + (int)(Mouse.ScreenX / TileSize) + " " + (int)(Mouse.ScreenY / TileSize));
+										pathNodes));
+//					Console.WriteLine("End " + (int)(avatar.X / TileSize) + " " + (int)(avatar.Y / TileSize) 
+//					                  + (int)(Mouse.ScreenX / TileSize) + " " + (int)(Mouse.ScreenY / TileSize));
 				}
 			}
 			if(Mouse.Right.Pressed)
 			{
 				var clickedObject = (InteractiveObject)this.CollidePoint(InteractiveObject.INTERACTIVE_ENTITY_TYPE, Mouse.ScreenX, Mouse.ScreenY);
 				if(clickedObject != null)
-				{
 					Add(new CommandWheel(clickedObject.MetaData.Commands));
-//					if(!inventory.IsInInventory(clickedObject))
-//					{
-//						Remove(clickedObject);
-//						inventory.AddItem(clickedObject);
-//					}
-				}
-//				Console.WriteLine(clickedObject);
 			}
 			
 			if(Keyboard.I.Pressed)
@@ -95,11 +90,14 @@ namespace MissTaryGame
 		
 		public void LoadScene(string sceneName, string entrance)
 		{
-			this.RemoveAll();
+			RemoveAll();
 			
 			metaData = JsonLoader.Load<SceneData>("scenes/" + sceneName + "/MetaData");
 			float[,] perspectiveMap = avatar.PerspectiveMap = Utility.LoadAndProcessPerspectiveMap("content/scenes/" + sceneName + "/" + metaData.Perspective, 0.1f, 0.9f);
-			clickMap = Utility.LoadAndProcessClickMap("content/scenes/" + sceneName + "/" + metaData.Collision, pathNodes, TileSize);
+			
+			Utility.LoadAndProcessClickMap("content/scenes/" + sceneName + "/" + metaData.Collision, pathNodes, nodeGrid, TileSize);
+			Add(nodeGridEntity);
+			
 			var background = new Entity{ Layer = Utility.BACKGROUND_LAYER };
 			background.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Background)));
 			Add(background);
@@ -126,24 +124,7 @@ namespace MissTaryGame
 			var foreground = new Entity{ Layer = Utility.FOREGROUND_LAYER };
 			if(metaData.Foreground != null)
 				foreground.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));
-			var collisionMap = new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Collision));
-			collisionMap.Alpha = .5f;
-			foreground.AddComponent(collisionMap);
 			Add(foreground);
-			
-			foreach(var node in Utility.SelectAstarPath(pathNodes[33,25], pathNodes[42,15], pathNodes))
-			{
-				Entity e = new Entity();
-				Image i = new Image(Library.GetTexture("content/white.png"));
-				i.CenterOO();
-				i.Scale = 16;
-				i.Color = new Color(0xff0000);
-				e.AddComponent(i);
-				e.CenterOrigin();
-				e.X = node.X;
-				e.Y = node.Y;
-				Add(e);
-			}
 		}
 	}
 }

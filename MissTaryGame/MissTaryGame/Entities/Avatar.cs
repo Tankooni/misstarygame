@@ -51,7 +51,6 @@ namespace MissTaryGame
 			base.Update();
 			if(IsMoving)
 			{
-//				this.MoveToward(walkToX, walkToY, FP.Elapsed * this.MoveSpeedX);
 				this.MoveToward(walkToX, walkToY, FP.Elapsed * this.MoveSpeedX, FP.Elapsed * this.MoveSpeedY);
 				
 				//Trigger event if needed
@@ -112,7 +111,7 @@ namespace MissTaryGame
 					bool flip = walkAngle >= 90 && walkAngle <= 270;
 					if(Flipped != flip)
 						Flipped = flip;
-					if(currentAnimaion != "WalkUp" &&  walkAngle<= 180)
+					if(currentAnimaion != "WalkUp" &&  walkAngle <= 180)
 						PlayAnimation("WalkUp");
 					else if(currentAnimaion != "WalkDown" && walkAngle > 180)
 						PlayAnimation("WalkDown");

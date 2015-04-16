@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using Indigo.Masks;
 using MissTaryGame.Pathing;
 using Priority_Queue;
 
@@ -54,7 +55,7 @@ public static class Utility
 	/// <param name="path">Path to click map file</param>
 	/// <param name="pathGrid">Grid object to set</param>
 	/// <returns></returns>
-	public static bool[,] LoadAndProcessClickMap(string path/*, Grid pathGrid*/, PathNode[,] pathNodes, int tileSize)
+	public static void LoadAndProcessClickMap(string path, PathNode[,] pathNodes, Grid pathGrid, int tileSize)
 	{
 		var map = new SFML.Graphics.Image(path);
 		var clickMap = new bool[map.Size.X,map.Size.Y];
@@ -74,15 +75,12 @@ public static class Utility
 				{
 					yMax = tileSize * y + tileSize;
 					for(int yMap = tileSize * y; yMap < yMax; yMap++)
-					{
-						if(xMap < map.Size.X && yMap < map.Size.Y && (clickMap[xMap,yMap] = map.GetPixel((uint)xMap,(uint)yMap).B > 40))
+						if(xMap < map.Size.X && yMap < map.Size.Y && map.GetPixel((uint)xMap,(uint)yMap).B > 40)
 							totalTrue++;
-					}
 				}
-				pathNodes[x,y].Enabled = (totalTrue / totalPixelsInTile) >= .5f;
+				pathGrid.SetTile(x, y, pathNodes[x,y].Enabled = (totalTrue / totalPixelsInTile) >= .5f);
 			}
 		}
-		return clickMap;
 	}
 	
 	public static List<Tuple<PathNode, float>> SelectTilesAroundTile(int centerX, int centerY, PathNode[,] pathNodes)
@@ -124,31 +122,28 @@ public static class Utility
 		Dictionary<PathNode, PathNode> cameFrom = new Dictionary<PathNode, PathNode>();
 		Dictionary<PathNode, float> costSoFar = new Dictionary<PathNode, float>();
 
-		cameFrom.Add(startNode, null);
+		cameFrom.Add(startNode, startNode);
 		costSoFar.Add(startNode, 0);
 
-		if (startNode != endNode)
+		
+		while (frontier.Count > 0)
 		{
-			while (frontier.Count > 0)
+			PathNode current = frontier.Dequeue();
+			
+			if (current == endNode)
+				break;
+			//Console.WriteLine("Processing Node " + current.X + " " + current.Y);
+			foreach (var next in PathNode.ConnectedNodes[current])
 			{
-				PathNode current = frontier.Dequeue();
-				//Console.WriteLine("Processing Node " + current.X + " " + current.Y);
-				foreach (var next in PathNode.ConnectedNodes[current])
+				if(!next.Item1.Enabled)
+					continue;
+				float newCost = costSoFar[current] + next.Item2;
+				if (!costSoFar.ContainsKey(next.Item1) || newCost < costSoFar[next.Item1])
 				{
-					float newCost = costSoFar[current] + next.Item2;
-					if (!costSoFar.ContainsKey(next.Item1))
-						costSoFar.Add(next.Item1, newCost);
-					else if (newCost < costSoFar[next.Item1])
-						costSoFar[next.Item1] = newCost;
-					else
-						continue;
-					float priority = newCost + CalculateHeuristic(endNode.X, endNode.Y, startNode.X, startNode.Y);
+					costSoFar[next.Item1] = newCost;
+					float priority = newCost + CalculateHeuristic(next.Item1.X, next.Item1.Y, endNode.X, endNode.Y);
 					frontier.Enqueue(next.Item1, priority);
-					
-					if (cameFrom.ContainsKey(next.Item1))
-						cameFrom[next.Item1] = current;
-					else
-						cameFrom.Add(next.Item1, current);
+					cameFrom[next.Item1] = current;
 				}
 			}
 		}

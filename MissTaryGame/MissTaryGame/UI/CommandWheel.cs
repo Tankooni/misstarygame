@@ -22,6 +22,8 @@ namespace MissTaryGame.UI
 	/// </summary>
 	public class CommandWheel : Entity
 	{
+		public static bool IsOpen = false;
+		
 		public CommandData[] commands { get; set; }
 		public Image wheel;
 		
@@ -68,6 +70,8 @@ namespace MissTaryGame.UI
 			}
 			
 			AddComponent(gcommands);
+			ClampHorizontal(0, FP.Width, 100);
+			ClampVertical(0, FP.Height, 100);
 		}
 		
 		public override void Update() {
@@ -113,6 +117,17 @@ namespace MissTaryGame.UI
 			
 			//update last mouse
 			lastMouse = cMouse;
+		}
+		
+		public override void Added()
+		{
+			base.Added();
+			CommandWheel.IsOpen = true;
+		}
+		public override void Removed()
+		{
+			base.Removed();
+			CommandWheel.IsOpen = false;
 		}
 	}
 }
