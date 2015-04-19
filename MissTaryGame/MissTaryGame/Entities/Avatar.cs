@@ -107,14 +107,14 @@ namespace MissTaryGame
 					}
 					
 					var walkAngle = FP.Angle(this.X, this.Y, walkToX, walkToY);
-					
+					Console.WriteLine(walkAngle);
 					bool flip = walkAngle >= 90 && walkAngle <= 270;
 					if(Flipped != flip)
 						Flipped = flip;
-					if(currentAnimaion != "WalkUp" &&  walkAngle <= 180)
-						PlayAnimation("WalkUp");
-					else if(currentAnimaion != "WalkDown" && walkAngle > 180)
+					if(currentAnimaion != "WalkDown" && (walkAngle >= 180 || walkAngle == 0))
 						PlayAnimation("WalkDown");
+					else if(currentAnimaion != "WalkUp" &&  walkAngle < 180 && walkAngle > 0)
+						PlayAnimation("WalkUp");
 				}
 			}
 		}
