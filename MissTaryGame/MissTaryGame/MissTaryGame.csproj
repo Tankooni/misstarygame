@@ -11,6 +11,21 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <NoWin32Manifest>False</NoWin32Manifest>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -38,6 +53,9 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Indigo">
@@ -117,36 +135,45 @@
     <None Include="app.config" />
     <None Include="content\music\Symbiosis.ogg" />
     <None Include="content\music\WithACreation.ogg" />
-    <None Include="content\objects\Avatar\Idle\Idle1.png" />
-    <None Include="content\objects\Avatar\Idle\Idle2.png" />
-    <None Include="content\objects\Avatar\Idle\Idle3.png" />
-    <None Include="content\objects\Avatar\Idle\Idle4.png" />
+    <None Include="content\objects\AlphaTemplate_Exit_AreaToArea\MetaData.json" />
+    <None Include="content\objects\AlphaTemplate_Object\MetaData.json" />
+    <None Include="content\objects\AnsweringMachine\MetaData.json" />
     <None Include="content\objects\Avatar\MetaData.json" />
-    <None Include="content\objects\Avatar\WalkDown\WalkDown1.png" />
-    <None Include="content\objects\Avatar\WalkDown\WalkDown2.png" />
-    <None Include="content\objects\Avatar\WalkDown\WalkDown3.png" />
-    <None Include="content\objects\Avatar\WalkDown\WalkDown4.png" />
-    <None Include="content\objects\Avatar\WalkDown\WalkDown5.png" />
-    <None Include="content\objects\Avatar\WalkDown\WalkDown6.png" />
-    <None Include="content\objects\Avatar\WalkDown\WalkDown7.png" />
-    <None Include="content\objects\Avatar\WalkDown\WalkDown8.png" />
-    <None Include="content\objects\Avatar\WalkUp\WalkUp1.png" />
-    <None Include="content\objects\Avatar\WalkUp\WalkUp2.png" />
-    <None Include="content\objects\Avatar\WalkUp\WalkUp3.png" />
-    <None Include="content\objects\Avatar\WalkUp\WalkUp4.png" />
-    <None Include="content\objects\Avatar\WalkUp\WalkUp5.png" />
-    <None Include="content\objects\Avatar\WalkUp\WalkUp6.png" />
-    <None Include="content\objects\Avatar\WalkUp\WalkUp7.png" />
-    <None Include="content\objects\Avatar\WalkUp\WalkUp8.png" />
-    <None Include="content\objects\TV\Idle\Idle1.png" />
-    <None Include="content\objects\TV\Idle\Idle2.png" />
+    <None Include="content\objects\Bed\MetaData.json" />
+    <None Include="content\objects\Blockade\MetaData.json" />
+    <None Include="content\objects\Boxes\MetaData.json" />
+    <None Include="content\objects\Car1\MetaData.json" />
+    <None Include="content\objects\Car2\MetaData.json" />
+    <None Include="content\objects\Chairs\MetaData.json" />
+    <None Include="content\objects\Couch\MetaData.json" />
+    <None Include="content\objects\Curtains\MetaData.json" />
+    <None Include="content\objects\Door_Final\MetaData.json" />
+    <None Include="content\objects\Door_HospitalToHub\MetaData.json" />
+    <None Include="content\objects\Door_HubToCity\MetaData.json" />
+    <None Include="content\objects\Door_HubToHospital\MetaData.json" />
+    <None Include="content\objects\Door_HubToKidsRoom\MetaData.json" />
+    <None Include="content\objects\Door_LivingRoomToHub\MetaData.json" />
+    <None Include="content\objects\Dumpster\MetaData.json" />
+    <None Include="content\objects\Exit_City1ToCity2\MetaData.json" />
+    <None Include="content\objects\Exit_City2ToCity1\MetaData.json" />
+    <None Include="content\objects\Exit_CityToHub\MetaData.json" />
+    <None Include="content\objects\Exit_Hospital2ToHospital1\MetaData.json" />
+    <None Include="content\objects\Exit_HubToLivingRoom\MetaData.json" />
+    <None Include="content\objects\Exit_KidsRoomToHub\MetaData.json" />
+    <None Include="content\objects\HospitalWindow\MetaData.json" />
+    <None Include="content\objects\Kuma\MetaData.json" />
+    <None Include="content\objects\Nightstand\MetaData.json" />
+    <None Include="content\objects\PortraitStand\MetaData.json" />
+    <None Include="content\objects\SmashedPortrait\MetaData.json" />
+    <None Include="content\objects\Stegosaurus\MetaData.json" />
     <None Include="content\objects\TV\MetaData.json" />
+    <None Include="content\objects\Woman\MetaData.json" />
     <None Include="content\scenes\LivingRoom\Background.png" />
     <None Include="content\scenes\LivingRoom\Collision.png" />
     <None Include="content\scenes\LivingRoom\Foreground.png" />
     <None Include="content\scenes\LivingRoom\MetaData.json" />
     <None Include="content\scenes\LivingRoom\Perspective.png" />
-    <None Include="content\UI\TextBox\TektonPro-Bold.otf" />
+    <None Include="content\UI\Fonts\TektonPro-Bold.otf" />
     <None Include="content\white.png" />
     <None Include="csfml-audio-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -180,30 +207,109 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content\objects\" />
-    <Folder Include="content\objects\Avatar\" />
-    <Folder Include="content\objects\Avatar\" />
-    <Folder Include="content\objects\Avatar\" />
-    <Folder Include="content\" />
-    <Folder Include="content\objects\TV\" />
-    <Folder Include="content\" />
-    <Folder Include="content\" />
-    <Folder Include="content\objects\" />
-    <Folder Include="content\scenes\" />
-    <Folder Include="content\" />
-    <Folder Include="content\UI\" />
-    <Folder Include="content\UI\" />
-    <Folder Include="content\UI\" />
-    <Folder Include="content\UI\" />
-    <Folder Include="Json\" />
-    <Folder Include="Json\Models\" />
-    <Folder Include="Pathing" />
-    <Folder Include="Pathing\Visuals" />
+    <Folder Include="content\objects\TV\Idle\" />
+    <Folder Include="content\UI\TextBox\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Content Include="content\objects\AlphaTemplate_Avatar\MetaData.txt" />
+    <Content Include="content\objects\AnsweringMachine\Blinking\1.png" />
+    <Content Include="content\objects\AnsweringMachine\Blinking\2.png" />
+    <Content Include="content\objects\AnsweringMachine\Idle\1.png" />
+    <Content Include="content\objects\Avatar\Idle\1.png" />
+    <Content Include="content\objects\Avatar\Idle\2.png" />
+    <Content Include="content\objects\Avatar\Idle\3.png" />
+    <Content Include="content\objects\Avatar\Idle\4.png" />
+    <Content Include="content\objects\Avatar\WalkDown\1.png" />
+    <Content Include="content\objects\Avatar\WalkDown\2.png" />
+    <Content Include="content\objects\Avatar\WalkDown\3.png" />
+    <Content Include="content\objects\Avatar\WalkDown\4.png" />
+    <Content Include="content\objects\Avatar\WalkDown\5.png" />
+    <Content Include="content\objects\Avatar\WalkDown\6.png" />
+    <Content Include="content\objects\Avatar\WalkDown\7.png" />
+    <Content Include="content\objects\Avatar\WalkDown\8.png" />
+    <Content Include="content\objects\Avatar\WalkUp\1.png" />
+    <Content Include="content\objects\Avatar\WalkUp\2.png" />
+    <Content Include="content\objects\Avatar\WalkUp\3.png" />
+    <Content Include="content\objects\Avatar\WalkUp\4.png" />
+    <Content Include="content\objects\Avatar\WalkUp\5.png" />
+    <Content Include="content\objects\Avatar\WalkUp\6.png" />
+    <Content Include="content\objects\Avatar\WalkUp\7.png" />
+    <Content Include="content\objects\Avatar\WalkUp\8.png" />
+    <Content Include="content\objects\Bed\Idle\1.png" />
+    <Content Include="content\objects\Blockade\Idle\1.png" />
+    <Content Include="content\objects\Boxes\Idle\1.png" />
+    <Content Include="content\objects\Car1\Idle\1.png" />
+    <Content Include="content\objects\Car2\Idle\1.png" />
+    <Content Include="content\objects\Chairs\Idle\1.png" />
+    <Content Include="content\objects\Couch\Idle\1.png" />
+    <Content Include="content\objects\Curtains\Idle\1.png" />
+    <Content Include="content\objects\Curtains\Open\Open1.png" />
+    <Content Include="content\objects\Curtains\Open\Open2.png" />
+    <Content Include="content\objects\Curtains\Open\Open3.png" />
+    <Content Include="content\objects\Door_Final\Closed\1.png" />
+    <Content Include="content\objects\Door_Final\Open\Open.png" />
+    <Content Include="content\objects\Door_HospitalToHub\Idle\1.png" />
+    <Content Include="content\objects\Door_HubToCity\Closed\Closed.png" />
+    <Content Include="content\objects\Door_HubToCity\Open\Open.png" />
+    <Content Include="content\objects\Door_HubToHospital\Closed\Closed.png" />
+    <Content Include="content\objects\Door_HubToHospital\Open\Open.png" />
+    <Content Include="content\objects\Door_HubToKidsRoom\Closed\Closed.png" />
+    <Content Include="content\objects\Door_HubToKidsRoom\Open\Open.png" />
+    <Content Include="content\objects\Door_LivingRoomToHub\Closed\Closed.png" />
+    <Content Include="content\objects\Door_LivingRoomToHub\Open\Open.png" />
+    <Content Include="content\objects\Dumpster\Idle\1.png" />
+    <Content Include="content\objects\Exit_City1ToCity2\Idle\1.png" />
+    <Content Include="content\objects\Exit_City2ToCity1\Idle\1.png" />
+    <Content Include="content\objects\Exit_CityToHub\Idle\1.png" />
+    <Content Include="content\objects\Exit_Hospital2ToHospital1\State1\1.png" />
+    <Content Include="content\objects\Exit_Hospital2ToHospital1\State2\1.png" />
+    <Content Include="content\objects\Exit_HubToLivingRoom\Idle\1.png" />
+    <Content Include="content\objects\Exit_HubToLivingRoom\MetaData.txt" />
+    <Content Include="content\objects\Exit_KidsRoomToHub\Idle\1.png" />
+    <Content Include="content\objects\HospitalWindow\Idle\1.png" />
+    <Content Include="content\objects\Kuma\Idle\1.png" />
+    <Content Include="content\objects\Nightstand\Idle\1.png" />
+    <Content Include="content\objects\PortraitStand\Idle\1.png" />
+    <Content Include="content\objects\SmashedPortrait\Idle\1.png" />
+    <Content Include="content\objects\Stegosaurus\State1\1.png" />
+    <Content Include="content\objects\Stegosaurus\State2\1.png" />
+    <Content Include="content\objects\Stegosaurus\State3\1.png" />
+    <Content Include="content\objects\Stegosaurus\State4\1.png" />
+    <Content Include="content\objects\Woman\Idle\1.png" />
+    <Content Include="content\sounds\footstepL.wav" />
+    <Content Include="content\sounds\footstepQ.wav" />
+    <Content Include="content\sounds\sources.txt" />
+    <Content Include="content\UI\CommandWheel\Goto.png" />
+    <Content Include="content\UI\CommandWheel\Look.png" />
+    <Content Include="content\UI\CommandWheel\PickUp.png" />
+    <Content Include="content\UI\CommandWheel\Talk.png" />
+    <Content Include="content\UI\CommandWheel\Use.png" />
+    <Content Include="content\UI\CommandWheel\Wheel.png" />
+    <Content Include="content\UI\Cursor\Cursor01.png" />
+    <Content Include="content\UI\Cursor\Cursor02.png" />
+    <Content Include="content\UI\Inventory\EmptyItem.png" />
+    <Content Include="content\UI\Inventory\FullItem.png" />
+    <Content Include="content\UI\Inventory\InventoryButtonLeft.png" />
+    <Content Include="content\UI\Inventory\InventoryButtonRight.png" />
+    <Content Include="content\UI\Inventory\InventoryTab.png" />
     <Content Include="libcsfml-graphics.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>echo D|C:\Windows\System32\xcopy $(ProjectDir)content $(TargetDir)content /s /e /q /y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -17,7 +17,7 @@ public static class SoundManager
 	public static void Init(float musicVolume)
 	{
 		MusicVolume = FP.Clamp(musicVolume, 0, 1);
-		foreach (string file in Utility.RetrieveFilePathForFilesInDirectory(@"./content/music", @"*.ogg|*.wav"))
+        foreach (string file in Utility.RetrieveFilePathForFilesInDirectory(@"./content/music", @"*.ogg|*.wav"))
 		{
 			var sound = new Sound(Library.GetSoundStream(file));
 			sound.OnComplete += PlayMusic;
