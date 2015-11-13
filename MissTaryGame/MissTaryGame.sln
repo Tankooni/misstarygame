@@ -1,10 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-# SharpDevelop 5.1
-VisualStudioVersion = 12.0.20827.3
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissTaryGame", "MissTaryGame\MissTaryGame.csproj", "{BC03C1C8-75BB-4D41-99AB-A701C7B428D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissTarryEditor", "..\..\..\Desktop\Dean_Games\MissTarryEditor\MissTarryEditor\MissTarryEditor.csproj", "{9832D9C7-4B98-4ABF-8E7E-FAFAD806A07C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,5 +17,12 @@ Global
 		{BC03C1C8-75BB-4D41-99AB-A701C7B428D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC03C1C8-75BB-4D41-99AB-A701C7B428D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC03C1C8-75BB-4D41-99AB-A701C7B428D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9832D9C7-4B98-4ABF-8E7E-FAFAD806A07C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9832D9C7-4B98-4ABF-8E7E-FAFAD806A07C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9832D9C7-4B98-4ABF-8E7E-FAFAD806A07C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9832D9C7-4B98-4ABF-8E7E-FAFAD806A07C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
