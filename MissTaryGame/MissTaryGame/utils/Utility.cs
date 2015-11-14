@@ -5,6 +5,7 @@ using System.IO;
 using Indigo.Masks;
 using MissTaryGame.Pathing;
 using Priority_Queue;
+using MissTaryGame.Json.Models;
 
 public static class Utility
 {
@@ -14,7 +15,8 @@ public static class Utility
 	public const int MIDDLE_UI_LAYER = 20;
 	public const int FOREGROUND_LAYER = 49;
 	public const int BACKGROUND_LAYER = 1001;
-	
+
+    public static MainConfig MainConfig;
 	
 	/// <summary>
 	/// Returns all files in a folder using one or more search filters.

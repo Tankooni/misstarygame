@@ -28,8 +28,10 @@ namespace MissTaryGame
 	{
 		private Text start;
         private Text instructions;
+
 		public StartScreenWorld()
 		{
+            Utility.MainConfig = JsonLoader.Load<MainConfig>("MainConfig");
             start = new Text("Start [Enter]");
             start.X = (FP.Width / 2) - (start.Width / 2);
             start.Y = (FP.Height / 3) + 25;
@@ -82,7 +84,7 @@ namespace MissTaryGame
 		{
 			base.Update();
             if (Keyboard.Return.Pressed)
-                FP.World = new DynamicSceneWorld();
+                FP.World = new DynamicSceneWorld(Utility.MainConfig.StartingScene, Utility.MainConfig.SpawnEntrance);
 
 //            if (Keyboard.Space.Pressed)
 //                FP.World = new InstructionsScreenWorld();

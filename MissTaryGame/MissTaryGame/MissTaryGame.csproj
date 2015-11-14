@@ -113,6 +113,7 @@
     <Compile Include="Json\Models\IAction.cs" />
     <Compile Include="Json\Models\InteractiveObjectData.cs" />
     <Compile Include="Json\Models\InteractiveObjectRef.cs" />
+    <Compile Include="Json\Models\MainConfig.cs" />
     <Compile Include="Json\Models\Region.cs" />
     <Compile Include="Json\Models\SceneData.cs" />
     <Compile Include="Pathing\PathNode.cs" />

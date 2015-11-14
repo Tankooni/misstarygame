@@ -29,7 +29,7 @@ namespace MissTaryGame
 		public Dictionary<string, GameEvent> uncompletedEvents;
 		public Dictionary<string, GameEvent> completedEvents = new Dictionary<string, GameEvent>();
 		
-		public DynamicSceneWorld()
+		public DynamicSceneWorld(string startingScene, string spawnEntrance)
 		{
 			avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar", new float[1,1]{{1}});
 			avatar.PlayAnimation("Idle");
@@ -51,7 +51,7 @@ namespace MissTaryGame
 			
 			uncompletedEvents = GameEvent.loadGameEvents("./content/events/");
 			
-			LoadScene("LivingRoom", "Spawn");
+			LoadScene(startingScene, spawnEntrance);
 		}
 		
 		public override void Update()
@@ -81,11 +81,6 @@ namespace MissTaryGame
 			
 			if(Keyboard.I.Pressed)
 				VeryGenericInventorySystem.IsActive = !VeryGenericInventorySystem.IsActive;
-			
-			if(Keyboard.Q.Pressed)
-				LoadScene("ExampleScene", "Spawn");
-			if(Keyboard.E.Pressed)
-				LoadScene("LivingRoom", "Spawn");
 		}
 		
 		public void LoadScene(string sceneName, string entrance)
