@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using Indigo;
 using Indigo.Graphics;
 using Indigo.Inputs;
-using Font = SFML.Graphics.Font;
+using Indigo.Content;
 
 namespace MissTaryGame.UI
 {
@@ -51,9 +51,9 @@ namespace MissTaryGame.UI
 			foreach( string s in words ) {
 				int word_width = 0;
 				foreach( char c in s ) {
-					word_width += font.GetGlyph((uint)c, (uint)fontSize, false).Advance;
+					word_width += font.GetGlyphAdvance(c, fontSize, false);
 				}
-				current_width += word_width + font.GetGlyph((uint)' ', (uint)fontSize, false).Advance;
+				current_width += word_width + font.GetGlyphAdvance(' ', fontSize, false);
 				
 				//add it to the current line if it is
 				if(current_width < box.Width - hPadding) {
@@ -70,11 +70,11 @@ namespace MissTaryGame.UI
 		public void show() {
 			int i;
 			for(i = 0; i < lines.Count; i++ ) {
-				if( (font.GetLineSpacing((uint)fontSize) + vPadding) * (i+1) > box.Height ) {
+				if( (font.GetLineSpacing(fontSize) + vPadding) * (i+1) > box.Height ) {
 					break;
 				}
 				
-				var img_text = new Text(lines[i], hPadding, font.GetLineSpacing((uint)fontSize)*i + vPadding);
+				var img_text = new Text(lines[i], hPadding, font.GetLineSpacing(fontSize)*i + vPadding);
 				img_text.Font = Library.GetFont("./content/UI/Fonts/TektonPro-Bold.otf");
 				img_text.Size = fontSize;
 				AddComponent(img_text);

@@ -132,7 +132,9 @@ namespace MissTaryGame
 				interactiveObject.InventoryObject = true;
 				interactiveObject.Layer = Utility.MIDDLE_UI_LAYER-1;
 				avatar.Inventory.Add(interactiveObject);
-				World.Add(interactiveObject);
+                //if(World.)
+                //World.Remove(interactiveObject);
+                //World.Add(interactiveObject);
 				IsActive = IsActive;
 			}
 //			interactiveObject.Scale = 

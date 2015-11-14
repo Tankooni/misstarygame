@@ -55,7 +55,7 @@ public static class SoundManager
 	/// <param name="maxVolume">0 to 1</param>
 	public static void PlaySoundVariations(string soundName, float minimumVolume, float maxVolume)
 	{
-		sounds[soundName].Volume = (FP.Rand((int)((maxVolume-minimumVolume)*100.0f))/100.0f)+minimumVolume;
+		sounds[soundName].Volume = (FP.Random.Float((int)((maxVolume-minimumVolume)*100.0f))/100.0f)+minimumVolume;
 		//sounds[soundName].Volume = (FP.Rand(100 - (int)minimumVolume*100) + (int)minimumVolume)/100.0f;
 		sounds[soundName].Play();
 	}
