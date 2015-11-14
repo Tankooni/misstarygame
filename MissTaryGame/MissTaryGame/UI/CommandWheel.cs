@@ -40,7 +40,7 @@ namespace MissTaryGame.UI
 			
 			//Make the wheel
 			wheel = new Image(Library.GetTexture("./content/UI/CommandWheel/Wheel.png"));
-			wheel.CenterOO();
+			wheel.CenterOrigin();
 			
 			X = Mouse.ScreenX;
 			Y = Mouse.ScreenY;
@@ -58,7 +58,7 @@ namespace MissTaryGame.UI
 				
 				foreach(var c in commands) {
 					Image img = new Image(Library.GetTexture("./content/UI/CommandWheel/" + c.Name + ".png"));
-					img.CenterOO();
+					img.CenterOrigin();
 					img.Y = -wheel.Height/2 + img.Height/2;
 					FP.AngleXY(ref img.X, ref img.Y, deg, wheel.Height/2 - img.Height/2);
 					
