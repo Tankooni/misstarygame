@@ -9,6 +9,7 @@ using MissTaryGame.Pathing;
 using MissTaryGame.UI;
 using MissTaryGame.Json;
 using MissTaryGame.Json.Models;
+using System.IO;
 
 namespace MissTaryGame
 {
@@ -92,8 +93,11 @@ namespace MissTaryGame
             {
                 JsonWriter.Save(SaveType.Scenes, metaData, metaData.FolderName);
             }
-
-			metaData = JsonLoader.Load<SceneData>("scenes/" + sceneName + "/MetaData");
+            string newMetaPath = "scenes/" + sceneName + "/MetaData";
+            if (File.Exists(JsonLoader.PATH_PREFIX + JsonWriter.SAVE_PREFIX + newMetaPath + JsonLoader.RESOURCE_EXT))
+            { }
+                
+            metaData = JsonLoader.Load<SceneData>(newMetaPath);
             metaData.FolderName = sceneName;
             float[,] perspectiveMap = avatar.PerspectiveMap = Utility.LoadAndProcessPerspectiveMap("content/scenes/" + sceneName + "/" + metaData.Perspective, 0.1f, 0.9f);
 			
