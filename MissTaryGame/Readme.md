@@ -13,8 +13,8 @@ All metadata is saved in json format. The base of the file should contain exactl
 ### Master Metadata ###
 There should be exactly 1 master metadata file for the project as a whole. It should define the following attributes:
 
-- StartingScene (string, name of scene)
-- 
+- StartingScene (string, name of folder for scene)
+- SpawnEntrance (string, name of entrance defined in the scene's metadata)
 
 ### Scene Metadata ###
 This metadata is tied to a scene. It should define the following attributes:
@@ -30,6 +30,7 @@ This metadata is tied to a scene. It should define the following attributes:
         - X
         - Y
     - DefaultAnimation (string, name of strarting animation. Must be an animation of the object)
+    - Attributes (object, key:value pairs describing attributes for the in game object)
 - Entrances (object, places a player can spawn in the scene)
     - Name (string): {"X": int, "Y", int}
 
@@ -37,14 +38,14 @@ This metadata is tied to a scene. It should define the following attributes:
 This metadata should be tied to any entity. It should define the following attributes:
 
 - Name (string)
-- FrameSize (Object)
+- FrameSize (Object, size of one frame)
     - X (int, width of object)
     - Y (int, height of object)
 - HotSpot (object, centered at the base of the object)
     - X (int, horizontal position)
     - Y (int, vertical position)
 - Scaling (bool, true if it should be scaled in the scene)
-- Animations (array of objects)
+- Animations (array of objects, must corrilate to an animation folder in the object's directory)
     - Name (string, name of animation)
     - FPS (int, speed of animation)
     - Frames (int, number of frames in the animation)
@@ -63,7 +64,78 @@ These are the availible actions:
 Displays a text box and prevents the player from moving until it is finished.
 
 Arguments:
+
 - Text (string, what text to display)
 - Speaker (string, name of the person/object speaking)
-- SpeakerSprite (string, path to sprite for the speaker. Overrides the default)
+- SpeakerSprite (string, path to sprite for the speaker. Overrides the default, NOT IMPLEMENTED YET)
 
+### AddObjectToInventory ###
+Adds the given object to the player's inventory.
+
+Arguments:
+
+- RemoveParent (bool, if true, removes the parent object on pickup, defaults to true)
+- ObjectPickedUp (string, name of object to add to inventory. Defaults to parent object)
+
+### RemoveObjectFromInventory ###
+Removes an object intance from the player's inventory.
+
+Arguments:
+
+- InstanceName (string, name of instance to remove)
+
+### AddObjectToScene ###
+Adds a new instance of an object to the current scene.
+
+Arguments:
+
+- ObjectName (string, name of object to create. Must exist)
+- InstanceName (string, name of object instance. Cannot be a duplicate?)
+- Position (object, X/Y position to place the object in the scene)
+    - X (int)
+    - Y (int)
+
+### RemoveObjectFromScene ###
+Removes a object instance from the current scene.
+
+Arguments:
+
+- InstanceName (string, name of instance to remove)
+
+### Goto ###
+Changes the current scene and places the player at the given entrance.
+
+Arguments:
+
+- SceneName (string, name of scene to move to. Must exist)
+- EntranceName (string, name of entrance to spawn at. Must exist)
+
+### CompleteEvent ###
+Marks an event as completed.
+
+Arguments:
+
+- EventName (string, name of the event to complete)
+
+## Folder structure ##
+All assets should be defined in the follow structure, from the root content directory:
+
+- events/
+    - TBD
+- music/
+    - <All music files in .ogg format>
+- objects/
+    - <All game object folders>
+        - MetaData.json
+        - <Folders for each of the object's animations>
+            - <Each frame of the animation named by number>
+- scenes/
+    - <All scene folders>
+        - MetaData.json
+        - <All files/folders used in the scene's metadata> 
+- sounds/
+    - <All sound effect files>
+- UI/
+    - <All folders for UI elements>
+        - <All assets for the this UI element>
+- MainConfig.json

@@ -38,7 +38,7 @@
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <StartAction>Project</StartAction>
-    <StartWorkingDirectory>./</StartWorkingDirectory>
+    <StartWorkingDirectory>C:\Users\Lindenk\Projects\misstarygarm\MissTaryGame\MissTaryGame</StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>
