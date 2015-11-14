@@ -16,4 +16,11 @@ namespace MissTaryGame.Json
 
         //}
     }
+
+    public enum SaveType
+    {
+        Scene,
+        Player,
+        Main
+    }
 }
