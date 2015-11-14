@@ -98,6 +98,7 @@
     <Compile Include="Entities\InteractiveObject.cs" />
     <Compile Include="Entities\Inventory.cs" />
     <Compile Include="Json\JsonLoader.cs" />
+    <Compile Include="Json\JsonWriter.cs" />
     <Compile Include="Json\Models\Action.cs" />
     <Compile Include="Json\Models\Actions\ActionAddObjectToInventory.cs" />
     <Compile Include="Json\Models\Actions\ActionAddObjectToWorld.cs" />
