@@ -31,7 +31,7 @@ namespace MissTaryGame
 		
 		public DynamicSceneWorld(string startingScene, string spawnEntrance)
 		{
-			avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar", new float[1,1]{{1}});
+			avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar", new float[1,1]{{1}}, new InteractiveObjectRef());
 			avatar.PlayAnimation("Idle");
 			
 			cursor = new Cursor();
@@ -86,9 +86,16 @@ namespace MissTaryGame
 		public void LoadScene(string sceneName, string entrance)
 		{
 			RemoveAll();
-			
+
+            //SAVE STUFF
+            if (metaData != null)
+            {
+                JsonWriter.Save(SaveType.Scenes, metaData, metaData.FolderName);
+            }
+
 			metaData = JsonLoader.Load<SceneData>("scenes/" + sceneName + "/MetaData");
-			float[,] perspectiveMap = avatar.PerspectiveMap = Utility.LoadAndProcessPerspectiveMap("content/scenes/" + sceneName + "/" + metaData.Perspective, 0.1f, 0.9f);
+            metaData.FolderName = sceneName;
+            float[,] perspectiveMap = avatar.PerspectiveMap = Utility.LoadAndProcessPerspectiveMap("content/scenes/" + sceneName + "/" + metaData.Perspective, 0.1f, 0.9f);
 			
 			Utility.LoadAndProcessClickMap("content/scenes/" + sceneName + "/" + metaData.Collision, pathNodes, nodeGrid, TileSize);
 			Add(nodeGridEntity);
@@ -100,13 +107,12 @@ namespace MissTaryGame
 			
 			foreach(var sceneObject in metaData.Objects)
 			{
-				var interactiveObject = new InteractiveObject(JsonLoader.Load<InteractiveObjectData>(@"objects/" + sceneObject.Name + @"/MetaData"), sceneObject.Name, perspectiveMap);
+				var interactiveObject = new InteractiveObject(JsonLoader.Load<InteractiveObjectData>(@"objects/" + sceneObject.Name + @"/MetaData"), sceneObject.Name, perspectiveMap, sceneObject);
 				interactiveObject.X = sceneObject.Position.X;
 				interactiveObject.Y = sceneObject.Position.Y;
 				interactiveObject.PlayAnimation(sceneObject.defaultAnimation);
 				this.Add(interactiveObject);
 			}
-			
 			
 			//put the player at an entrance
 			var entryPoint = metaData.Entrances[entrance];
@@ -120,6 +126,10 @@ namespace MissTaryGame
 			if(metaData.Foreground != null)
 				foreground.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));
 			Add(foreground);
-		}
+
+            Utility.MainConfig.StartingScene = sceneName;
+            Utility.MainConfig.SpawnEntrance = entrance;
+            JsonWriter.Save(SaveType.MainConfig, Utility.MainConfig, "");
+        }
 	}
 }

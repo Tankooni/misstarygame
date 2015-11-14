@@ -22,8 +22,8 @@ namespace MissTaryGame
 		
 		private Dictionary<Region, bool> wasInRegion = new Dictionary<Region, bool>();
 		
-		public Avatar(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap)
-			:base(metaData, objectName, perspectiveMap)
+		public Avatar(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap, InteractiveObjectRef interactiveObjectRef)
+			:base(metaData, objectName, perspectiveMap, interactiveObjectRef)
 		{
 		}
 		

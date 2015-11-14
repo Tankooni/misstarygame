@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Indigo;
-using Indigo.Inputs;
+using Indigo.Core;
 using Indigo.Graphics;
 using System.Linq;
 using MissTaryGame.Json.Models;
@@ -86,11 +86,12 @@ namespace MissTaryGame
 		public bool InventoryObject = false;
 		
 		protected Dictionary<string, List<int>> footFallFrames = new Dictionary<string, List<int>>();
-		
-		public InteractiveObject(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap)
+        protected InteractiveObjectRef interactiveObjectRef;
+
+        public InteractiveObject(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap, InteractiveObjectRef interactiveObjectRef)
 		{
-			this.PerspectiveMap = perspectiveMap;
-			//sprite = new Indigo.Graphics.Spritemap(Library.GetTexture("content/Avatar/Idle/Idle1.png"), 148, 332);
+            this.interactiveObjectRef = interactiveObjectRef;
+            this.PerspectiveMap = perspectiveMap;
 			this.Type = INTERACTIVE_ENTITY_TYPE;
 			images = new List<Image>();
 			MetaData = metaData;
@@ -121,8 +122,6 @@ namespace MissTaryGame
 				}
 				totalFrames += frameNumber;
 			}
-//			foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@".\content\Avatar\WalkDown", "*.png"))
-//				images.Add(new Image(Library.GetTexture(path)));
 			sprite = new Flipbook(images.Cast<Graphic>().ToArray());
 			
 			int currentTotalFrames = 0;
@@ -147,7 +146,8 @@ namespace MissTaryGame
 		
 		public void PlayAnimation(string animation)
 		{
-			sprite.Play(animation);
+            interactiveObjectRef.defaultAnimation = animation;
+            sprite.Play(animation);
 		}
 		
 		public string CheckAnimation()
@@ -169,6 +169,7 @@ namespace MissTaryGame
 		{
 			this.MoveTowards(x1, y1, d);
 			UpdateLayer();
+            interactiveObjectRef.Position = new Point(X, Y);
 		}
 	}
 }

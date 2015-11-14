@@ -32,7 +32,6 @@ namespace MissTaryGame
 		public StartScreenWorld()
 		{
             Utility.MainConfig = JsonLoader.Load<MainConfig>("MainConfig");
-            JsonWriter.TestWrite();
             start = new Text("Start [Enter]");
             start.X = (FP.Width / 2) - (start.Width / 2);
             start.Y = (FP.Height / 3) + 25;
