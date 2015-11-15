@@ -40,10 +40,10 @@ public static class SoundManager
 
     public static void PlayMusic(string music)
 	{
-        Utility.MainConfig.CurrentMusic = CloboboboSongName = "Symbiosis";
+        Utility.MainConfig.CurrentMusic = CloboboboSongName = music;
         if (CurrentSong != null)
 			CurrentSong.Stop();
-        Sound newSong = musics["Symbiosis"];
+        Sound newSong = musics[music];
 		newSong.Volume = MusicVolume;
 		CurrentSong = newSong;
 		CurrentSong.Play();
