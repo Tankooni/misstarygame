@@ -1,4 +1,5 @@
 {
 	"StartingScene": "North3",
-	"SpawnEntrance": "Spawn"
+	"SpawnEntrance": "Spawn",
+	"CurrentMusic": "Minor-Low-Tempo"
 }

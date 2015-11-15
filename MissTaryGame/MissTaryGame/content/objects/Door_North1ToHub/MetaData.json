@@ -1,0 +1,36 @@
+{
+	"Name": "Door_North1ToHub",
+	"FrameSize": {
+		"X": 637,
+		"Y": 73
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle",
+		"Frames": 1,
+		"FPS": 1,
+		"FootStepFrames": []
+	}],
+	"Commands":
+	[
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "Hub",
+						"Entrance": "Exit_North1ToHub"
+					}
+				}
+			]
+		}
+	]
+}

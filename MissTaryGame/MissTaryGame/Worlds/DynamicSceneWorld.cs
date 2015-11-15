@@ -96,6 +96,7 @@ namespace MissTaryGame
 
         public void LoadScene(string sceneName, string entrance)
 		{
+            avatar.CancelWalk();
             //RemoveList();
             RemoveAll();
             //UpdateLists();
