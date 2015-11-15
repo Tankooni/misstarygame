@@ -48,7 +48,7 @@ namespace MissTaryGame
 			nodeGridEntity = new Entity();
 			nodeGridEntity.AddComponent<Grid>(nodeGrid = new Grid(FP.Width, FP.Height, TileSize, TileSize));
 			nodeGridEntity.Type = "ClickMap";
-			Add(nodeGridEntity);
+			//Add(nodeGridEntity);
 			
 			uncompletedEvents = GameEvent.loadGameEvents("./content/events/");
 			
@@ -98,6 +98,7 @@ namespace MissTaryGame
 		{
             //RemoveList();
             RemoveAll();
+            //UpdateLists();
 
             //SAVE STUFF
             if (metaData != null)

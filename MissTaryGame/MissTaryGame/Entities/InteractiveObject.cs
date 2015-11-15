@@ -149,8 +149,6 @@ namespace MissTaryGame
 			base.Update();
 			if(!InventoryObject && MetaData.Scaling)
 				this.Scale = PerspectiveMap[(int)this.X, (int)this.Y];
-			if(InventoryObject)
-				Console.WriteLine(MetaData.Name + " " + this.X + " " + this.Y);
 		}
 		
 		public void PlayAnimation(string animation)

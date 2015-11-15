@@ -27,6 +27,7 @@ namespace MissTaryGame
 			base(1136, 640, 60)
 		{
 			FP.Console.Enable();
+            FP.Console.MirrorToSystemOut = true;
 			FP.Console.ToggleKey = Keyboard.Tilde;
 			FP.Screen.ClearColor = new Color(0x000000);
 			Mouse.CursorVisible = false;

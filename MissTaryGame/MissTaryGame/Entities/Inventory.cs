@@ -80,17 +80,29 @@ namespace MissTaryGame
 			{
 				avatar.Inventory[i].X = itemPostions[i-start].X;
 				avatar.Inventory[i].Y = itemPostions[i-start].Y;
-			}
+                avatar.Inventory[i].Layer = Utility.MIDDLE_UI_LAYER - 1;
+
+                //if (avatar.Inventory[i].World == null)
+                //{
+                //    Console.WriteLine("adding in update: " + avatar.Inventory[i].InteractiveObjectRef.Name);
+                //    DSW.Add(avatar.Inventory[i]);
+                //}
+            }
 		}
 		
 		public override void Added()
 		{
-			base.Added();
-			foreach(var interactiveObject in avatar.Inventory)
+            base.Added();
+            foreach (var interactiveObject in avatar.Inventory)
 			{
                 if (interactiveObject.World != null)
+                {
+                    Console.WriteLine("Skipping: " + interactiveObject.InteractiveObjectRef.Name);
                     continue;
+                }
+                
 				DSW.Add(interactiveObject);
+                Console.WriteLine("Re-adding: " + interactiveObject.InteractiveObjectRef.Name);
 				interactiveObject.InventoryObject = true;
 				interactiveObject.Layer = Utility.MIDDLE_UI_LAYER-1;
 			}
@@ -99,8 +111,8 @@ namespace MissTaryGame
 		public override void Removed()
 		{
 			base.Removed();
-			foreach(var interactiveObject in avatar.Inventory)
-				DSW.Remove(interactiveObject);
+			//foreach(var interactiveObject in avatar.Inventory)
+			//	DSW.Remove(interactiveObject);
 		}
 		
 		public void NextPage()
@@ -133,9 +145,6 @@ namespace MissTaryGame
 				interactiveObject.InventoryObject = true;
 				interactiveObject.Layer = Utility.MIDDLE_UI_LAYER-1;
 				avatar.Inventory.Add(interactiveObject);
-                //if(World.)
-                //World.Remove(interactiveObject);
-                //World.Add(interactiveObject);
 				IsActive = IsActive;
 			}
 //			interactiveObject.Scale = 
