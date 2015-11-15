@@ -20,6 +20,7 @@ namespace MissTaryGame.Json.Models
 		public string Name { get; set; }
 		public AnimationData[] Animations { get; set; }
 		public CommandData[] Commands { get; set; }
+        public Dictionary<string, int> Attributes { get; set; }
 		//public Combination[] Combinations { get; set; }
 		public Point FrameSize { get; set; }
 		public Point HotSpot { get; set; }

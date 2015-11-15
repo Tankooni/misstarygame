@@ -5,6 +5,7 @@ using Indigo;
 using MissTaryGame.Pathing;
 using MissTaryGame.Json.Models;
 using Action = MissTaryGame.Json.Models.Action;
+using Indigo.Inputs;
 
 namespace MissTaryGame
 {
@@ -25,7 +26,9 @@ namespace MissTaryGame
 		public Avatar(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap, InteractiveObjectRef interactiveObjectRef)
 			:base(metaData, objectName, perspectiveMap, interactiveObjectRef)
 		{
-		}
+            if (!interactiveObjectRef.Attributes.ContainsKey("AvatarSpriteState"))
+                interactiveObjectRef.Attributes.Add("AvatarSpriteState", 0);
+        }
 		
 		public override void Added()
 		{
@@ -49,6 +52,23 @@ namespace MissTaryGame
 		public override void Update()
 		{
 			base.Update();
+            var currentAnimaion = this.CheckAnimation();
+
+            if (Keyboard.Space.Pressed)
+            {
+                if (InteractiveObjectRef.Attributes["AvatarSpriteState"] == 0)
+                    InteractiveObjectRef.Attributes["AvatarSpriteState"] = 1;
+                else
+                    InteractiveObjectRef.Attributes["AvatarSpriteState"] = 0;
+            }
+            
+            if (InventoryObject)
+            {
+                if (currentAnimaion != "Idle" + InteractiveObjectRef.Attributes["AvatarSpriteState"])
+                    PlayAnimation("Idle" + InteractiveObjectRef.Attributes["AvatarSpriteState"]);
+                return;
+            }
+
 			if(IsMoving)
 			{
 				this.MoveToward(walkToX, walkToY, FP.Elapsed * this.MoveSpeedX, FP.Elapsed * this.MoveSpeedY);
@@ -74,7 +94,7 @@ namespace MissTaryGame
 				}
 				
 				//Animation stuff
-				var currentAnimaion = this.CheckAnimation();
+				
 				List<int> footFallFrameNumbers;
 				footFallFrames.TryGetValue(currentAnimaion, out footFallFrameNumbers);
 				if(footFallFrameNumbers != null && footFallFrameNumbers.Contains(sprite.Frame) && lastFootFrame != sprite.Frame)
@@ -94,8 +114,8 @@ namespace MissTaryGame
 						}
 						else
 						{
-							PlayAnimation("Idle");
-							pathNodes = null;
+							PlayAnimation("Idle" + InteractiveObjectRef.Attributes["AvatarSpriteState"]);
+                            pathNodes = null;
 							IsMoving = false;
 							return;
 						}
@@ -103,15 +123,14 @@ namespace MissTaryGame
 					}
 					
 					var walkAngle = FP.Angle(this.X, this.Y, walkToX, walkToY);
-					Console.WriteLine(walkAngle);
 					bool flip = walkAngle >= 90 && walkAngle <= 270;
 					if(Flipped != flip)
 						Flipped = flip;
 
-                    if (currentAnimaion != "WalkDown" && (walkAngle >= 0 && walkAngle <= 180))
-                        PlayAnimation("WalkDown");
-                    else if (currentAnimaion != "WalkUp" && walkAngle > 180 && walkAngle < 360)
-                        PlayAnimation("WalkUp");
+                    if (currentAnimaion != ("WalkDown" + InteractiveObjectRef.Attributes["AvatarSpriteState"]) && (walkAngle >= 0 && walkAngle <= 180))
+                        PlayAnimation("WalkDown" + InteractiveObjectRef.Attributes["AvatarSpriteState"]);
+                    else if (currentAnimaion != ("WalkUp" + +InteractiveObjectRef.Attributes["AvatarSpriteState"]) && walkAngle > 180 && walkAngle < 360)
+                        PlayAnimation("WalkUp" + InteractiveObjectRef.Attributes["AvatarSpriteState"]);
 				}
 			}
 		}
@@ -121,7 +140,7 @@ namespace MissTaryGame
 			pathNodes = nodes.GetEnumerator();
 			if(!pathNodes.MoveNext())
 			{
-				PlayAnimation("Idle");
+				PlayAnimation("Idle" + InteractiveObjectRef.Attributes["AvatarSpriteState"]);
 				IsMoving = false;
 				pathNodes= null;
 				return;

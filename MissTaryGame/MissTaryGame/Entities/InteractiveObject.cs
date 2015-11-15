@@ -86,54 +86,63 @@ namespace MissTaryGame
 		public bool InventoryObject = false;
 		
 		protected Dictionary<string, List<int>> footFallFrames = new Dictionary<string, List<int>>();
-        protected InteractiveObjectRef interactiveObjectRef;
+        public InteractiveObjectRef InteractiveObjectRef;
 
         public InteractiveObject(InteractiveObjectData metaData, string objectName, float[,] perspectiveMap, InteractiveObjectRef interactiveObjectRef)
-		{
-            this.interactiveObjectRef = interactiveObjectRef;
+        {
+            InteractiveObjectRef = interactiveObjectRef;
             this.PerspectiveMap = perspectiveMap;
-			this.Type = INTERACTIVE_ENTITY_TYPE;
-			images = new List<Image>();
-			MetaData = metaData;
-			
-			if(MetaData.Commands != null) {
-				foreach( var c in MetaData.Commands ) {
-					c.parent = this;
-				}
-			}
-			
-			int totalFrames = 0;
-			foreach(var animation in MetaData.Animations)
-			{
-				int frameNumber = 0;
-				foreach(string path in Utility.RetrieveFilePathForFilesInDirectory(@"./content/objects/" + objectName + @"/" + animation.Name, "*.png"))
-				{
-					images.Add(new Image(Library.GetTexture(path)){ Scale = scale , OriginX = MetaData.HotSpot.X, OriginY = MetaData.HotSpot.Y});
-					if(animation.FootStepFrames != null && animation.FootStepFrames.Contains(frameNumber+1))
-					{
-						int frame = frameNumber + totalFrames;
-						if(!footFallFrames.ContainsKey(animation.Name))
-							footFallFrames.Add(animation.Name, new List<int>{frame});
-						else
-							footFallFrames[animation.Name].Add(frame);
-					}
-					
-					frameNumber++;
-				}
-				totalFrames += frameNumber;
-			}
-			sprite = new Flipbook(images.Cast<Graphic>().ToArray());
-			
-			int currentTotalFrames = 0;
-			foreach(var animation in MetaData.Animations)
-				sprite.Add(animation.Name, FP.MakeFrames(currentTotalFrames, (currentTotalFrames += animation.Frames)-1), animation.FPS, true);
-			AddComponent(sprite);
-			this.OriginX = MetaData.HotSpot.X * scale;
-			this.OriginY = MetaData.HotSpot.Y * scale;
-			SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale), (int)this.OriginX, (int)this.OriginY);
-			if(perspectiveMap != null)
-				UpdateLayer();
-		}
+            this.Type = INTERACTIVE_ENTITY_TYPE;
+            images = new List<Image>();
+            MetaData = metaData;
+
+            if (MetaData.Commands != null) {
+                foreach (var c in MetaData.Commands) {
+                    c.parent = this;
+                }
+            }
+
+            int totalFrames = 0;
+            foreach (var animation in MetaData.Animations)
+            {
+                int frameNumber = 0;
+                foreach (string path in Utility.RetrieveFilePathForFilesInDirectory(@"./content/objects/" + objectName + @"/" + animation.Name, "*.png"))
+                {
+                    images.Add(new Image(Library.GetTexture(path)) { Scale = scale, OriginX = MetaData.HotSpot.X, OriginY = MetaData.HotSpot.Y });
+                    if (animation.FootStepFrames != null && animation.FootStepFrames.Contains(frameNumber + 1))
+                    {
+                        int frame = frameNumber + totalFrames;
+                        if (!footFallFrames.ContainsKey(animation.Name))
+                            footFallFrames.Add(animation.Name, new List<int> { frame });
+                        else
+                            footFallFrames[animation.Name].Add(frame);
+                    }
+
+                    frameNumber++;
+                }
+                totalFrames += frameNumber;
+            }
+            sprite = new Flipbook(images.Cast<Graphic>().ToArray());
+
+            int currentTotalFrames = 0;
+            foreach (var animation in MetaData.Animations)
+                sprite.Add(animation.Name, FP.MakeFrames(currentTotalFrames, (currentTotalFrames += animation.Frames) - 1), animation.FPS, true);
+            AddComponent(sprite);
+            this.OriginX = MetaData.HotSpot.X * scale;
+            this.OriginY = MetaData.HotSpot.Y * scale;
+            SetHitbox((int)(MetaData.FrameSize.X * scale), (int)(MetaData.FrameSize.Y * scale), (int)this.OriginX, (int)this.OriginY);
+            if (perspectiveMap != null)
+                UpdateLayer();
+
+            if (metaData.Attributes == null)
+                metaData.Attributes = new Dictionary<string, int>();
+            if (interactiveObjectRef.Attributes == null)
+                interactiveObjectRef.Attributes = new Dictionary<string, int>();
+
+            foreach (var key in metaData.Attributes.Keys)
+                if(!interactiveObjectRef.Attributes.ContainsKey(key))
+                    interactiveObjectRef.Attributes.Add(key, metaData.Attributes[key]);
+        }
 		
 		public override void Update()
 		{
@@ -146,7 +155,7 @@ namespace MissTaryGame
 		
 		public void PlayAnimation(string animation)
 		{
-            interactiveObjectRef.defaultAnimation = animation;
+            InteractiveObjectRef.defaultAnimation = animation;
             sprite.Play(animation);
 		}
 		
@@ -169,7 +178,7 @@ namespace MissTaryGame
 		{
 			this.MoveTowards(x1, y1, d);
 			UpdateLayer();
-            interactiveObjectRef.Position = new Point(X, Y);
+            InteractiveObjectRef.Position = new Point(X, Y);
 		}
 	}
 }

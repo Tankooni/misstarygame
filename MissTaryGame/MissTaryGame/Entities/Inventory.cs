@@ -88,6 +88,8 @@ namespace MissTaryGame
 			base.Added();
 			foreach(var interactiveObject in avatar.Inventory)
 			{
+                if (interactiveObject.World != null)
+                    continue;
 				DSW.Add(interactiveObject);
 				interactiveObject.InventoryObject = true;
 				interactiveObject.Layer = Utility.MIDDLE_UI_LAYER-1;
@@ -99,7 +101,6 @@ namespace MissTaryGame
 			base.Removed();
 			foreach(var interactiveObject in avatar.Inventory)
 				DSW.Remove(interactiveObject);
-			//World.RemoveList(avatar.Inventory.Cast<Entity>().ToArray());
 		}
 		
 		public void NextPage()

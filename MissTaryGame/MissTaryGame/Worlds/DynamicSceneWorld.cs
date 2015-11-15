@@ -62,15 +62,11 @@ namespace MissTaryGame
 			if(Mouse.ScreenX >= 0 && Mouse.ScreenX <= FP.Width && Mouse.ScreenY >= 0 && Mouse.ScreenY <= FP.Height)
 			{
 				if(!CommandWheel.IsOpen && Mouse.Left.Pressed && CollidePoint("ClickMap", MouseX, MouseY) != null)
-				{					
-//					Console.WriteLine("Start " + (int)(avatar.X / TileSize) + " " + (int)(avatar.Y / TileSize) 
-//					                  + (int)(Mouse.ScreenX / TileSize) + " " + (int)(Mouse.ScreenY / TileSize));
+				{
 					avatar.SetWalkTo(Utility.SelectAstarPath(/*pathNodes[33,25], pathNodes[42,15], pathNodes*/
 										pathNodes[(int)(Mouse.ScreenX / TileSize),(int)(Mouse.ScreenY / TileSize)], 
 										pathNodes[(int)(avatar.X / TileSize),(int)(avatar.Y / TileSize)],
 										pathNodes));
-//					Console.WriteLine("End " + (int)(avatar.X / TileSize) + " " + (int)(avatar.Y / TileSize) 
-//					                  + (int)(Mouse.ScreenX / TileSize) + " " + (int)(Mouse.ScreenY / TileSize));
 				}
 			}
 			if(Mouse.Right.Pressed)
@@ -80,22 +76,36 @@ namespace MissTaryGame
 					Add(new CommandWheel(clickedObject.MetaData.Commands));
 			}
 			
-			if(Keyboard.I.Pressed)
+			if(Keyboard.I.Pressed || Keyboard.Tab.Pressed)
 				VeryGenericInventorySystem.IsActive = !VeryGenericInventorySystem.IsActive;
 		}
-		
-		public void LoadScene(string sceneName, string entrance)
+
+        public void RemoveObjectFromScene(InteractiveObject interactiveObject, bool alsoWorld)
+        {
+            metaData.Objects.Remove(interactiveObject.InteractiveObjectRef);
+            if(alsoWorld)
+                Remove(interactiveObject);
+        }
+
+        public void AddObjectFromScene(InteractiveObject interactiveObject, bool alsoWorld)
+        {
+            metaData.Objects.Add(interactiveObject.InteractiveObjectRef);
+            if(alsoWorld)
+                Add(interactiveObject);
+        }
+
+        public void LoadScene(string sceneName, string entrance)
 		{
-			RemoveAll();
+            //RemoveList();
+            RemoveAll();
 
             //SAVE STUFF
             if (metaData != null)
-            {
                 JsonWriter.Save(SaveType.Scenes, metaData, metaData.FolderName);
-            }
+
             string newMetaPath = "scenes/" + sceneName + "/MetaData";
             if (File.Exists(JsonLoader.PATH_PREFIX + JsonWriter.SAVE_PREFIX + newMetaPath + JsonLoader.RESOURCE_EXT))
-            { }
+                newMetaPath = JsonWriter.SAVE_PREFIX + newMetaPath;
                 
             metaData = JsonLoader.Load<SceneData>(newMetaPath);
             metaData.FolderName = sceneName;
@@ -107,7 +117,6 @@ namespace MissTaryGame
 			var background = new Entity{ Layer = Utility.BACKGROUND_LAYER };
 			background.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Background)));
 			Add(background);
-			//this.AddGraphic(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Collision)));
 			
 			foreach(var sceneObject in metaData.Objects)
 			{
@@ -122,15 +131,16 @@ namespace MissTaryGame
 			var entryPoint = metaData.Entrances[entrance];
 			avatar.X = entryPoint.X;
 			avatar.Y = entryPoint.Y;
-			this.Add(avatar);
-			this.Add(cursor);
-			this.Add(VeryGenericInventorySystem);			
+			Add(avatar);
+			Add(cursor);
+			Add(VeryGenericInventorySystem);			
 
 			var foreground = new Entity{ Layer = Utility.FOREGROUND_LAYER };
 			if(metaData.Foreground != null)
 				foreground.AddComponent(new Image(Library.GetTexture("content/scenes/" + sceneName + "/" + metaData.Foreground)));
 			Add(foreground);
 
+            //SAVE STUFF
             Utility.MainConfig.StartingScene = sceneName;
             Utility.MainConfig.SpawnEntrance = entrance;
             JsonWriter.Save(SaveType.MainConfig, Utility.MainConfig, "");

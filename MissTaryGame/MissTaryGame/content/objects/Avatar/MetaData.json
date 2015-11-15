@@ -1,28 +1,49 @@
 {
-	"Name": "Ko", 
-	"FrameSize": {"X": 148, "Y": 332},
-	"HotSpot": {"X": 74, "Y": 300},
+	"Name": "Tyra", 
+	"FrameSize": {"X": 139, "Y": 233},
+	"HotSpot": {"X": 70, "Y": 213},
 	"Scaling": true,
 	"Animations": 
 	[
 		{
-			"Name": "Idle",
+			"Name": "Idle0",
 			"FPS": 4,
 			"Frames": 4
 		},
 		{
-			"Name": "WalkUp",
+			"Name": "WalkUp0",
 			"FPS": 15,
 			"Frames": 8,
-			"FootStepFrames": [2,6]
+			"FootStepFrames": [2,5]
 		},
 		{
-			"Name": "WalkDown",
+			"Name": "WalkDown0",
 			"FPS": 15,
 			"Frames": 8,
-			"FootStepFrames": [2,6]
+			"FootStepFrames": [2,5]
+		},
+		{
+			"Name": "Idle1",
+			"FPS": 4,
+			"Frames": 4
+		},
+		{
+			"Name": "WalkUp1",
+			"FPS": 15,
+			"Frames": 8,
+			"FootStepFrames": [2,5]
+		},
+		{
+			"Name": "WalkDown1",
+			"FPS": 15,
+			"Frames": 8,
+			"FootStepFrames": [2,5]
 		}
 	],
+	"Attributes":
+	{
+		"AvatarSpriteState": 0
+	},
 	"Commands":
 	[
 		{
@@ -33,7 +54,7 @@
 					"Name": "Dialog",
 					"Args":
 					{
-						"Speaker": "Ko",
+						"Speaker": "Tyra",
 						"Text": "I'm rather nervous."
 					}
 				}
@@ -47,7 +68,7 @@
 					"Name": "Dialog",
 					"Args":
 					{
-						"Speaker": "Ko",
+						"Speaker": "Tyra",
 						"Text": "I'm trying to collect myself, here."
 					}
 				},
@@ -65,7 +86,7 @@
 					"Name": "Dialog",
 					"Args":
 					{
-						"Speaker": "Ko",
+						"Speaker": "Tyra",
 						"Text": "It wouldn't be the first time..."
 					}
 				}
@@ -79,8 +100,8 @@
 					"Name": "Dialog",
 					"Args":
 					{
-						"Speaker": "Ko",
-						"Text": "I wonder where my Kuma went..."
+						"Speaker": "Tyra",
+						"Text": "..."
 					}
 				}
 			]

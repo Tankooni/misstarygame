@@ -58,7 +58,8 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Indigo">
+    <Reference Include="Indigo, Version=1.0.5796.2657, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Indigo.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp">

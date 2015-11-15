@@ -31,9 +31,10 @@ namespace MissTaryGame.Json.Models.Actions
 		
 		public void run(Action[] remainingActions) {
 			var inventory = ((DynamicSceneWorld) FP.World).VeryGenericInventorySystem;
-			
-			var parent = (InteractiveObject) args["parent"];
-			inventory.AddItem(parent);
+            
+            var parent = (InteractiveObject) args["parent"];
+            ((DynamicSceneWorld)FP.World).RemoveObjectFromScene(parent, false);
+            inventory.AddItem(parent);
 			
 			Action.runActions(remainingActions);
 		}
