@@ -1,0 +1,36 @@
+{
+	"Name": "Door_West2ToWest1",
+	"FrameSize": {
+		"X": 82,
+		"Y": 118
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle",
+		"Frames": 1,
+		"FPS": 1,
+		"FootStepFrames": []
+	}],
+	"Commands":
+	[
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "West1",
+						"Entrance": "Exit_West2ToWest1"
+					}
+				}
+			]
+		}
+	]
+}
