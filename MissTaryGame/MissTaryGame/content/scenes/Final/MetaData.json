@@ -1,0 +1,21 @@
+{
+	"Name": "Final",
+	"Background": "Background.png",
+	"Foreground": "ForeGround.png",
+	"Collision": "Collision.png",
+	"Perspective": "Perspective.png",
+	"Objects": [
+		{
+		"Name": "FinalStag",
+		"Position": {
+			"X": 0,
+			"Y": 0
+		},
+		"DefaultAnimation": "Idle"
+		}
+	],
+	"Entrances": 
+	{
+		"Exit_HubToFinal": {"X": 557 , "Y": 614}
+	}
+}

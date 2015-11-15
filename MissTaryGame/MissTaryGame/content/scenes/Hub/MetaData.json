@@ -37,6 +37,14 @@
 		"DefaultAnimation": "Idle"
 	},
 	{
+		"Name": "Door_HubToFinal",
+		"Position": {
+			"X": 490,
+			"Y": 350
+		},
+		"DefaultAnimation": "Idle"
+	},
+	{
 		"Name": "Obelisk_N",
 		"Position": {
 			"X": 668,
@@ -75,7 +83,8 @@
 			"Y": 355
 		},
 		"DefaultAnimation": "Inactive"
-	}],
+	}
+	],
 	"Entrances": 
 	{
 		"Exit_West1ToHub": {"X": 244 , "Y": 413},

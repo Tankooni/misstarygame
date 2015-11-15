@@ -1,0 +1,21 @@
+{
+	"Name": "South3",
+	"Background": "Background.png",
+	"Foreground": "ForeGround.png",
+	"Collision": "Collision.png",
+	"Perspective": "Perspective.png",
+	"Objects": [
+	{
+		"Name": "Door_South3ToSouth2",
+		"Position": {
+			"X": 0,
+			"Y": 554
+		},
+		"DefaultAnimation": "Idle"
+	}
+	],
+	"Entrances": 
+	{
+		"Exit_South2ToSouth3": {"X": 149 , "Y": 599}
+	}
+}
