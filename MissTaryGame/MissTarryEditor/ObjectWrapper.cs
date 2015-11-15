@@ -14,6 +14,8 @@ namespace MissTarryEditor
 		public ObjectInfo ObjectInfo { get; set; }
 		[Browsable(false)]
 		public Dictionary<string, List<Tuple<string,SillyPictureBox>>> Animations { get; set; }
+		[Browsable(false)]
+		public string DefaultAnimation { get; set; }
 
 		public ObjectWrapper()
 		{

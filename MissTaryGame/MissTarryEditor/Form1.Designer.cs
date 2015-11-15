@@ -54,6 +54,7 @@ namespace MissTarryEditor
 			this.btnRemoveScene = new System.Windows.Forms.Button();
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -74,6 +75,7 @@ namespace MissTarryEditor
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToolStripMenuItem,
             this.exitToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -111,8 +113,8 @@ namespace MissTarryEditor
 			// addObjectToolStripMenuItem
 			// 
 			this.addObjectToolStripMenuItem.Name = "addObjectToolStripMenuItem";
-			this.addObjectToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-			this.addObjectToolStripMenuItem.Text = "Add New Object";
+			this.addObjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.addObjectToolStripMenuItem.Text = "Object Editor";
 			this.addObjectToolStripMenuItem.Click += new System.EventHandler(this.addObjectToolStripMenuItem_Click);
 			// 
 			// cbxForeground
@@ -225,6 +227,7 @@ namespace MissTarryEditor
 			this.cbxObjects.Size = new System.Drawing.Size(15, 14);
 			this.cbxObjects.TabIndex = 13;
 			this.cbxObjects.UseVisualStyleBackColor = true;
+			this.cbxObjects.CheckedChanged += new System.EventHandler(this.cbxObjects_CheckedChanged);
 			// 
 			// lbxScenes
 			// 
@@ -274,6 +277,13 @@ namespace MissTarryEditor
 			this.pictureBox2.TabIndex = 4;
 			this.pictureBox2.TabStop = false;
 			// 
+			// exportToolStripMenuItem
+			// 
+			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+			this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.exportToolStripMenuItem.Text = "Export";
+			this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,8 +307,10 @@ namespace MissTarryEditor
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Form1";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -331,6 +343,7 @@ namespace MissTarryEditor
 		private System.Windows.Forms.ListBox lbxScenes;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btnRemoveScene;
+		private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
 	}
 }
 

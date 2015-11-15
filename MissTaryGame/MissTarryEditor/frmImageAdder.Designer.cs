@@ -79,6 +79,7 @@
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label1);
 			this.Name = "frmImageAdder";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "frmImageAdder";
 			this.ResumeLayout(false);
 			this.PerformLayout();

@@ -41,6 +41,8 @@ namespace MissTarryEditor
 			this.btnUseObject = new System.Windows.Forms.Button();
 			this.btnRemoveImage = new System.Windows.Forms.Button();
 			this.btnRemoveObject = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
+			this.txtAnimation = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// lbxObjects
@@ -118,6 +120,7 @@ namespace MissTarryEditor
 			// 
 			// btnUseObject
 			// 
+			this.btnUseObject.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.btnUseObject.Location = new System.Drawing.Point(29, 387);
 			this.btnUseObject.Name = "btnUseObject";
 			this.btnUseObject.Size = new System.Drawing.Size(113, 23);
@@ -146,11 +149,29 @@ namespace MissTarryEditor
 			this.btnRemoveObject.UseVisualStyleBackColor = true;
 			this.btnRemoveObject.Click += new System.EventHandler(this.btnRemoveObject_Click);
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(297, 421);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(90, 13);
+			this.label4.TabIndex = 12;
+			this.label4.Text = "Default Animation";
+			// 
+			// txtAnimation
+			// 
+			this.txtAnimation.Location = new System.Drawing.Point(393, 418);
+			this.txtAnimation.Name = "txtAnimation";
+			this.txtAnimation.Size = new System.Drawing.Size(139, 20);
+			this.txtAnimation.TabIndex = 13;
+			// 
 			// frmObjects
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(775, 457);
+			this.Controls.Add(this.txtAnimation);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.btnRemoveObject);
 			this.Controls.Add(this.btnRemoveImage);
 			this.Controls.Add(this.btnUseObject);
@@ -163,6 +184,7 @@ namespace MissTarryEditor
 			this.Controls.Add(this.propertyGrid1);
 			this.Controls.Add(this.lbxObjects);
 			this.Name = "frmObjects";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Objects";
 			this.Load += new System.EventHandler(this.frmObjects_Load);
 			this.ResumeLayout(false);
@@ -182,5 +204,7 @@ namespace MissTarryEditor
 		private System.Windows.Forms.Button btnUseObject;
 		private System.Windows.Forms.Button btnRemoveImage;
 		private System.Windows.Forms.Button btnRemoveObject;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox txtAnimation;
 	}
 }

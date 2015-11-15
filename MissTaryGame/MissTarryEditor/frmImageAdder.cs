@@ -46,6 +46,7 @@ namespace MissTarryEditor
 			if (textBox2.Text == null || textBox2.Text == "")
 			{
 				MessageBox.Show("Please provide an animation name");
+				this.DialogResult = DialogResult.None;
 				return;
 			}
 

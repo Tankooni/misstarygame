@@ -13,14 +13,14 @@ namespace MissTarryEditor
 	public partial class frmObjects : Form
 	{
 		List<ObjectWrapper> ObjectWrappers { get; set; }
-		ObjectWrapper SelectedObject = null;
-		Form1 ParentForm = null;
+		public ObjectWrapper SelectedObject = null;
+		//Form1 ParentForm = null;
 		bool OnlyNewObjects = false;
 
-		public frmObjects(Form1 parent, bool onlyNew, List<ObjectWrapper> wrappers)
+		public frmObjects(bool onlyNew, List<ObjectWrapper> wrappers)
 		{
 			InitializeComponent();
-			ParentForm = parent;
+			//ParentForm = parent;
 			ObjectWrappers = wrappers;
 			OnlyNewObjects = onlyNew;
 
@@ -87,6 +87,12 @@ namespace MissTarryEditor
 			SelectedObject = selectedInfo;
 
 			propertyGrid1.SelectedObject = SelectedObject;
+			UpdateImageList();
+			var firstObj = SelectedObject.Animations.Select(x=>x.Key).FirstOrDefault();
+			if(firstObj != null)
+			{
+				txtAnimation.Text = firstObj;
+			}
 		}
 
 		private void propertyGrid1_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
@@ -105,9 +111,18 @@ namespace MissTarryEditor
 		{
 			if (SelectedObject != null)
 			{
-				ParentForm.AddObjectWrapper(SelectedObject);
-				ParentForm.UpdateObjectWrapperList(ObjectWrappers);
-				this.Close();
+				//ParentForm.AddObjectWrapper(SelectedObject);
+				//ParentForm.UpdateObjectWrapperList(ObjectWrappers);
+				//this.Close();
+				if(SelectedObject.Animations.Count == 0)
+				{
+					this.DialogResult = DialogResult.None;
+					MessageBox.Show("No images, please have at least one");
+				}
+				else
+				{
+					SelectedObject.DefaultAnimation = txtAnimation.Text;
+				}
 			}
 			else
 				MessageBox.Show("Please select an object");
@@ -121,9 +136,16 @@ namespace MissTarryEditor
 			var result = newForm.ShowDialog();
 			if(result == DialogResult.OK)
 			{
-				foreach(var selectedImage in newForm.SelectedImages)
+				if (txtAnimation.Text == "" || txtAnimation.Text == null)
+					txtAnimation.Text = newForm.Animation;
+				foreach (var selectedImage in newForm.SelectedImages)
 				{
 					SelectedObject.AddAnimation(newForm.Animation, selectedImage.Item1, selectedImage.Item2);
+				}
+				if(SelectedObject.ObjectInfo.FramSize.IsEmpty && newForm.SelectedImages.Count > 0)
+				{
+					var size = newForm.SelectedImages.First().Item2.Image.Size;
+					SelectedObject.ObjectInfo.FramSize = new Point(size.Width, size.Height);
 				}
 				UpdateImageList();
 			}
