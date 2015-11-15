@@ -35,8 +35,47 @@
 			"Y": 511
 		},
 		"DefaultAnimation": "Idle"
-	}
-	],
+	},
+	{
+		"Name": "Obelisk_N",
+		"Position": {
+			"X": 668,
+			"Y": 163
+		},
+		"DefaultAnimation": "Active"
+	},
+	{
+		"Name": "Obelisk_E",
+		"Position": {
+			"X": 864,
+			"Y": 326
+		},
+		"DefaultAnimation": "Inactive"
+	},
+	{
+		"Name": "Obelisk_S",
+		"Position": {
+			"X": 368,
+			"Y": 381
+		},
+		"DefaultAnimation": "Inactive"
+	},
+	{
+		"Name": "Obelisk_N",
+		"Position": {
+			"X": 261,
+			"Y": 195
+		},
+		"DefaultAnimation": "Inactive"
+	},
+	{
+		"Name": "Portal",
+		"Position": {
+			"X": 476,
+			"Y": 355
+		},
+		"DefaultAnimation": "Inactive"
+	}],
 	"Entrances": 
 	{
 		"Exit_West1ToHub": {"X": 244 , "Y": 413},

@@ -1,0 +1,64 @@
+{
+	"Name": "Portal",
+	"FrameSize": {
+		"X": 209,
+		"Y": 77
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Inactive",
+		"Frames": 1,
+		"FPS": 1
+	},
+	{
+		"Name": "Active",
+		"Frames": 1,
+		"FPS": 1
+	}],
+	"Commands": [
+		{
+			"Name": "Use",
+			"Actions": [
+				{
+					"Name": "CheckEvent",
+					"Args": {
+						"EventName": "TalkedToDganiaen"
+					}
+				},
+				{
+					"Name": "CheckEvent",
+					"Args": {
+						"EventName": "TalkedToPyyrigna"
+					}
+				},
+				{
+					"Name": "CheckEvent",
+					"Args": {
+						"EventName": "TalkedToXiliq"
+					}
+				},
+				{
+					"Name": "PlayAnimation",
+					"Args": { "AnimationName": "Active" }
+				}
+			]			
+		}, {
+			"Name": "Goto",
+			"Actions": [
+				{
+					"Name": "Goto",
+					"Args": {
+						"Scene": "Final",
+						"Entrance": ""
+					}
+				}
+			],
+			"Dependancies": ["TalkedToDganiaen", "TalkedToXiliq", "TalkedToPyyrigna"]
+		}
+	]
+}
