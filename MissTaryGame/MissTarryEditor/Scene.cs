@@ -11,28 +11,46 @@ namespace MissTarryEditor
 	public class Scene
 	{
 		public string Name { get; set; }
-		public Dictionary<EditState,List<SceneObject>> SceneObjects { get; set; }
-		public Dictionary<EditState, Panel> Panels { get; set; }
+		public List<SceneObject> SceneObjects { get; set; }
+		public SillyPanel MasterPanel { get; set; }
+		public PictureBox Foreground { get; set; }
+		public PictureBox Background { get; set; }
 
-		public Scene()
+		public Scene(string name, SillyPanel panel)
 		{
-			Name = "DefaultName";
-			SceneObjects = new Dictionary<EditState, List<SceneObject>>();
-			Panels = new Dictionary<EditState, Panel>();
+			Name = name;
+			MasterPanel = panel;
+			SceneObjects = new List<SceneObject>();
 		}
 
-		public Panel GetUpdatePanel(EditState state)
-		{
-			var target = Panels[state];
-			target.Controls.Clear();
-			foreach (var obj in SceneObjects[state])
+		public Panel GetUpdatedPanel(SceneStates viewState)
+		{	
+			MasterPanel.Controls.Clear();
+			if (viewState.HasFlag(SceneStates.Background))
+				if (Background != null)
+				{
+					Background.Visible = false;
+					MasterPanel.Controls.Add(Background);
+				}
+			foreach (var obj in SceneObjects)
 			{
 				var picture = obj.ObjectWrapper.Animations.First().Value.First().Item2;
 				picture.Location = obj.Position;
 				picture.ParentRef = obj;
-				target.Controls.Add(picture);
+				MasterPanel.Controls.Add(picture);
 			}
-			return target;
+			if (viewState.HasFlag(SceneStates.Foreground))
+				if (Foreground != null)
+				{
+					Foreground.Visible = false;
+					MasterPanel.Controls.Add(Foreground);
+				}
+			return MasterPanel;
+		}
+
+		public override string ToString()
+		{
+			return Name;
 		}
 	}
 

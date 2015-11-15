@@ -1,6 +1,6 @@
 ﻿namespace MissTarryEditor
 {
-	partial class frmImageAdder
+	partial class SceneAdder
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,66 +29,56 @@
 		private void InitializeComponent()
 		{
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.btnOk = new System.Windows.Forms.Button();
-			this.lvwImages = new System.Windows.Forms.ListView();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 24);
+			this.label1.Location = new System.Drawing.Point(12, 23);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(56, 13);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Animation:";
+			this.label1.Size = new System.Drawing.Size(38, 13);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Name:";
 			// 
-			// textBox2
+			// textBox1
 			// 
-			this.textBox2.Location = new System.Drawing.Point(74, 21);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(252, 20);
-			this.textBox2.TabIndex = 2;
+			this.textBox1.Location = new System.Drawing.Point(56, 20);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(216, 20);
+			this.textBox1.TabIndex = 1;
 			// 
 			// btnOk
 			// 
 			this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnOk.Location = new System.Drawing.Point(224, 184);
+			this.btnOk.Location = new System.Drawing.Point(197, 46);
 			this.btnOk.Name = "btnOk";
-			this.btnOk.Size = new System.Drawing.Size(102, 23);
-			this.btnOk.TabIndex = 3;
-			this.btnOk.Text = "Ok";
+			this.btnOk.Size = new System.Drawing.Size(75, 23);
+			this.btnOk.TabIndex = 2;
+			this.btnOk.Text = "Add Scene";
 			this.btnOk.UseVisualStyleBackColor = true;
-			this.btnOk.Click += new System.EventHandler(this.button1_Click);
+			this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
 			// 
-			// lvwImages
-			// 
-			this.lvwImages.Location = new System.Drawing.Point(12, 47);
-			this.lvwImages.Name = "lvwImages";
-			this.lvwImages.Size = new System.Drawing.Size(314, 131);
-			this.lvwImages.TabIndex = 4;
-			this.lvwImages.UseCompatibleStateImageBehavior = false;
-			// 
-			// frmImageAdder
+			// SceneAdder
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(338, 219);
-			this.Controls.Add(this.lvwImages);
+			this.ClientSize = new System.Drawing.Size(284, 79);
 			this.Controls.Add(this.btnOk);
-			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
-			this.Name = "frmImageAdder";
-			this.Text = "frmImageAdder";
+			this.Name = "SceneAdder";
+			this.Text = "SceneAdder";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
 		#endregion
+
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button btnOk;
-		private System.Windows.Forms.ListView lvwImages;
 	}
 }

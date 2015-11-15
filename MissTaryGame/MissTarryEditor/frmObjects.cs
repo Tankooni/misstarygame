@@ -15,27 +15,24 @@ namespace MissTarryEditor
 		List<ObjectWrapper> ObjectWrappers { get; set; }
 		ObjectWrapper SelectedObject = null;
 		Form1 ParentForm = null;
+		bool OnlyNewObjects = false;
 
-		public frmObjects(Form1 parent, List<ObjectWrapper> wrappers)
+		public frmObjects(Form1 parent, bool onlyNew, List<ObjectWrapper> wrappers)
 		{
 			InitializeComponent();
 			ParentForm = parent;
 			ObjectWrappers = wrappers;
+			OnlyNewObjects = onlyNew;
 
 			UpdateObjectList();
+
+			if (onlyNew)
+				btnUseObject.Visible = false;
 		}
 
 		private void frmObjects_Load(object sender, EventArgs e)
 		{
 
-		}
-
-		internal void AddPictureBox(string animation, string filename, SillyPictureBox pb)
-		{
-			if (SelectedObject != null)
-				SelectedObject.AddAnimation(animation, filename, pb);
-			else
-				MessageBox.Show("Selected object is null, images not added. Please select an object");
 		}
 
 		internal void UpdateImageList()
@@ -120,8 +117,24 @@ namespace MissTarryEditor
 		{
 			if (SelectedObject == null)
 				return;
-			frmImageAdder newForm = new frmImageAdder(this);
-			newForm.Show();
+			frmImageAdder newForm = new frmImageAdder(true, null);
+			var result = newForm.ShowDialog();
+			if(result == DialogResult.OK)
+			{
+				foreach(var selectedImage in newForm.SelectedImages)
+				{
+					SelectedObject.AddAnimation(newForm.Animation, selectedImage.Item1, selectedImage.Item2);
+				}
+				UpdateImageList();
+			}
+		}
+
+		internal void AddPictureBox(string animation, string filename, SillyPictureBox pb)
+		{
+			if (SelectedObject != null)
+				SelectedObject.AddAnimation(animation, filename, pb);
+			else
+				MessageBox.Show("Selected object is null, images not added. Please select an object");
 		}
 
 		private void btnRemoveObject_Click(object sender, EventArgs e)

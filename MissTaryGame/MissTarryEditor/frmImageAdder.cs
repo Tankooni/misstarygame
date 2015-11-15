@@ -13,29 +13,59 @@ namespace MissTarryEditor
 {
 	public partial class frmImageAdder : Form
 	{
-		public frmObjects ParentForm = null;
-		public frmImageAdder(frmObjects parent)
+		public List<Tuple<string, SillyPictureBox>> SelectedImages { get; set; }
+		public string Animation { get; set; }
+
+		public frmImageAdder(bool multiselect, string name)
 		{
 			InitializeComponent();
-			ParentForm = parent;
+			if (name != null && name != "")
+			{
+				textBox2.Text = name;
+				textBox2.Enabled = false;
+			}
+			SelectedImages = GetPictures(multiselect);
+
+			ImageList imageList = new ImageList();
+			int count = 0;
+			foreach(var item in SelectedImages)
+			{
+				imageList.Images.Add(item.Item2.Image);
+				ListViewItem listItem = new ListViewItem();
+				listItem.ImageIndex = count;
+				listItem.Text = item.Item1;
+				lvwImages.Items.Add(listItem);
+				count++;
+			}
+			lvwImages.LargeImageList = imageList;
+			lvwImages.View = View.LargeIcon;
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			if(textBox2.Text == null || textBox2.Text == "")
+			if (textBox2.Text == null || textBox2.Text == "")
 			{
 				MessageBox.Show("Please provide an animation name");
 				return;
 			}
 
+			Animation = textBox2.Text;
+
+			this.Close();
+		}
+
+		private List<Tuple<string, SillyPictureBox>> GetPictures(bool multiselect)
+		{
 			OpenFileDialog openDiag = new OpenFileDialog();
 			openDiag.Filter = "All files (*.*)|*.*";
 			openDiag.FilterIndex = 1;
 			openDiag.RestoreDirectory = true;
-			openDiag.Multiselect = true;
+			openDiag.Multiselect = multiselect;
 			openDiag.Title = "Image Browser";
 
-			if(openDiag.ShowDialog() == DialogResult.OK)
+			List<Tuple<string, SillyPictureBox>> results = new List<Tuple<string, SillyPictureBox>>();
+
+			if (openDiag.ShowDialog() == DialogResult.OK)
 			{
 				// Read the files
 				foreach (String file in openDiag.FileNames)
@@ -48,7 +78,9 @@ namespace MissTarryEditor
 						pb.Height = loadedImage.Height;
 						pb.Width = loadedImage.Width;
 						pb.Image = loadedImage;
-						ParentForm.AddPictureBox(textBox2.Text, Path.GetFileNameWithoutExtension(file), pb);
+						pb.BackColor = Color.Transparent;
+						results.Add(new Tuple<string, SillyPictureBox>(Path.GetFileNameWithoutExtension(file),pb));
+						//ParentForm.AddPictureBox(textBox2.Text, Path.GetFileNameWithoutExtension(file), pb);
 						//flowLayoutPanel1.Controls.Add(pb);
 					}
 					catch (Exception ex)
@@ -59,9 +91,11 @@ namespace MissTarryEditor
 							"it may be corrupt.\n\nReported error: " + ex.Message);
 					}
 				}
-				ParentForm.UpdateImageList();
-				this.Close();
+				//ParentForm.UpdateImageList();
+				//this.Close();
+				
 			}
+			return results;
 		}
 	}
 }
