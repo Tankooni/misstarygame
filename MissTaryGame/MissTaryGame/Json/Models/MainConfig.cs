@@ -8,5 +8,6 @@ namespace MissTaryGame.Json.Models
     {
         public string StartingScene { get; set; }
         public string SpawnEntrance { get; set; }
+        public string CurrentMusic { get; set; }
     }
 }

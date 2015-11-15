@@ -32,12 +32,10 @@ namespace MissTaryGame
 			FP.Screen.ClearColor = new Color(0x000000);
 			Mouse.CursorVisible = false;
 			
-			//SoundManager.Init(0.7f);
-			SoundManager.Init(0);
+			SoundManager.Init(0.7f);
+			//SoundManager.Init(0);
 			//FP.World = new DynamicSceneWorld();
 			FP.World = new StartScreenWorld();
-
-			SoundManager.PlayMusic();
 		}
 
 		public override void FocusLost()

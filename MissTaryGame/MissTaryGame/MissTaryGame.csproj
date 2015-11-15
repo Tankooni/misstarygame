@@ -107,6 +107,7 @@
     <Compile Include="Json\Models\Actions\ActionCheckEvent.cs" />
     <Compile Include="Json\Models\Actions\ActionDialog.cs" />
     <Compile Include="Json\Models\Actions\ActionGoto.cs" />
+    <Compile Include="Json\Models\Actions\ActionPlayMusic.cs" />
     <Compile Include="Json\Models\Actions\ActionRemoveObjectFromScene.cs" />
     <Compile Include="Json\Models\Actions\ActionRemoveObjectFromInventory.cs" />
     <Compile Include="Json\Models\Actions\ActionCompleteEvent.cs" />

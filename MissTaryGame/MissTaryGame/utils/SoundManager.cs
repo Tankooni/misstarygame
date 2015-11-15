@@ -11,8 +11,9 @@ using System.Threading;
 public static class SoundManager
 {
 	public static Sound CurrentSong;
+    public static string CloboboboSongName = "";
 	public static float MusicVolume { get; set; }
-	private static List<Sound> musics = new List<Sound>();
+	private static Dictionary<string, Sound> musics = new Dictionary<string, Sound>();
 	private static Dictionary<string, Sound> sounds = new Dictionary<string, Sound>();
 	public static void Init(float musicVolume)
 	{
@@ -20,23 +21,30 @@ public static class SoundManager
         foreach (string file in Utility.RetrieveFilePathForFilesInDirectory(@"./content/music", @"*.ogg|*.wav"))
 		{
 			var sound = new Sound(Library.GetSoundStream(file));
-			sound.OnComplete += PlayMusic;
-			musics.Add(/*Path.GetFileNameWithoutExtension(file), */sound);
+			sound.OnComplete += LoopMusic;
+			musics.Add(Path.GetFileNameWithoutExtension(file), sound);
 		}
 		
 		foreach (string file in Utility.RetrieveFilePathForFilesInDirectory(@"./content/sounds", @"*.ogg|*.wav"))
 			sounds.Add(Path.GetFileNameWithoutExtension(file), new Sound(Library.GetSoundBuffer(file)));
 	}
 
-	public static void PlayMusic()
+    private static void LoopMusic() {
+        if (CurrentSong != null)
+            CurrentSong.Stop();
+        Sound newSong = musics[CloboboboSongName];
+        newSong.Volume = MusicVolume;
+        CurrentSong = newSong;
+        CurrentSong.Play();
+    }
+
+    public static void PlayMusic(string music)
 	{
-		if (CurrentSong != null)
+        Utility.MainConfig.CurrentMusic = CloboboboSongName = "Symbiosis";
+        if (CurrentSong != null)
 			CurrentSong.Stop();
-		Sound newSong = FP.Choose.From(musics);
+        Sound newSong = musics["Symbiosis"];
 		newSong.Volume = MusicVolume;
-//		while (newSong != CurrentSong)
-//			if (musics.Count < 2)
-//				break;
 		CurrentSong = newSong;
 		CurrentSong.Play();
 	}

@@ -32,7 +32,8 @@ namespace MissTaryGame
 		
 		public DynamicSceneWorld(string startingScene, string spawnEntrance)
 		{
-			avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar", new float[1,1]{{1}}, new InteractiveObjectRef());
+            SoundManager.PlayMusic(Utility.MainConfig.CurrentMusic);
+            avatar = new Avatar(JsonLoader.Load<InteractiveObjectData>("objects/Avatar/MetaData"), "Avatar", new float[1,1]{{1}}, new InteractiveObjectRef());
 			avatar.PlayAnimation("Idle");
 			
 			cursor = new Cursor();

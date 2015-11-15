@@ -115,6 +115,8 @@ Arguments:
 
 - InstanceName (string, name of instance to remove)
 
+### 
+
 ### Goto ###
 Changes the current scene and places the player at the given entrance.
 

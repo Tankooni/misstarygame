@@ -1,4 +1,5 @@
 {
 	"StartingScene": "LivingRoom",
-	"SpawnEntrance": "Spawn"
+	"SpawnEntrance": "Spawn",
+  	"CurrentMusic": "Symbiosis"
 }

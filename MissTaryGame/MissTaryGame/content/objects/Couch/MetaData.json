@@ -1,5 +1,5 @@
 {
-	Name: "Couch", 
+	"Name": "Couch", 
 	"FrameSize": {"X": 441, "Y": 305},
 	"HotSpot": {"X": 220, "Y": 153},
 	"Scaling": false,
@@ -31,6 +31,13 @@
 			"Name": "Talk",
 			"Actions": 
 			[
+				{
+					"Name": "PlayMusic",
+					"Args":
+					{
+						"MusicName": "WithACreation"
+					}
+				},
 				{
 					"Name": "Dialog",
 					"Args":
