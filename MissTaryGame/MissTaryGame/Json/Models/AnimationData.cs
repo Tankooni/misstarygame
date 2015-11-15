@@ -18,7 +18,7 @@ namespace MissTaryGame.Json.Models
 		public string Name { set; get; }
 		public int Frames { set; get; }
 		public int FPS { set; get; }
-		public int[] FootStepFrames {get; set; }
+        public int[] FootStepFrames = new int[0];
 		
 		public int MSPerFrame { 
 			set {

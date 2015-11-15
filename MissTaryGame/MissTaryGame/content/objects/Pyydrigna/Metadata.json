@@ -1,0 +1,62 @@
+{
+	"Name": "Pyydrigna",
+	"FrameSize": {
+		"X": 354,
+		"Y": 326
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle_Before",
+		"Frames": 1,
+		"FPS": 1
+	},
+	{
+		"Name": "Idle_After",
+		"Frames": 1,
+		"FPS": 1
+	}],
+	"Commands":
+	[
+		{
+			"Name": "Talk",
+			"Actions":
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Pyydrigna",
+						"Text": "AHHHHHHHHHHHH"
+					}
+				},
+				{
+					"Name": "CompleteEvent",
+					"Args":
+					{
+						"EventName": "TalkedToPyydrigna"
+					}
+				},
+				{
+					"Name": "PlayAnimation",
+					"Args": { "AnimationName": "Idle_After"}
+				}
+			]
+		},
+		{
+			"Name": "Use",
+			"Actions":
+			[
+				{
+					"Name": "AddObjectToInventory",
+					"Args": {}
+				}
+			],
+			"Dependancies": ["TalkedToPyydrigna"]
+		}
+	]
+}

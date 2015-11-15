@@ -1,0 +1,23 @@
+{
+	"Name": "Obelisk",
+	"FrameSize": {
+		"X": 109,
+		"Y": 184
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Inactive",
+		"Frames": 1,
+		"FPS": 1
+	},
+	{
+		"Name": "Active",
+		"Frames": 1,
+		"FPS": 1
+	}]
+}

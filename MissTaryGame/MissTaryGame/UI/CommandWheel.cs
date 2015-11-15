@@ -36,7 +36,12 @@ namespace MissTaryGame.UI
 		
 		public CommandWheel(CommandData[] commands)
 		{
-            commands = commands.Where(x => GameEvent.checkDependanciesAndRestrictions(x.Dependancies)).ToArray();
+            commands = commands?.Where(x => GameEvent.checkDependanciesAndRestrictions(x.Dependancies))?.ToArray();
+            if(commands == null) {
+                //World.Remove(this);
+                return;
+            }
+
             this.commands = commands;
 
             lastMouse = new Point(Mouse.ScreenX, Mouse.ScreenY);
@@ -78,6 +83,10 @@ namespace MissTaryGame.UI
 		}
 		
 		public override void Update() {
+            if(this.commands == null) {
+                World.Remove(this);
+                return;
+            }
 			//make the wheel spin
 			wheel.Angle -= 1;
 			
