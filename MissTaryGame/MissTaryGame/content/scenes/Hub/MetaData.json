@@ -35,6 +35,14 @@
 			"Y": 511
 		},
 		"DefaultAnimation": "Idle"
+	},
+	{
+		"Name": "Door_HubToFinal",
+		"Position": {
+			"X": 490,
+			"Y": 350
+		},
+		"DefaultAnimation": "Idle"
 	}
 	],
 	"Entrances": 

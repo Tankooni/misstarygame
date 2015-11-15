@@ -1,0 +1,21 @@
+{
+	"Name": "FinalStag",
+	"FrameSize": {
+		"X": 1136,
+		"Y": 640
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle",
+		"Frames": 1,
+		"FPS": 1,
+		"FootStepFrames": []
+	}],
+	"Commands":
+	[]
+}

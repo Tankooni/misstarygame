@@ -8,23 +8,23 @@
 	{
 		"Name": "Door_East1ToHub",
 		"Position": {
-			"X": 646,
-			"Y": 443
+			"X": 0,
+			"Y": 73
 		},
 		"DefaultAnimation": "Idle"
 	},
 	{
 		"Name": "Door_East1ToEast2",
 		"Position": {
-			"X": 0,
-			"Y": 73
+			"X": 646,
+			"Y": 443
 		},
 		"DefaultAnimation": "Idle"
 	}
 	],
 	"Entrances": 
 	{
-		"Exit_HubToEast1": {"X": 997 , "Y": 596},
-		"Exit_East2ToEast1": {"X": 63 , "Y": 144} 
+		"Exit_HubToEast1": {"X": 63 , "Y": 144},
+		"Exit_East2ToEast1": {"X": 997 , "Y": 596} 
 	}
 }

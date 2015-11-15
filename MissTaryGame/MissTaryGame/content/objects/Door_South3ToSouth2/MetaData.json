@@ -1,0 +1,36 @@
+{
+	"Name": "Door_South3ToSouth2",
+	"FrameSize": {
+		"X": 489,
+		"Y": 82
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle",
+		"Frames": 1,
+		"FPS": 1,
+		"FootStepFrames": []
+	}],
+	"Commands":
+	[
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "South1",
+						"Entrance": "Exit_South2ToSouth1"
+					}
+				}
+			]
+		}
+	]
+}
