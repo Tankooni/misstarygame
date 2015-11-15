@@ -1,0 +1,36 @@
+{
+	"Name": "Door_East1ToEast2",
+	"FrameSize": {
+		"X": 197,
+		"Y": 122
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle",
+		"Frames": 1,
+		"FPS": 1,
+		"FootStepFrames": []
+	}],
+	"Commands":
+	[
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "East2",
+						"Entrance": "Exit_East1ToEast2"
+					}
+				}
+			]
+		}
+	]
+}

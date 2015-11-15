@@ -1,0 +1,21 @@
+{
+	"Name": "East1",
+	"Background": "Background.png",
+	"Foreground": "ForeGround.png",
+	"Collision": "Collision.png",
+	"Perspective": "Perspective.png",
+	"Objects": [
+	{
+		"Name": "Door_East2ToEast1",
+		"Position": {
+			"X": 0,
+			"Y": 483
+		},
+		"DefaultAnimation": "Idle"
+	}
+	],
+	"Entrances": 
+	{
+		"Exit_East1ToEast2": {"X": 77 , "Y": 598}
+	}
+}
