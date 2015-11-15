@@ -9,25 +9,18 @@
 using System;
 using System.Collections.Generic;
 using Indigo;
+using Newtonsoft.Json;
 
 namespace MissTaryGame.Json.Models.Actions
 {
 	/// <summary>
 	/// Description of ActionRemoveObject.
 	/// </summary>
-	public class ActionRemoveObject : IAction
-	{
-		public Dictionary<string, Object> args;
-		
-		public ActionRemoveObject(Dictionary<string, Object> args)
-		{
-			this.args = args;
-		}
-		
-		public void run(Action[] remainingActions) {
+	public class ActionRemoveObjectFromScene : IAction
+	{		
+		public override void run(Action[] remainingActions) {
 			var world = ((DynamicSceneWorld) FP.World);
 			
-			var parent = (InteractiveObject) args["parent"];
 			world.Remove(parent);
 			
 			Action.runActions(remainingActions);

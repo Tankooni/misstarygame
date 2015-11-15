@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using Indigo;
+using Newtonsoft.Json;
 
 namespace MissTaryGame.Json.Models.Actions
 {
@@ -17,17 +18,9 @@ namespace MissTaryGame.Json.Models.Actions
 	/// </summary>
 	public class ActionRemoveObjectFromInventory : IAction
 	{
-		public Dictionary<string, Object> args;
-		
-		public ActionRemoveObjectFromInventory(Dictionary<string, Object> args)
-		{
-			this.args = args;
-		}
-		
-		public void run(Action[] remainingActions) {
+		public override void run(Action[] remainingActions) {
 			var inventory = ((DynamicSceneWorld) FP.World).VeryGenericInventorySystem;
-			
-			var parent = (InteractiveObject) args["parent"];
+
 			inventory.RemoveItem(parent);
 			
 			Action.runActions(remainingActions);

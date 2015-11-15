@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using Indigo;
 using MissTaryGame;
+using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace MissTaryGame.Json.Models.Actions
 {
@@ -18,22 +20,16 @@ namespace MissTaryGame.Json.Models.Actions
 	/// </summary>
 	public class ActionAddObjectToInventory : IAction
 	{
-		public Dictionary<string, Object> args;
+        public bool RemoveParent = true;
+        public string ObjectPickedUp = "";
 		
-		public ActionAddObjectToInventory(Dictionary<string, Object> args)
-		{
-			this.args = args;
-			
-			if(args.ContainsKey("Object")) {
-				//parent = new InteractiveObject(JsonLoader.Load(""), ;
-			}
-		}
-		
-		public void run(Action[] remainingActions) {
+		public override void run(Action[] remainingActions) {
 			var inventory = ((DynamicSceneWorld) FP.World).VeryGenericInventorySystem;
             
-            var parent = (InteractiveObject) args["parent"];
-            ((DynamicSceneWorld)FP.World).RemoveObjectFromScene(parent, false);
+            if (RemoveParent) {
+                ((DynamicSceneWorld)FP.World).RemoveObjectFromScene(parent, false);
+            }
+
             inventory.AddItem(parent);
 			
 			Action.runActions(remainingActions);

@@ -19,18 +19,14 @@ namespace MissTaryGame.Json.Models.Actions
 	/// </summary>
 	public class ActionGoto : IAction
 	{
-		string nextScene;
-		string toEntrance;
+		public string Scene;
+		public string Entrance;
+
+        public ActionGoto() { }
 		
-		public ActionGoto(Dictionary<string, Object> args)
-		{
-			nextScene = (string)args["Scene"];
-			toEntrance = (string)args["Entrance"];
-		}
-		
-		public void run(Action[] remainingActions) {
+		public override void run(Action[] remainingActions) {
 			var world = (DynamicSceneWorld) FP.World;
-			world.LoadScene(nextScene, toEntrance);
+			world.LoadScene(Scene, Entrance);
 			
 			Action.runActions(remainingActions);
 		}

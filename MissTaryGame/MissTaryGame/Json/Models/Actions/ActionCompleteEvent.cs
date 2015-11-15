@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Collections.Generic;
 using Indigo;
@@ -12,27 +12,22 @@ namespace MissTaryGame.Json.Models.Actions
 	/// </summary>
 	public class ActionCompleteEvent : IAction
 	{
-		public string eventName;
+		public string EventName;
 		
-		public ActionCompleteEvent(Dictionary<string, Object> args)
-		{
-			eventName = (string)args["EventName"];
-		}
-		
-		public void run(Action[] remainingActions) {
+		public override void run(Action[] remainingActions) {
 			var world = (DynamicSceneWorld)FP.World;
 			GameEvent evt;
 
-            if (world.uncompletedEvents.ContainsKey(eventName)) {
-                evt = world.uncompletedEvents[eventName];
+            if (world.uncompletedEvents.ContainsKey(EventName)) {
+                evt = world.uncompletedEvents[EventName];
 
                 // Make sure this event can be completed
                 if (!GameEvent.checkDependanciesAndRestrictions(evt.Dependencies, evt.Restrictions)) {
                     return;
                 }
 
-                world.completedEvents[eventName] = evt;
-                world.uncompletedEvents.Remove(eventName);
+                world.completedEvents[EventName] = evt;
+                world.uncompletedEvents.Remove(EventName);
 
                 if (remainingActions.Length > 0) {
                     var tempArray = new Action[remainingActions.Length + evt.Actions.Length - 1];
