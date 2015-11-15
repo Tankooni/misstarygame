@@ -1,0 +1,14 @@
+{
+	"Name": "Testobj", 
+	"Animations": [], 
+	"Commands": [{
+		"Name": "go", 
+		"Actions": [{
+			"Name": "Dialog", 
+			"Args": {
+				"Text": "I am a pickle", 
+				"Speaker": "Me" 
+			}
+		}]
+	}]
+}

@@ -1,0 +1,62 @@
+{
+	"Name": "Dganiaen",
+	"FrameSize": {
+		"X": 271,
+		"Y": 383
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle_Before",
+		"Frames": 1,
+		"FPS": 1
+	},
+	{
+		"Name": "Idle_After",
+		"Frames": 1,
+		"FPS": 1
+	}],
+	"Commands":
+	[
+		{
+			"Name": "Talk",
+			"Actions":
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Dganiaen",
+						"Text": "AHHHHHHHHHHHH"
+					}
+				},
+				{
+					"Name": "CompleteEvent",
+					"Args":
+					{
+						"EventName": "TalkedToDganiaen"
+					}
+				},
+				{
+					"Name": "PlayAnimation",
+					"Args": { "AnimationName": "Idle_After"}
+				}
+			]
+		},
+		{
+			"Name": "Use",
+			"Actions":
+			[
+				{
+					"Name": "AddObjectToInventory",
+					"Args": {}
+				}
+			],
+			"Dependancies": ["TalkedToDganiaen"]
+		}
+	]
+}

@@ -1,0 +1,53 @@
+{
+	"Name": "Ofandyr",
+	"FrameSize": {
+		"X": 489,
+		"Y": 546
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle",
+		"Frames": 1,
+		"FPS": 1
+	}],
+	"Commands":
+	[
+		{
+			"Name": "Talk",
+			"Actions":
+			[
+				{
+					"Name": "Dialog",
+					"Args":
+					{
+						"Speaker": "Ofandyr",
+						"Text": "AHHHHHHHHHHHH"
+					}
+				},
+				{
+					"Name": "CompleteEvent",
+					"Args":
+					{
+						"EventName": "TalkedToOfandyr"
+					}
+				}
+			]
+		},
+		{
+			"Name": "Use",
+			"Actions":
+			[
+				{
+					"Name": "AddObjectToInventory",
+					"Args": {}
+				}
+			],
+			"Dependancies": ["TalkedToOfandyr"]
+		}
+	]
+}
