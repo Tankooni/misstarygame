@@ -55,6 +55,20 @@ This metadata should be tied to any entity. It should define the following attri
         - Name (string, name of action, must exist)
         - Args (object, arguments for the action)
     - Sprite (string, name of sprite to use for command (this overrides the default sprite for the command), NOT IMPLEMENTED YET)
+    - EventDependancies (array of strings, these events must be completed for this action to appear)
+    - EventRestrictions (array of commands that prevent this command from appearing in the list)
+
+### Event Metadata ###
+Each event is in it's own json file named the name of the event. They can also be organized within folders so long as the folders reside within the events directory.
+
+Json Layout:
+
+- Name (string, eaten by the dark god)
+- Actions (array of objects, actions that are triggered when the event is completed)
+        - Name (string, name of action, must exist)
+        - Args (object, arguments for the action)
+- Dependancies (array of strings, events that must occur before this one can be completed)
+- Restrictions (array of string, events that, if completed, prevent this from being completed)
 
 
 ## Actions ##
