@@ -14,6 +14,7 @@ using Indigo.Inputs;
 using Indigo.Graphics;
 using Microsoft.Win32;
 using MissTaryGame.UI;
+using System.IO;
 
 using MissTaryGame.Json;
 using MissTaryGame.Json.Models;
@@ -31,7 +32,11 @@ namespace MissTaryGame
 
 		public StartScreenWorld()
 		{
-            Utility.MainConfig = JsonLoader.Load<MainConfig>("MainConfig");
+            string configPath = "MainConfig";
+            if(File.Exists(JsonLoader.PATH_PREFIX + JsonWriter.SAVE_PREFIX + configPath + JsonLoader.RESOURCE_EXT))
+                configPath = JsonWriter.SAVE_PREFIX + configPath;
+
+            Utility.MainConfig = JsonLoader.Load<MainConfig>(configPath);
             start = new Text("Start [Enter]");
             start.X = (FP.Width / 2) - (start.Width / 2);
             start.Y = (FP.Height / 3) + 25;
