@@ -1,0 +1,20 @@
+{
+	"Name": "North3",
+	"Background": "Background.png",
+	"Foreground": null,
+	"Collision": Collision.png,
+	"Perspective": Perspective.png,
+	"Objects": [{
+		"Name": "AnsweringMachine",
+		"Position": {
+			"X": 411,
+			"Y": 229
+		},
+		"DefaultAnimation": "Idle"
+	}],
+	"Entrances": 
+	{
+		"Spawn": {"X": 521 , "Y": 380} ,
+		"Door_North2ToNorth3": {"X": 90 , "Y": 580} 
+	}
+}
