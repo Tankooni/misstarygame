@@ -60,17 +60,13 @@ namespace MissTaryGame
 						if( r.Area.Contains( X, Y ) ) {
 							if(!wasInRegion[r]) {
 								//just entered, execute shit
-								if(GameEvent.checkDependencies(r.Dependencies)) {
-									Action.runActions(r.OnEnter);
-								}
+								Action.runActions(r.OnEnter);
 								wasInRegion[r] = true;
 							}
 						} else {
 							if( wasInRegion[r] ) {
 								//just left region, execute other shit
-								if(GameEvent.checkDependencies(r.Dependencies)) {
-									Action.runActions(r.OnExit);
-								}
+								Action.runActions(r.OnExit);
 								wasInRegion[r] = false;
 							}
 						}

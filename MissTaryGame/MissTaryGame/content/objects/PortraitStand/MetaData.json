@@ -1,5 +1,5 @@
 {
-	Name: "Portrait Stand", 
+	"Name": "Portrait Stand", 
 	"FrameSize": {"X": 77, "Y": 103},
 	"HotSpot": {"X": 38, "Y": 51},
 	"Scaling": false,
@@ -31,6 +31,23 @@
 			"Name": "Talk",
 			"Actions": 
 			[
+				{
+					"Name": "CheckEvent",
+					"Args":
+					{
+						"EventName": "test",
+						"ElseActions": [
+							{
+								"Name": "Dialog",
+								"Args":
+								{
+									"Speaker": "Oak",
+									"Text": "This is not the time to do that"
+								}
+							}
+						]
+					}
+				},
 				{
 					"Name": "Dialog",
 					"Args":
@@ -67,6 +84,13 @@
 					{
 						"Speaker": "Ko",
 						"Text": "It's a portrait of me and my parents. We were happy here."
+					}
+				},
+				{
+					"Name": "CompleteEvent",
+					"Args":
+					{
+						"EventName": "test"
 					}
 				}
 			]

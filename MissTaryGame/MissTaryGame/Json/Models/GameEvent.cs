@@ -23,6 +23,7 @@ namespace MissTaryGame.Json.Models
 		public string Name { get; set; }
 		public Action[] Actions { get; set; }
 		public GameEvent[] Dependencies { get; set; }
+        public GameEvent[] Restrictions { get; set; }
 		
 		
 		public static Dictionary<string, GameEvent> loadGameEvents(string path) {
@@ -30,20 +31,23 @@ namespace MissTaryGame.Json.Models
 			
 			var files = Utility.RetrieveFilePathForFilesInDirectory(path, "*.json");
 			foreach( var file in files) {
-				var evt = JsonLoader.Load<GameEvent>(path);
+				var evt = JsonLoader.Load<GameEvent>(file, false);
 				eventDict.Add(Path.GetFileNameWithoutExtension(file), evt);
 			}
 			
 			return eventDict;
 		}
 		
-		public static bool checkDependencies(GameEvent[] evts) {
-			if( evts == null) {
+		public static bool checkDependanciesAndRestrictions(GameEvent[] deps, GameEvent[] rests) {
+			if( deps == null) {
 				return true;
 			}
 			
 			var world = (DynamicSceneWorld)FP.World;
-			return evts.All((GameEvent e) => world.completedEvents.ContainsValue(e));
+			bool depsFinished = deps.All((GameEvent e) => world.completedEvents.ContainsValue(e));
+            bool restFinished = rests.Any((GameEvent e) => world.completedEvents.ContainsValue(e));
+
+            return depsFinished && !restFinished;
 		}
 	}
 }

@@ -55,8 +55,7 @@ This metadata should be tied to any entity. It should define the following attri
         - Name (string, name of action, must exist)
         - Args (object, arguments for the action)
     - Sprite (string, name of sprite to use for command (this overrides the default sprite for the command), NOT IMPLEMENTED YET)
-    - EventDependancies (array of strings, these events must be completed for this action to appear)
-    - EventRestrictions (array of commands that prevent this command from appearing in the list)
+- Attributes (object, string:value pairs that describe defaults attributes for the object)
 
 ### Event Metadata ###
 Each event is in it's own json file named the name of the event. They can also be organized within folders so long as the folders reside within the events directory.
@@ -131,11 +130,19 @@ Arguments:
 
 - EventName (string, name of the event to complete)
 
+### CheckEvent ###
+Check if an event has been completed. If so, continue the action chain, otherwise, short circuit the chain, or exectute the 'else' actions if provided.
+
+Arguments:
+
+- EventName (array of strings, name of the events to check. Will pass only if all events are completed)
+- ElseActions (array of objects, actions to exectute instead if the event is not completed. Optional)
+
 ## Folder structure ##
 All assets should be defined in the follow structure, from the root content directory:
 
 - events/
-    - TBD
+    - <All event json files>
 - music/
     - <All music files in .ogg format>
 - objects/
@@ -143,6 +150,8 @@ All assets should be defined in the follow structure, from the root content dire
         - MetaData.json
         - <Folders for each of the object's animations>
             - <Each frame of the animation named by number>
+- regions/
+    - <All region json files>
 - scenes/
     - <All scene folders>
         - MetaData.json

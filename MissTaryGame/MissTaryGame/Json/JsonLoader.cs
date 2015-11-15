@@ -23,8 +23,11 @@ namespace MissTaryGame.Json
 		
 		/// <param name="path">Path to json from assets/</param>
 		/// <returns></returns>
-		public static T Load<T>(string path) {
-			return LoadStream<T>(File.ReadAllText( PATH_PREFIX + path + RESOURCE_EXT));
+		public static T Load<T>(string path, bool AddPathAndExtention=true) {
+            if (AddPathAndExtention) {
+                path = PATH_PREFIX + path + RESOURCE_EXT;
+            }
+			return LoadStream<T>(File.ReadAllText(path));
 		}
 		
 		public static T LoadStream<T>(string stream) {

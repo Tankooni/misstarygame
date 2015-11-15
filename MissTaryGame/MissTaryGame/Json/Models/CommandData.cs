@@ -20,7 +20,6 @@ namespace MissTaryGame.Json.Models
 	{
 		public string Name { get; set; }
 		public Action[] Actions { get; set; }
-		public GameEvent[] Dependencies { get; set; }
 		
 		private InteractiveObject _parent;
 		[JsonIgnore]
