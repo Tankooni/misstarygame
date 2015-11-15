@@ -1,5 +1,5 @@
 {
-	"Name": "East1",
+	"Name": "East2",
 	"Background": "Background.png",
 	"Foreground": "ForeGround.png",
 	"Collision": "Collision.png",
@@ -12,6 +12,12 @@
 			"Y": 483
 		},
 		"DefaultAnimation": "Idle"
+	}, {
+		"Name": "Pyydrigna",
+		"Position": {
+			"X": 699,
+			"Y": 0
+		}
 	}
 	],
 	"Entrances": 

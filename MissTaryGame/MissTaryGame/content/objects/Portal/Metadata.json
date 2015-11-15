@@ -56,6 +56,9 @@
 						"Scene": "Final",
 						"Entrance": ""
 					}
+				}, { 
+					"Name": "PlayMusic",
+					"Args": { "MusicName": "The Stag"}
 				}
 			],
 			"Dependancies": ["TalkedToDganiaen", "TalkedToXiliq", "TalkedToPyyrigna"]

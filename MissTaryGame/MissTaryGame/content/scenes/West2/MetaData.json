@@ -12,6 +12,12 @@
 			"Y": 474
 		},
 		"DefaultAnimation": "Idle"
+	}, {
+		"Name": "Dganiaen",
+		"Position": {
+			"X": 243,
+			"Y": 16
+		}
 	}
 	],
 	"Entrances": 
