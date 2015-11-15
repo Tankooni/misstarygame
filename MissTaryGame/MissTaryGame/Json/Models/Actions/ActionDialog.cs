@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Indigo;
 using MissTaryGame.UI;
+using System.Runtime.Serialization;
 
 namespace MissTaryGame.Json.Models.Actions
 {
@@ -22,17 +23,14 @@ namespace MissTaryGame.Json.Models.Actions
 		public string Speaker { set; get; }
 		public string Text { set; get; }
 		
-		public ActionDialog(Dictionary<string, Object> args) {
-			try {
-				Speaker = (string)args["Speaker"];
-				Text = (string)args["Text"];
-				
-			} catch (Exception e) {
-				throw new Exception("Wasn't able to satisfy dialog action");
-			}
-		}
-		
-		public void run(Action[] remainingActions) {
+		[OnDeserialized]
+        internal void OnDeserializedMethod(StreamingContext context) {
+            if(Text == null) {
+                throw new Exception("Wasn't able to satisfy dialog action");
+            }
+        }
+
+        public override void run(Action[] remainingActions) {
 			TextBox box = new TextBox(Text);
 			FP.World.Add(box);
 			

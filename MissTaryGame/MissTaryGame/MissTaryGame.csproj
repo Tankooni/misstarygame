@@ -102,11 +102,11 @@
     <Compile Include="Json\JsonWriter.cs" />
     <Compile Include="Json\Models\Action.cs" />
     <Compile Include="Json\Models\Actions\ActionAddObjectToInventory.cs" />
-    <Compile Include="Json\Models\Actions\ActionAddObjectToWorld.cs" />
+    <Compile Include="Json\Models\Actions\ActionAddObjectToScene.cs" />
     <Compile Include="Json\Models\Actions\ActionCheckEvent.cs" />
     <Compile Include="Json\Models\Actions\ActionDialog.cs" />
     <Compile Include="Json\Models\Actions\ActionGoto.cs" />
-    <Compile Include="Json\Models\Actions\ActionRemoveObject.cs" />
+    <Compile Include="Json\Models\Actions\ActionRemoveObjectFromScene.cs" />
     <Compile Include="Json\Models\Actions\ActionRemoveObjectFromInventory.cs" />
     <Compile Include="Json\Models\Actions\ActionCompleteEvent.cs" />
     <Compile Include="Json\Models\AnimationData.cs" />

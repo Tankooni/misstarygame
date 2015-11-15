@@ -7,14 +7,18 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Newtonsoft.Json;
 
 namespace MissTaryGame.Json.Models
 {
 	/// <summary>
 	/// Description of IAction.
 	/// </summary>
-	public interface IAction
-	{		
-		void run(Action[] remainingActions);
+	public abstract class IAction 
+    {
+        [JsonIgnore]
+        public InteractiveObject parent;
+
+		public abstract void run(Action[] remainingActions);
 	}
 }

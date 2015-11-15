@@ -26,7 +26,7 @@ namespace MissTaryGame.Json.Models
 		[JsonIgnore]
 		public InteractiveObject parent { get { return _parent; } set {
 				foreach( var a in Actions ) {
-					a.Args["parent"] = value;
+				    a.parent = value;
 				}
 				_parent = value;
 			}

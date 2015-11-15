@@ -10,25 +10,20 @@ using System;
 using System.Collections.Generic;
 using Indigo;
 using MissTaryGame;
+using Newtonsoft.Json;
 
 namespace MissTaryGame.Json.Models.Actions
 {
 	/// <summary>
 	/// Description of ActionAddObjectToWorld.
 	/// </summary>
-	public class ActionAddObjectToWorld : IAction
+	public class ActionAddObjectToScene : IAction
 	{
-		public Dictionary<string, Object> args;
+        public int X, Y;
 		
-		public ActionAddObjectToWorld(Dictionary<string, Object> args)
-		{
-			this.args = args;
-		}
-		
-		public void run(Action[] remainingActions) {
+		public override void run(Action[] remainingActions) {
 			var world = ((DynamicSceneWorld) FP.World);
 			
-			var parent = (InteractiveObject) args["parent"];
 			world.Add(parent);
 			
 			Action.runActions(remainingActions);
