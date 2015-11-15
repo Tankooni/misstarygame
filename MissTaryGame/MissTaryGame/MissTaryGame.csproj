@@ -103,6 +103,7 @@
     <Compile Include="Json\Models\Action.cs" />
     <Compile Include="Json\Models\Actions\ActionAddObjectToInventory.cs" />
     <Compile Include="Json\Models\Actions\ActionAddObjectToScene.cs" />
+    <Compile Include="Json\Models\Actions\ActionChangeAttribute.cs" />
     <Compile Include="Json\Models\Actions\ActionCheckEvent.cs" />
     <Compile Include="Json\Models\Actions\ActionDialog.cs" />
     <Compile Include="Json\Models\Actions\ActionGoto.cs" />
