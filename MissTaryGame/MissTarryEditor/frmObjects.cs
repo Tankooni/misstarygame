@@ -142,10 +142,11 @@ namespace MissTarryEditor
 				{
 					SelectedObject.AddAnimation(newForm.Animation, selectedImage.Item1, selectedImage.Item2);
 				}
-				if(SelectedObject.ObjectInfo.FramSize.IsEmpty && newForm.SelectedImages.Count > 0)
+				if (newForm.SelectedImages.Count > 0)
 				{
 					var size = newForm.SelectedImages.First().Item2.Image.Size;
-					SelectedObject.ObjectInfo.FramSize = new Point(size.Width, size.Height);
+					SelectedObject.ObjectInfo.FramSize = new PointInfo()
+					{ X = size.Width, Y = size.Height };
 				}
 				UpdateImageList();
 			}

@@ -9,6 +9,12 @@ namespace MissTarryEditor
 		public int FPS { get; set; }
 		public List<int> FootStepFrames { get; set; }
 
+		public AnimationData()
+		{
+			FPS = 1;
+			FootStepFrames = new List<int>();
+		}
+
 		public override string ToString()
 		{
 			return Name;

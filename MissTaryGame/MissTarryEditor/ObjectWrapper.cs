@@ -28,6 +28,18 @@ namespace MissTarryEditor
 			if (!Animations.ContainsKey(name))
 				Animations.Add(name, new List<Tuple<string, SillyPictureBox>>());
 			Animations[name].Add(new Tuple<string, SillyPictureBox>(fileName, picture));
+
+			var anim = ObjectInfo.Animations.FirstOrDefault(x => x.Name == name);
+			if (anim == null)
+			{
+				ObjectInfo.Animations.Add(new AnimationData()
+				{
+					Name = name,
+					Frames = 1
+				});
+			}
+			else
+				anim.Frames = Animations[name].Count;
 		}
 
 		public override string ToString()

@@ -427,7 +427,6 @@ namespace MissTarryEditor
 
 		private void SaveScene(string sceneRoot, Scene scene)
 		{
-			
 			var newRoot = Path.Combine(sceneRoot, scene.Name);
 			CheckDirectory(newRoot);
 
@@ -455,7 +454,11 @@ namespace MissTarryEditor
 				{
 					Name = obj.ObjectWrapper.ObjectInfo.Name,
 					DefaultAnimation = obj.ObjectWrapper.DefaultAnimation,
-					Position = obj.Position
+					Position = new PointInfo()
+					{
+						X = obj.Position.X,
+						Y = obj.Position.Y
+					}
 				});
 			}
 			//Need to add System.Web.Extensions inorder to get this in, which is sort of out of the way

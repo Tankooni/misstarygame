@@ -11,8 +11,8 @@ namespace MissTarryEditor
 	public class ObjectInfo
 	{
 		public string Name { get; set; }
-		public Point FramSize { get; set; }
-		public Point HotSpot { get; set; }
+		public PointInfo FramSize { get; set; }
+		public PointInfo HotSpot { get; set; }
 		public bool Scaling { get; set; }
 		public bool Moving { get; set; }
 
@@ -23,8 +23,8 @@ namespace MissTarryEditor
 
 		public ObjectInfo()
 		{
-			FramSize = new Point();
-			HotSpot = new Point();
+			FramSize = new PointInfo();
+			HotSpot = new PointInfo();
 			Animations = new List<AnimationData>();
 			Commands = new List<CommandData>();
 		}
@@ -33,5 +33,11 @@ namespace MissTarryEditor
 		{
 			return Name;
 		}
+	}
+
+	public struct PointInfo
+	{
+		public int X { get; set; }
+		public int Y { get; set; }
 	}
 }

@@ -16,19 +16,19 @@ namespace MissTarryEditor
 		public string Perspective { get; set; }
 
 		public List<OutputSceneObject> Objects { get; set; }
-		public Dictionary<string, Point> Entrances { get; set; }
+		public Dictionary<string, PointInfo> Entrances { get; set; }
 
 		public OutputScene()
 		{
 			Objects = new List<OutputSceneObject>();
-			Entrances = new Dictionary<string, Point>();
+			Entrances = new Dictionary<string, PointInfo>();
 		}
 	}
 
 	public class OutputSceneObject
 	{
 		public string Name { get; set; }
-		public Point Position { get; set; }
+		public PointInfo Position { get; set; }
 		public string DefaultAnimation { get; set; }
 	}
 }
