@@ -430,23 +430,35 @@ namespace MissTarryEditor
 			var newRoot = Path.Combine(sceneRoot, scene.Name);
 			CheckDirectory(newRoot);
 
-			string backgroundPath = Path.Combine(newRoot, "Background.png");
-			scene.Background.Image.Save(backgroundPath, System.Drawing.Imaging.ImageFormat.Png);
-			string foregroundPath = Path.Combine(newRoot, "Foreground.png");
-			scene.Foreground.Image.Save(foregroundPath, System.Drawing.Imaging.ImageFormat.Png);
-			string collisionPath = Path.Combine(newRoot, "Collision.png");
-			scene.Collision.Image.Save(collisionPath, System.Drawing.Imaging.ImageFormat.Png);
-			string perspectivePath = Path.Combine(newRoot, "Perspective.png");
-			scene.Gradiant.Image.Save(perspectivePath, System.Drawing.Imaging.ImageFormat.Png);
-
 			OutputScene outputData = new OutputScene()
 			{
 				Name = scene.Name,
-				Background = "Background.png",
-				Foreground = "Foreground.png",
-				Collision = "Collision.png",
-				Perspective = "Perspective.png",
 			};
+
+			string backgroundPath = Path.Combine(newRoot, "Background.png");
+			if (scene.Background != null)
+			{
+				scene.Background.Image.Save(backgroundPath, System.Drawing.Imaging.ImageFormat.Png);
+				outputData.Background = "Background.png";
+            }
+			string foregroundPath = Path.Combine(newRoot, "Foreground.png");
+			if (scene.Foreground != null)
+			{
+				scene.Foreground.Image.Save(foregroundPath, System.Drawing.Imaging.ImageFormat.Png);
+				outputData.Foreground = "Foreground.png";
+            }
+			string collisionPath = Path.Combine(newRoot, "Collision.png");
+			if (scene.Collision != null)
+			{
+				scene.Collision.Image.Save(collisionPath, System.Drawing.Imaging.ImageFormat.Png);
+				outputData.Collision = "Collision.png";
+            }
+			string perspectivePath = Path.Combine(newRoot, "Perspective.png");
+			if (scene.Gradiant != null)
+			{
+				scene.Gradiant.Image.Save(perspectivePath, System.Drawing.Imaging.ImageFormat.Png);
+				outputData.Perspective = "Perspective.png";
+            }
 
 			foreach(var obj in scene.SceneObjects)
 			{
