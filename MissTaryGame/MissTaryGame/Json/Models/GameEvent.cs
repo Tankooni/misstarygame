@@ -23,6 +23,7 @@ namespace MissTaryGame.Json.Models
 		public string Name { get; set; }
 		public Action[] Actions { get; set; }
 		public GameEvent[] Dependencies { get; set; }
+        public GameEvent[] Restrictions { get; set; }
 		
 		
 		public static Dictionary<string, GameEvent> loadGameEvents(string path) {
@@ -30,20 +31,32 @@ namespace MissTaryGame.Json.Models
 			
 			var files = Utility.RetrieveFilePathForFilesInDirectory(path, "*.json");
 			foreach( var file in files) {
-				var evt = JsonLoader.Load<GameEvent>(path);
+				var evt = JsonLoader.Load<GameEvent>(file, false);
 				eventDict.Add(Path.GetFileNameWithoutExtension(file), evt);
 			}
 			
 			return eventDict;
 		}
-		
-		public static bool checkDependencies(GameEvent[] evts) {
-			if( evts == null) {
-				return true;
+
+        public static bool checkDependanciesAndRestrictions(GameEvent[] deps, GameEvent[] rests = null) {
+            string[] depStrs = deps?.Select(x => x.Name).ToArray();
+            string[] restStrs = rests?.Select(x => x.Name).ToArray();
+
+            return checkDependanciesAndRestrictions(depStrs, restStrs);
+        }
+        public static bool checkDependanciesAndRestrictions(string[] deps, string[] rests=null) {
+			if( deps == null) {
+                deps = new string[0];
 			}
+            if( rests == null) {
+                rests = new string[0];
+            }
 			
 			var world = (DynamicSceneWorld)FP.World;
-			return evts.All((GameEvent e) => world.completedEvents.ContainsValue(e));
+			bool depsFinished = deps.All((string e) => world.completedEvents.ContainsKey(e));
+            bool restFinished = rests.Any((string e) => world.completedEvents.ContainsKey(e));
+
+            return depsFinished && !restFinished;
 		}
 	}
 }
