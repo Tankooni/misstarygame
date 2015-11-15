@@ -24,6 +24,14 @@ namespace MissTaryGame.Json.Models.Actions {
 
         public override void run(Action[] remainingActions) {
             //Use the parent for now
+            switch(Operation) {
+                case "*": parent.InteractiveObjectRef.Attributes["AttributeName"] *= Value; break;
+                case "/": parent.InteractiveObjectRef.Attributes["AttributeName"] /= Value; break;
+                case "+": parent.InteractiveObjectRef.Attributes["AttributeName"] += Value; break;
+                case "-": parent.InteractiveObjectRef.Attributes["AttributeName"] -= Value; break;
+                case "=": parent.InteractiveObjectRef.Attributes["AttributeName"] = Value; break;
+                default: throw new Exception("Invalid operator");
+            }
             
 
             Action.runActions(remainingActions);
