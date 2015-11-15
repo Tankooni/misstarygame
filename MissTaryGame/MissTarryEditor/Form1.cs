@@ -359,7 +359,7 @@ namespace MissTarryEditor
 
 		private void exportToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Exporting will overrite all scene and object files. Directories and files are deleted.");
+			//MessageBox.Show("Exporting will overrite all scene and object files. Directories and files are deleted.");
 
 			var folderDialog = new FolderBrowserDialog();
 			folderDialog.Description = "Export Root";
@@ -374,8 +374,8 @@ namespace MissTarryEditor
 				string soundRoot = Path.Combine(folderDialog.SelectedPath, "sounds");
 				string UIroot = Path.Combine(folderDialog.SelectedPath, "UI");
 
-				PurgeDirectory(objectRoot);
-				PurgeDirectory(sceneRoot);
+				CheckDirectory(objectRoot);
+				CheckDirectory(sceneRoot);
 
 				CheckDirectory(eventRoot);
 				CheckDirectory(musicRoot);
