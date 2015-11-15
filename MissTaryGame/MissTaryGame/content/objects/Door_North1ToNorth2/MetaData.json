@@ -1,0 +1,36 @@
+{
+	"Name": "Door_North1ToNorth2",
+	"FrameSize": {
+		"X": 103,
+		"Y": 81
+	},
+	"HotSpot": {
+		"X": 0,
+		"Y": 0
+	},
+	"Scaling": false,
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle",
+		"Frames": 1,
+		"FPS": 1,
+		"FootStepFrames": []
+	}],
+	"Commands":
+	[
+		{
+			"Name": "Goto",
+			"Actions": 
+			[
+				{
+					"Name": "Goto",
+					"Args":
+					{
+						"Scene": "North2",
+						"Entrance": "Exit_North1ToNorth2"
+					}
+				}
+			]
+		}
+	]
+}

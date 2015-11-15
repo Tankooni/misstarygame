@@ -56,10 +56,23 @@ namespace MissTaryGame
 
             if (Keyboard.Space.Pressed)
             {
-                if (InteractiveObjectRef.Attributes["AvatarSpriteState"] == 0)
-                    InteractiveObjectRef.Attributes["AvatarSpriteState"] = 1;
-                else
-                    InteractiveObjectRef.Attributes["AvatarSpriteState"] = 0;
+                switch (InteractiveObjectRef.Attributes["AvatarSpriteState"])
+                {
+                    case 0:
+                        InteractiveObjectRef.Attributes["AvatarSpriteState"] = 1;
+                        break;
+                    case 1:
+                        InteractiveObjectRef.Attributes["AvatarSpriteState"] = 2;
+                        break;
+                    case 2:
+                        InteractiveObjectRef.Attributes["AvatarSpriteState"] = 3;
+                        break;
+                    case 3:
+                        InteractiveObjectRef.Attributes["AvatarSpriteState"] = 0;
+                        break;
+                    default:
+                        break;
+                }
             }
             
             if (InventoryObject)
@@ -149,5 +162,11 @@ namespace MissTaryGame
 			walkToY = pathNodes.Current.Y;
 			IsMoving = true;
 		}
+
+        public void CancelWalk()
+        {
+            IsMoving = false;
+            PlayAnimation("Idle" + InteractiveObjectRef.Attributes["AvatarSpriteState"]);
+        }
 	}
 }

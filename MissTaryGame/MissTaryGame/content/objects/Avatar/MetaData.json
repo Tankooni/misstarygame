@@ -38,6 +38,40 @@
 			"FPS": 15,
 			"Frames": 8,
 			"FootStepFrames": [2,5]
+		},
+		{
+			"Name": "Idle2",
+			"FPS": 4,
+			"Frames": 4
+		},
+		{
+			"Name": "WalkUp2",
+			"FPS": 4,
+			"Frames": 4,
+			"FootStepFrames": []
+		},
+		{
+			"Name": "WalkDown2",
+			"FPS": 4,
+			"Frames": 4,
+			"FootStepFrames": []
+		},
+		{
+			"Name": "Idle3",
+			"FPS": 4,
+			"Frames": 4
+		},
+		{
+			"Name": "WalkUp3",
+			"FPS": 4,
+			"Frames": 4,
+			"FootStepFrames": []
+		},
+		{
+			"Name": "WalkDown3",
+			"FPS": 4,
+			"Frames": 4,
+			"FootStepFrames": []
 		}
 	],
 	"Attributes":

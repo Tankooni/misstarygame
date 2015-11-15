@@ -1,72 +1,59 @@
 {
-	"Name": "AnsweringMachine", 
-	"FrameSize": {"X": 69, "Y": 102},
-	"HotSpot": {"X": 35, "Y": 51},
+	"Name": "AnsweringMachine",
+	"FrameSize": {
+		"X": 69,
+		"Y": 102
+	},
+	"HotSpot": {"X": 0, "Y": 0},
 	"Scaling": false,
-	"Animations": 
-	[
-		{
-			"Name": "Idle",
-			"FPS": 1,
-			"Frames": 1
+	"Moving": false,
+	"Animations": [{
+		"Name": "Idle",
+		"Frames": 1,
+		"FPS": 1,
+		"FootStepFrames": []
+	},
+	{
+		"Name": "Blinking",
+		"Frames": 2,
+		"FPS": 1,
+		"FootStepFrames": []
+	}],
+	"Commands": [{
+		"Name": "Look",
+		"Actions": [{
+			"Name": "Dialog",
+			"Args": {
+				"Speaker": "Tyra",
+				"Text": ">.>"
+			}
+		}]
+	},
+	{
+		"Name": "Talk",
+		"Actions": [{
+			"Name": "Dialog",
+			"Args": {
+				"Speaker": "Tyra",
+				"Text": "I don't like you. You're a machine."
+			}
 		},
 		{
-			"Name": "Blinking",
-			"FPS": 1,
-			"Frames": 2
-		}
-	],
-	"Commands":
-	[
-		{
-			"Name": "Use",
-			"Actions": 
-			[
-				{
-					"Name": "Dialog",
-					"Args":
-					{
-						"Speaker": "Voice",
-						"Text": "*crying*"
-					}
-				}
-			]
-		},
-		{
-			"Name": "Talk",
-			"Actions": 
-			[
-				{
-					"Name": "Dialog",
-					"Args":
-					{
-						"Speaker": "Ko",
-						"Text": "Talk to me, answering machine!"
-					}
-				},
-				{
-					"Name": "Dialog",
-					"Args":
-					{
-						"Speaker": "Ko",
-						"Text": "It's not responding."
-					}
-				}
-			]
-		},
-		{
-			"Name": "Look",
-			"Actions": 
-			[
-				{
-					"Name": "Dialog",
-					"Args":
-					{
-						"Speaker": "Ko",
-						"Text": "It's my answering machine."
-					}
-				}
-			]
-		}
-	]
+			"Name": "Dialog",
+			"Args": {
+				"Speaker": "Machine",
+				"Text": "I'm hurt D':"
+			}
+		}]
+	},
+	{
+		"Name": "Use",
+		"Actions": [{
+			"Name": "Dialog",
+			"Args": {
+				"Speaker": "Tyra",
+				"Text": "..."
+			}
+		}]
+	}]
 }

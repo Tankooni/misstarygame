@@ -1,0 +1,27 @@
+{
+	"Name": "North2",
+	"Background": "Background.png",
+	"Foreground": "Foreground.png",
+	"Collision": "Collision.png",
+	"Perspective": "Perspective.png",
+	"Objects": [{
+		"Name": "Door_North2ToNorth3",
+		"Position": {
+			"X": 473,
+			"Y": 282
+		},
+		"DefaultAnimation": "Idle"
+	},
+	{
+		"Name": "Door_North2ToNorth1",
+		"Position": {
+			"X": 0,
+			"Y": 471
+		},
+		"DefaultAnimation": "Idle"
+	}],
+	"Entrances": {
+		"Exit_North3ToNorth2": {"X": 621 , "Y": 381},
+		"Exit_North1ToNorth2": {"X": 137 , "Y": 597} 
+	}
+}

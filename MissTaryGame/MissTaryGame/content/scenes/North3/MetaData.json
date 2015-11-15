@@ -1,0 +1,29 @@
+{
+	"Name": "North3",
+	"Background": "Background.png",
+	"Foreground": "ForeGround.png",
+	"Collision": "Collision.png",
+	"Perspective": "Perspective.png",
+	"Objects": [{
+		"Name": "AnsweringMachine",
+		"Position": {
+			"X": 411,
+			"Y": 229
+		},
+		"DefaultAnimation": "Blinking"
+	},
+	{
+		"Name": "Door_North3ToNorth2",
+		"Position": {
+			"X": 0,
+			"Y": 465
+		},
+		"DefaultAnimation": "Idle"
+	}
+	],
+	"Entrances": 
+	{
+		"Spawn": {"X": 521 , "Y": 380} ,
+		"Exit_North2ToNorth3": {"X": 111 , "Y": 557} 
+	}
+}
