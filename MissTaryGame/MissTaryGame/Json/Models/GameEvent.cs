@@ -37,15 +37,24 @@ namespace MissTaryGame.Json.Models
 			
 			return eventDict;
 		}
-		
-		public static bool checkDependanciesAndRestrictions(GameEvent[] deps, GameEvent[] rests) {
+
+        public static bool checkDependanciesAndRestrictions(GameEvent[] deps, GameEvent[] rests = null) {
+            string[] depStrs = deps?.Select(x => x.Name).ToArray();
+            string[] restStrs = rests?.Select(x => x.Name).ToArray();
+
+            return checkDependanciesAndRestrictions(depStrs, restStrs);
+        }
+        public static bool checkDependanciesAndRestrictions(string[] deps, string[] rests=null) {
 			if( deps == null) {
-				return true;
+                deps = new string[0];
 			}
+            if( rests == null) {
+                rests = new string[0];
+            }
 			
 			var world = (DynamicSceneWorld)FP.World;
-			bool depsFinished = deps.All((GameEvent e) => world.completedEvents.ContainsValue(e));
-            bool restFinished = rests.Any((GameEvent e) => world.completedEvents.ContainsValue(e));
+			bool depsFinished = deps.All((string e) => world.completedEvents.ContainsKey(e));
+            bool restFinished = rests.Any((string e) => world.completedEvents.ContainsKey(e));
 
             return depsFinished && !restFinished;
 		}

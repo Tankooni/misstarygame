@@ -14,6 +14,7 @@ using Indigo.Inputs;
 using Indigo.Core;
 using MissTaryGame.Json.Models;
 using Action = MissTaryGame.Json.Models.Action;
+using System.Linq;
 
 namespace MissTaryGame.UI
 {
@@ -33,10 +34,12 @@ namespace MissTaryGame.UI
 		
 		private Dictionary<CommandData, Image> commandImages = new Dictionary<CommandData, Image>();
 		
-		public CommandWheel(CommandData[] commandData)
+		public CommandWheel(CommandData[] commands)
 		{
-			commands = commandData;
-			lastMouse = new Point(Mouse.ScreenX, Mouse.ScreenY);
+            commands = commands.Where(x => GameEvent.checkDependanciesAndRestrictions(x.Dependancies)).ToArray();
+            this.commands = commands;
+
+            lastMouse = new Point(Mouse.ScreenX, Mouse.ScreenY);
 			
 			//Make the wheel
 			wheel = new Image(Library.GetTexture("./content/UI/CommandWheel/Wheel.png"));
@@ -52,20 +55,20 @@ namespace MissTaryGame.UI
 			//Add commands
 			gcommands = new Graphiclist();
 			
-			if(commands != null && commands.Length > 0)
+			if(this.commands != null && this.commands.Length > 0)
 			{
-				int deg = -90, deginc = 360 / commands.Length;
+				int deg = -90, deginc = 360 / this.commands.Length;
 				
-				foreach(var c in commands) {
-					Image img = new Image(Library.GetTexture("./content/UI/CommandWheel/" + c.Name + ".png"));
+				foreach(var c in this.commands) {
+                    Image img = new Image(Library.GetTexture("./content/UI/CommandWheel/" + c.Name + ".png"));
 					img.CenterOrigin();
 					img.Y = -wheel.Height/2 + img.Height/2;
-					FP.AngleXY(ref img.X, ref img.Y, deg, wheel.Height/2 - img.Height/2);
-					
-					commandImages.Add(c, img);
+                    FP.AngleXY(ref img.X, ref img.Y, deg, wheel.Height/2 - img.Height/2);
+
+                    commandImages.Add(c, img);
 					deg += deginc;
-					
-					gcommands.Add(img);
+
+                    gcommands.Add(img);
 				}
 			}
 			
