@@ -30,6 +30,11 @@ namespace MissTaryGame.Json.Models.Actions
                 world.uncompletedEvents.Remove(EventName);
 
                 if (remainingActions.Length > 0) {
+                    if(evt.Actions == null)
+                    {
+                        Action.runActions(remainingActions);
+                        return;
+                    }
                     var tempArray = new Action[remainingActions.Length + evt.Actions.Length - 1];
                     Array.Copy(evt.Actions, 0, tempArray, 0, evt.Actions.Length);
                     Array.Copy(remainingActions, 1, tempArray, evt.Actions.Length, remainingActions.Length - 1);

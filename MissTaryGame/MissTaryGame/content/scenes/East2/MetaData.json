@@ -17,7 +17,8 @@
 		"Position": {
 			"X": 699,
 			"Y": 0
-		}
+		},
+		"DefaultAnimation": "Idle_Before"
 	}
 	],
 	"Entrances": 

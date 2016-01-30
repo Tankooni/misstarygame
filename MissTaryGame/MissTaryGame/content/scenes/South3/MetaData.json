@@ -12,6 +12,13 @@
 			"Y": 554
 		},
 		"DefaultAnimation": "Idle"
+	}, {
+		"Name": "Xiliq",
+		"Position": {
+			"X": 547,
+			"Y": 0
+		},
+		"DefaultAnimation": "Idle_Before"
 	}
 	],
 	"Entrances": 

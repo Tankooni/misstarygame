@@ -142,6 +142,7 @@ namespace MissTaryGame
 		{
 			if(!avatar.Inventory.Contains(interactiveObject))
 			{
+                interactiveObject.SetHitbox();
 				interactiveObject.InventoryObject = true;
 				interactiveObject.Layer = Utility.MIDDLE_UI_LAYER-1;
 				avatar.Inventory.Add(interactiveObject);
